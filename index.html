@@ -166,7 +166,7 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 #pub-card-container .col-l,
 #pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
-#footer{padding:0 0 0.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:center;background: #f5fbfe;}
+#footer{padding:0 0 0.5em;margin-top:2rem;min-width:100%;background:#fff;font-size:14px;line-height:12px;text-align:center;background: #f5fbfe;}
 #footer .container{max-width:100%;padding:0 45px;position:relative}
 #footer .row {
     display: flex;
@@ -182,12 +182,14 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
     flex-wrap: nowrap; /* Ensure images stay in one row */
 }
 #footer .comic .image-container {
+    flex: 1 1 auto; /* Flex-grow, flex-shrink, and base size set to 20% */
     margin: 0 10px;
     text-align: center;
+    box-sizing: border-box; /* Ensures padding and borders are included in width */
 }
 #footer .comic img {
-    height: 100px; /* Set a fixed height */
-    width: auto;   /* Maintain aspect ratio */
+    height: 15vh; /* Set a fixed height as a percentage of the viewport height */
+    width: auto;  /* Maintain aspect ratio by adjusting the width */
     border-radius: 5px;
 }
 #footer .comic .caption {
@@ -195,9 +197,6 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
     color: #333333;
     margin-top: 5px;
 }
-#footer .copyright{flex-grow:1;margin:25px auto 5px;text-align:center;display:block;font-size:1rem;line-height:1.4;color:var(--main-color)}
-#footer .stat{width:60px;height:60px;overflow:hidden;margin:0 auto 5px;padding 0;}
-@media (min-width: 420px){ #footer .stat{display:block;width:60px;height:60px;overflow:hidden;margin:5px auto -25px;padding-right:15px;} }
 #footer a{color:#666666}
 #footer a:hover{color:#333333}
 
