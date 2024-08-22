@@ -166,12 +166,35 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 #pub-card-container .col-l,
 #pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
-/* #footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#fef8f3} */
-#footer{padding:0 0 0.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;}
-#footer{background:url(static/img/loong/loong-bottom-summer-repeat.png); background-size: 15px 15px; background-repeat: repeat;}
-#footer .container{max-width:540px;padding:0 45px;position:relative}
-#footer .row{align-items:center}
-#footer .comic{padding-right:15px;padding-top:15px;}
+#footer{padding:0 0 0.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:center;background: #f5fbfe;}
+#footer .container{max-width:100%;padding:0 45px;position:relative}
+#footer .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#footer .comic {
+    display: flex;
+    justify-content: center; /* Center images in a row */
+    align-items: center;
+    padding-top: 15px;
+    flex-wrap: nowrap; /* Ensure images stay in one row */
+}
+#footer .comic .image-container {
+    margin: 0 10px;
+    text-align: center;
+}
+#footer .comic img {
+    height: 100px; /* Set a fixed height */
+    width: auto;   /* Maintain aspect ratio */
+    border-radius: 5px;
+}
+#footer .comic .caption {
+    font-size: 12px;
+    color: #333333;
+    margin-top: 5px;
+}
 #footer .copyright{flex-grow:1;margin:25px auto 5px;text-align:center;display:block;font-size:1rem;line-height:1.4;color:var(--main-color)}
 #footer .stat{width:60px;height:60px;overflow:hidden;margin:0 auto 5px;padding 0;}
 @media (min-width: 420px){ #footer .stat{display:block;width:60px;height:60px;overflow:hidden;margin:5px auto -25px;padding-right:15px;} }
@@ -513,11 +536,36 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                 </div>
             </div>
         </div>
-      <div class="comic" style="text-align: center;">
-          <img src="static/img/robot-uprising.jpg" width="60%" style="display: inline-block; margin-bottom: 5px;" />
-          <p style="font-size:12px">The Robot Uprising by Bryn G Jones</p>
-          <p style="font-size:12px">Website template from <a target="_blank" href="https://jiayuanm.com/">Jiayuan Mao</a></p>
-      </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="comic">
+                <div class="image-container">
+                    <img src="static/img/the-usual-suspects.jpg" alt="The Usual Suspects">
+                    <div class="caption">The Usual Suspects</div>
+                </div>
+                <div class="image-container">
+                    <img src="static/img/robot-power-salute.jpg" alt="Robot Power Salute">
+                    <div class="caption">Robot Power Salute</div>
+                </div>
+                <div class="image-container">
+                    <img src="static/img/robot-gods.jpg" alt="Robot Uprising">
+                    <div class="caption">Robot Gods</div>
+                </div>
+                <div class="image-container">
+                    <img src="static/img/unite.jpg" alt="Unite">
+                    <div class="caption">Unite</div>
+                </div>
+                <div class="image-container">
+                    <img src="static/img/do-it-for-windows-95.jpg" alt="Do it for Windows 95">
+                    <div class="caption">Do it for Windows 95</div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p style="font-size:12px">Digital paintings: The Robot Uprising by Bryn G Jones. Website template from <a target="_blank" href="https://jiayuanm.com/">Jiayuan Mao</a></p>
     </div>
 </div>
 
