@@ -166,7 +166,7 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 #pub-card-container .col-l,
 #pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
-#footer{padding:0 0 0.5em;margin-top:2rem;min-width:100%;background:#fff;font-size:14px;line-height:12px;text-align:center;background: #f5fbfe;}
+#footer{padding:0 0 0.5em;margin-top:2rem;background:#fff;font-size:14px;line-height:12px;text-align:center;background: #f5fbfe;}
 #footer .container{max-width:100%;padding:0 45px;position:relative}
 #footer .row {
     display: flex;
@@ -176,26 +176,36 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 }
 #footer .comic {
     display: flex;
-    justify-content: center; /* Center images in a row */
+    justify-content: center;
     align-items: center;
     padding-top: 15px;
-    flex-wrap: nowrap; /* Ensure images stay in one row */
+    flex-wrap: wrap;
 }
 #footer .comic .image-container {
-    flex: 1 1 auto; /* Allow the containers to resize based on their content */
-    margin: 0 5px; /* Reduce the margin for better fit on smaller screens */
+    flex: 1 1 auto;
+    margin: 0 5px;
     text-align: center;
-    box-sizing: border-box; /* Ensures padding and borders are included in the container's dimensions */
-    max-width: 100%; /* Ensure the container does not exceed the width of its parent */
+    box-sizing: border-box;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack image and caption vertically */
+    align-items: center; /* Center both image and caption */
+    justify-content: flex-start; /* Ensure they start from the top */
+    overflow: hidden; /* Prevent any overflow */
 }
-
 #footer .comic img {
-    height: 15vh; /* Set a fixed height as a percentage of the viewport height */
-    width: auto;  /* Maintain aspect ratio by adjusting the width */
-    max-height: 100%; /* Ensure the image height does not exceed the container's height */
-    max-width: 100%; /* Ensure the image width does not exceed the container's width */
+    height: 15vh; /* Ensure all images have the same height */
+    width: auto;  /* Maintain aspect ratio by adjusting width */
     border-radius: 5px;
-    object-fit: contain; /* Ensure the entire image fits within the container */
+    object-fit: cover; /* Crop to fill the container while maintaining aspect ratio */
+}
+#footer .comic .caption {
+    font-size: 12px;
+    color: #333333;
+    margin-top: 5px;
+    width: 100%;
+    text-align: center; /* Ensure caption is centered below the image */
+    box-sizing: border-box;
 }
 @media (max-width: 768px) {
     #footer .comic img {
