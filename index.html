@@ -182,15 +182,28 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
     flex-wrap: nowrap; /* Ensure images stay in one row */
 }
 #footer .comic .image-container {
-    flex: 1 1 auto; /* Flex-grow, flex-shrink, and base size set to 20% */
-    margin: 0 10px;
+    flex: 1 1 auto; /* Allow the containers to resize based on their content */
+    margin: 0 5px; /* Reduce the margin for better fit on smaller screens */
     text-align: center;
-    box-sizing: border-box; /* Ensures padding and borders are included in width */
+    box-sizing: border-box; /* Ensures padding and borders are included in the container's dimensions */
+    max-width: 100%; /* Ensure the container does not exceed the width of its parent */
 }
+
 #footer .comic img {
     height: 15vh; /* Set a fixed height as a percentage of the viewport height */
     width: auto;  /* Maintain aspect ratio by adjusting the width */
+    max-height: 100%; /* Ensure the image height does not exceed the container's height */
+    max-width: 100%; /* Ensure the image width does not exceed the container's width */
     border-radius: 5px;
+    object-fit: contain; /* Ensure the entire image fits within the container */
+}
+@media (max-width: 768px) {
+    #footer .comic img {
+        height: 10vh; /* Reduce the height on smaller screens */
+    }
+    #footer .comic .image-container {
+        margin: 0 3px; /* Further reduce the margin on small screens */
+    }
 }
 #footer .comic .caption {
     font-size: 12px;
