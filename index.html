@@ -159,6 +159,9 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 #pub-card-container .pub-card .authors{font-weight:400;color:#666666;margin-bottom:4px;line-height:1.4}
 #pub-card-container .pub-card .authors a{color:#666666}
 #pub-card-container .pub-card .authors u{color:#333333;font-weight:600;text-decoration:none}
+#pub-card-container .pub-card .tldr{font-weight:400;color:#666666;margin-bottom:4px;line-height:1.4}
+#pub-card-container .pub-card .tldr a{color:#666666}
+#pub-card-container .pub-card .tldr u{color:#333333;font-weight:600;text-decoration:none}
 #pub-card-container .pub-card .conference{color:#333333;font-weight:600}
 #pub-card-container .pub-card .note{display:block;color:#999999;text-decoration:none;font-size:14px}
 #pub-card-container .pub-card .info{margin-bottom:0;}
@@ -264,7 +267,7 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                     I will dedicate 30 mins every week for such meetings.
                 </li> -->
                 <!-- <li>I am looking for intern positions! You can find my research statement <a href="research_statement.pdf">here</a>.</li> -->
-                <li>Check out our latest work on general computer agents: <a href="https://skyworkai.github.io/agent-studio" target="_blank">AgentStudio</a> and <a href="https://baai-agents.github.io/Cradle" target="_blank">Cradle</a>!</li>
+                <li>Check out our latest work on general computer agents: <a href="https://computer-agents.github.io/agent-studio" target="_blank">AgentStudio</a> and <a href="https://baai-agents.github.io/Cradle" target="_blank">Cradle</a>!</li>
                 <li>One paper is accepted by <a href="https://www.kdd.org" target="_blank">KDD 2024</a> on foundation agents for financial trading.</li>
                 <li>Two papers are accepted by <a href="https://iclr.cc" target="_blank">ICLR 2024</a> on LLM-powered computer agents and finetuning LLM with online RL.</li>
                 <li>One paper is accepted by <a href="https://icml.cc" target="_blank">ICML 2023</a> on multi-agent reinforcement learning.</li>
@@ -294,6 +297,36 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                 <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
                     <div class="row">
                         <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/agent_studio.jpg" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">AgentStudio: A Toolkit for Building General Virtual Agents</h5>
+                                <h6 class="authors">
+                                    <u>Longtao Zheng</u>*,
+                                    Zhiyuan Huang*,
+                                    Zhenghai Xue,
+                                    Xinrun Wang,
+                                    Bo An,
+                                    Shuicheng Yan
+                                </h6>
+                                <p class="info">
+                                    <span class="conference">arXiv Preprint</span>
+                                    <a target="_blank" href="https://arxiv.org/abs/2403.17918">Paper</a> /
+                                    <a target="_blank" href="https://computer-agents.github.io/agent-studio">Project Page</a> /
+                                    <a target="_blank" href="https://github.com/computer-agents/agent-studio">Code</a> /
+                                    <a target="_blank" href="https://huggingface.co/agent-studio">Data</a>
+                                </p>
+                                <p class="tldr">
+                                    A trinity of environments, tools, and benchmarks for general virtual agents
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
                             <video src="data/projects/cradle.mp4" width="100%" playsinline autoplay muted loop preload/>
                         </div>
                         <div class="col-r col-md-12 col-lg-9">
@@ -308,31 +341,8 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                                     <a target="_blank" href="https://baai-agents.github.io/Cradle">Project Page</a> /
                                     <a target="_blank" href="https://github.com/BAAI-Agents/Cradle">Code</a>
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/agent_studio.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">AgentStudio: Integrating benchmarks, environments, and toolkits for general computer agents</h5>
-                                <h6 class="authors">
-                                    <u>Longtao Zheng</u>*,
-                                    Zhiyuan Huang*,
-                                    Zhenghai Xue,
-                                    Xinrun Wang,
-                                    Bo An,
-                                    Shuicheng Yan
-                                </h6>
-                                <p class="info">
-                                    <span class="conference">arXiv Preprint</span>
-                                    <a target="_blank" href="https://drive.google.com/file/d/1gT6_ZNCk4EwclTP3bt-GiQDR3NwbZ8os/view?usp=sharing">Paper</a> /
-                                    <a target="_blank" href="https://skyworkai.github.io/agent-studio">Project Page</a> /
-                                    <a target="_blank" href="https://github.com/SkyworkAI/agent-studio">Code</a>
+                                <p class="tldr">
+                                    An agent that can play AAA video games
                                 </p>
                             </div>
                         </div>
@@ -363,7 +373,10 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                                 </h6>
                                 <p class="info">
                                     <a target="_blank" href="https://kdd2024.kdd.org" class="conference">KDD 2024</a>
-                                    <a target="_blank" href="https://arxiv.org/abs/2402.18485">Paper</a>
+                                    <a target="_blank" href="https://openreview.net/forum?id=3KR3Wrjlv5">Paper</a>
+                                </p>
+                                <p class="tldr">
+                                    The first multimodal agent for financial trading
                                 </p>
                             </div>
                         </div>
@@ -384,10 +397,13 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                                     Bo An
                                 </h6>
                                 <p class="info">
-                                    <a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a> / <a target="_blank" href="https://sites.google.com/view/fmdm-neurips23" class="conference">NeurIPS 2023 Foundation Models for Decision Making Workshop</a>
-                                    <a target="_blank" href="https://arxiv.org/abs/2306.07863">Paper</a> /
+                                    <a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a>
+                                    <a target="_blank" href="https://openreview.net/forum?id=Pc8AU1aF5e">Paper</a> /
                                     <a target="_blank" href="https://ltzheng.github.io/Synapse">Project Page</a> /
-                                    <a target="_blank" href="https://github.com/ltzheng/Synapse">Code</a> /
+                                    <a target="_blank" href="https://github.com/ltzheng/Synapse">Code</a>
+                                </p>
+                                <p class="tldr">
+                                    A computer agent with state abstraction, trajectory prompting, and memory
                                 </p>
                             </div>
                         </div>
@@ -415,6 +431,9 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                                     <a target="_blank" href="https://openreview.net/forum?id=hILVmJ4Uvu">Paper</a> /
                                     <a target="_blank" href="https://github.com/WeihaoTan/TWOSOME">Code</a>
                                 </p>
+                                <p class="tldr">
+                                    Train LLMs with online RL in embodied environments
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -439,7 +458,10 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                                 </h6>
                                 <p class="info">
                                     <a target="_blank" href="https://icml.cc/Conferences/2023" class="conference">ICML 2023</a>
-                                    <a target="_blank" href="https://proceedings.mlr.press/v202/xing23a/xing23a.pdf">Paper</a>
+                                    <a target="_blank" href="https://openreview.net/forum?id=OuNhPgThxP">Paper</a>
+                                </p>
+                                <p class="tldr">
+                                    A causality-based solution to deal with type confounding in ad hoc teamwork
                                 </p>
                             </div>
                         </div>
@@ -526,6 +548,9 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                                     <span class="conference">arXiv Preprint</span>
                                     <a target="_blank" href="https://arxiv.org/abs/2302.03429">Paper</a> /
                                     <a target="_blank" href="https://github.com/ltzheng/CurriculumMARL">Code</a>
+                                </p>
+                                <p class="tldr">
+                                    Autocurricula for MARL in complex sparse-reward environments
                                 </p>
                             </div>
                         </div>
