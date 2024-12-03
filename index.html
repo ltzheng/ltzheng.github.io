@@ -275,7 +275,7 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
 
             <h5 class="subtitle" style="margin-top:30px">Research Highlights</h5>
             <p>
-            Motivated by the goal of creating general-purpose agents that interact in both digital and physical worlds, my work primarily focused on using the Internet-scale knowledge within foundation models to generalize beyond available data and to unseen situations. Currently, I am interested in training vision-language-action models and generative interactive environments from actionless videos.
+            Motivated by the goal of creating general-purpose agents that interact in both digital and physical worlds, my work primarily focused on using the Internet-scale knowledge within foundation models to generalize beyond available data and to unseen situations. Currently, I am interested in training cross-embodied vision-language-action models and generative interactive environments from actionless videos.
             </p>
         </div>
         <div id="pub-container">
@@ -287,13 +287,38 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
             )
             </h5>
             <p class="subtitle-aux"><span class="bold">Topics:</span>
-                <a href="#topic-agent" onClick="return publicationByTopicSpecific(this)" data-topic="agent">Foundation Models for Decision Making</a><!-- /
-                <a href="#topic-video" onClick="return publicationByTopicSpecific(this)" data-topic="video">Controllable Video Generation</a>-->
-                <br />
+                <a href="#topic-agent" onClick="return publicationByTopicSpecific(this)" data-topic="agent">Foundation Models for Decision Making</a> / <a href="#topic-video" onClick="return publicationByTopicSpecific(this)" data-topic="video">Controllable Video Generation</a>
+                <br>
                 Past topics: <a href="#topic-marl" onClick="return publicationByTopicSpecific(this)" data-topic="marl">Multi-Agent Reinforcement Learning</a> / <a href="#topic-others" onClick="return publicationByTopicSpecific(this)" data-topic="others">Others</a>
                 <span class="note">(*/†: indicates equal contribution.)</span>
             </p>
             <div id="pub-card-container" class="activated hide">
+                <div class="pub-card" data-topic="video" data-year="2024" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/memo.gif" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">MEMO: Memory-Guided Diffusion for Expressive Talking Video Generation</h5>
+                                <h6 class="authors">
+                                    <u>Longtao Zheng</u>*, Yifan Zhang*, Hanzhong Guo, Jiachun Pan, Zhenxiong Tan, Jiahao Lu, Chuanxin Tang, Bo An, Shuicheng Yan
+                                </h6>
+                                <p class="info">
+                                    <span class="conference">arXiv Preprint</span>
+                                    <a target="_blank" href="">Paper</a> /
+                                    <a target="_blank" href="https://memoavatar.github.io">Project Page</a> /
+                                    <a target="_blank" href="https://github.com/memoavatar/memo">Code</a> /
+                                    <a target="_blank" href="https://github.com/memoavatar/memo">Model</a> /
+                                    <a target="_blank" href="https://github.com/memoavatar/memo-data">Data</a>
+                                </p>
+                                <p class="tldr">
+                                    A SOTA and open-source model for audio-driven talking video generation
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
                     <div class="row">
                         <div class="col-l col-md-12 col-lg-3">
@@ -389,7 +414,7 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
                         </div>
                     </div>
                 </div>
-                <div class="pub-card" data-topic="agent" data-year="2023" data-selected="true">
+                <div class="pub-card" data-topic="agent" data-year="2023" data-selected="false">
                     <div class="row">
                         <div class="col-l col-md-12 col-lg-3">
                             <video src="data/projects/twosome.mp4" width="100%" playsinline autoplay muted loop preload/>
@@ -529,20 +554,8 @@ Previously, he obtained his Bachelor's degree in computer science from <a href="
 </div>
 <div id="footer">
     <div class="container">
-        <div class="row">
-            <div class="comic">
-                <div class="image-container">
-                    <img src="static/img/robot-gods.jpg" alt="Robot Uprising">
-                    <div class="caption">Robot Gods</div>
-                </div>
-                <div class="image-container">
-                    <img src="static/img/unite.jpg" alt="Unite">
-                    <div class="caption">Unite</div>
-                </div>
-            </div>
-        </div>
         <br>
-        <p style="font-size:12px">Digital paintings: The Robot Uprising by Bryn G Jones. Website template from <a target="_blank" href="https://jiayuanm.com/">Jiayuan Mao</a></p>
+        <p style="font-size:12px">Website template from <a target="_blank" href="https://jiayuanm.com/">Jiayuan Mao</a></p>
     </div>
 </div>
 
