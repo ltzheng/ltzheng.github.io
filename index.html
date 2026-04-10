@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,903 +5,860 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Longtao Zheng is a PhD student at NTU Singapore.">
-    <meta name="keywords" content="Longtao Zheng,AI Agents,Reinforcement Learning">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="description" content="Longtao Zheng — Researcher at ByteDance, leading RL for LLM agents.">
+    <meta name="keywords" content="Longtao Zheng,AI Agents,Reinforcement Learning,LLM">
     <link rel="shortcut icon" href="static/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!--[if lt IE 9]>
-      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <style>
+/* ========== Reset ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <style type="text/css">
-/* Color Scheme: Orange / Yellow */
+/* ========== Palette ========== */
 :root {
-    --background-color: #fefbf5;
-    --highlight-color: #b6274e;
-    --main-color: #684e43;
-    --link-color: #86985c;
-    --link-color-hover: #8e6e29;
-    --secondary-link-color: #6d8436;
-    --secondary-link-border-color: #a5af97;
-    --secondary-content-background-color: #fffefc;
-    --link-button-background-color: #fffdfa;
-    /* a8826c 324d67 */
-}
-/* Color Scheme: Blue / Summer */
-:root {
-    --background-color: #f5fbfe;
-    --highlight-color: #b6274e;
-    --main-color: #225573;
-    --link-color: #547b5b;
-    --link-color-hover: #292c1f;
-    --secondary-link-color: #6d8436;
-    --secondary-link-border-color: #7d99b1;
-    --secondary-content-background-color: #feffff;
-    --link-button-background-color: #fafdff;
-    /* a8826c 324d67 */
+    --bg: #faf9f6;
+    --text: #191919;
+    --text-secondary: #6b6b6b;
+    --accent: #d97757;
+    --accent-hover: #c4684a;
+    --card-bg: #ffffff;
+    --card-border: #e8e4df;
+    --divider: #eae6e1;
+    --tag-bg: #f5f1ec;
+    --badge-bg: #fef3ee;
+    --badge-text: #c4684a;
 }
 
-body{margin:0;padding:0;}
-a{color:var(--link-color)}
-a:hover{color:var(--link-color-hover);cursor:pointer}
-#background{position:fixed;top:0;overflow:hidden;height:0}
-#wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
-/*#main{z-index:2;margin:0 auto;position:absolute;padding-top:5%;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}*/
-#main{margin:0 auto 15px;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:var(--background-color)}
-.highlight{color:var(--highlight-color);font-weight:600}
-.highlight:hover{color:var(--highlight-color);font-weight:600}
-
-.profile-pendant {display:none;bottom:-15px;right:-200px;position:absolute}
-@media (min-width: 768px) { .profile-pendant {display:block} }
-
-.main-content{padding:0;text-align:center;cursor:default;text-align:center;}
-/*.main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}*/
-/*.main-content{margin-left:6.5104167%;width:86.9791667%;}*/
-@media (min-width: 768px) {.main-content{width:66%;min-width:668px;margin:auto;}}
-@media (min-width: 1200px) {.main-content{width:66%;max-width:1080px;margin:auto;}}
-
-/* Avatar, Name, etc. */
-#main-content-container{margin:0 auto;padding:15px 0 0;max-width:1080px;}
-@media (min-width: 768px) { #main-content-container{padding:15px 0 0;} }
-#main-content-container .col-avatar{text-align:center;min-width:220px;}
-@media (min-width: 768px) { #main-content-container .col-avatar{text-align:center} }
-#main-content-container .col-avatar .avatar{z-index:100;width:200px;height:200px;border-radius:100%;box-shadow:0 0 0 0.3em #eee;opacity:1;}
-@media (min-width: 1200px) { #main-content-container .col-avatar .avatar{margin-bottom:-50px} }
-
-#main-content-container .col-info{height:100%;align-items:center;}
-#main-info-container{padding-top:15px}
-#main-info-container .col-name{text-align:center;margin-top:30px}
-@media (min-width: 768px) { #main-info-container .col-name{text-align:left;margin-top:0;}
+/* ========== Base ========== */
+html {
+    scroll-behavior: smooth;
 }
-#main-info-container .col-name .text{text-align:left}
-#main-info-container .col-name .name{margin:0;color:var(--main-color);font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
-#main-info-container .col-name .email{color:#666; font-size:14px}
-#main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
-#main-info-container .col-link ul {margin:0px auto auto;padding:0;list-style:none;text-align:center}
-#main-info-container .col-link li {display:inline-block;margin:auto;padding:0 10px;color:#ccc;line-height:10px}
-#main-info-container .col-link li a{width:45px;height:45px;color:#ccc;padding:0;font-size:45px;line-height:45px}
-#main-info-container .col-link li a:focus,
-#main-info-container .col-link li a:hover{text-decoration:none;cursor:hand}
-#main-info-container .col-link li a.border{border:1px solid #ccc;border-radius:100%;}
-#main-info-container .col-link li a.padding{padding:0px 0px;font-size:22px}
-
-/* Other */
-.content-container{width:100%;padding:0 30px}
-.main-news-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
-@media (min-width: 1200px) { .main-news-container{padding-top:45px;} }
-.main-news-container .subtitle{margin-top:0px;color:var(--main-color)}
-
-section.overview ul,section.overview li,section.overview h3,section.overview h1,section.overview p{margin:0;padding:0}
-section.overview h1{font-weight:700}
-section.overview li{font-weight:400;list-style:none}
-.join,.up::after,.down::before{background-position:50% 50%}
-.up::after,.down::before{background-repeat:no-repeat;content:"";display:block;height:20px}
-.up::after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjQiIHZpZXdCb3g9IjAgMCA3IDQiPjxwYXRoIGZpbGw9IiM1NjZjN2YiIGQ9Ik0xIDRWM2gxVjJoM3YxaDF2MWgxVjJINlYxSDVWMEgydjFIMXYxSDB2MiIvPjwvc3ZnPg==)}
-.down::before{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI3cHgiIGhlaWdodD0iNHB4IiB2aWV3Qm94PSIwIDAgNyA0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA3IDQiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIGZpbGw9IiM1NjZjN2YiIHBvaW50cz0iNiwwIDYsMSA1LDEgNSwyIDIsMiAyLDEgMSwxIDEsMCAwLDAgMCwyIDEsMiAxLDMgMiwzIDIsNCA1LDQgNSwzIDYsMyA2LDIgNywyIDcsMCAiLz48L3N2Zz4=)}
-.join{background-repeat:repeat-y;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxcHgiIGhlaWdodD0iMXB4IiB2aWV3Qm94PSIwIDAgMSAxIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxIDEiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiM1NjZjN2YiIGQ9Ik0wLDBoMXYxSDBWMHoiLz48L3N2Zz4=)}
-.thin,.thick{background:#ffffff}
-.thin{border:1px solid var(--secondary-link-border-color);padding:.5em}
-.main{text-align:center}
-.main ul{display:block;width:150px;margin:1em auto 0}
-ul.row{width:100%;display:flex;align-items:flex-start}
-ul.row li.page{flex:1;margin:0 .5em;min-width:280px}
-ul.row li.page.stretch{align-self:stretch}
-ul.row li.page:first-child{margin-left:0}
-ul.row li.page:last-child{margin-right:0}
-ul.row li.page h3 + ul.content{margin-top:1.5em}
-ul.row li.page ul.content li{border-top:1px solid var(--secondary-link-border-color);padding:2px 5px}
-ul.row li.page ul.content li.level-2{padding:2px 12px}
-ul.row li.page ul.content li ul.section li{border-top:none;padding:0}
-ul.row li.page ul.content li ul.section li:before{content:"― "}
-section.overview{background:var(--secondary-content-background-color);transition:max-width 400ms ease-in-out;padding:20px;margin:auto;z-index:99}
-section.overview .thin h3{will-change:auto;transition:transform 400ms ease-in-out;transform-origin:0 50%}
-section.overview .thin b{display:block;padding:2px 5px}
-section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
-@media (max-width: 1480px) { ul.row li.page{margin:0} }
-
-.toggle-overview {background:var(--background-color);display:block;text-align:center;padding:5px;color:var(--main-color);font-weight:500}
-.toggle-overview:hover {text-decoration:none}
-/* @media (max-width: 560px) {section.overview {display:none}} */
-.thick{border:3px solid var(--secondary-link-border-color);padding:.5em;font-size:1.25rem}
-.thick>b{color:var(--main-color)}
-.thick>p{font-size: 1rem}
-.thick>p>a, .think>p>a:hover {background:var(--link-button-background-color);display:block;text-align:center;padding:5px;color:var(--main-color);font-weight:500;text-decoration:none}
-
-#pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
-#pub-container .subtitle{color:var(--main-color);}
-#pub-container .subtitle a {font-size:18px; color: var(--secondary-link-color); font-weight:400}
-#pub-container .subtitle a.activated {color:#333333; font-weight:600}
-#pub-container .subtitle a.activated:focus,
-#pub-container .subtitle a.activated:hover {text-decoration:none;cursor:initial}
-
-#pub-container .subtitle-aux {font-size:1rem}
-#pub-container .subtitle-aux a.activated {color:#333333}
-#pub-container .subtitle-aux a.activated:focus,
-#pub-container .subtitle-aux a.activated:hover {text-decoration:none;cursor:initial}
-#pub-container .subtitle-aux .note{margin-left:1em;color:#999999;text-decoration:none;font-size:14px}
-
-#pub-card-container{}
-#pub-card-container>h5{margin-bottom: 5px 0}
-#pub-card-container .pub-card{width: 100%;padding-bottom:15px;font-size:1rem}
-#pub-card-container .pub-card .col-l{text-align:center;padding-top:10px}
-#pub-card-container .pub-card .col-r{padding-top:10px}
-@media (min-width: 768px) {
-  #pub-card-container .pub-card .col-l{flex:0 0 30%;max-width:30%}
-  #pub-card-container .pub-card .col-r{flex:0 0 70%;max-width:70%}
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-#pub-card-container .pub-card img{width:100%;margin:0 auto}
-#pub-card-container .pub-card-body{width:100%;background:transparent;padding-left:0px}
-#pub-card-container .pub-card .title{font-weight:600;font-size:1rem;margin-bottom:4px;line-height:1.4}
-#pub-card-container .pub-card .authors{font-weight:400;color:#666666;margin-bottom:4px;line-height:1.4}
-#pub-card-container .pub-card .authors a{color:#666666}
-#pub-card-container .pub-card .authors u{color:#333333;font-weight:600;text-decoration:none}
-#pub-card-container .pub-card .tldr{font-weight:400;color:#666666;margin-bottom:4px;line-height:1.4}
-#pub-card-container .pub-card .tldr a{color:#666666}
-#pub-card-container .pub-card .tldr u{color:#333333;font-weight:600;text-decoration:none}
-#pub-card-container .pub-card .conference{color:#333333;font-weight:600}
-#pub-card-container .pub-card .note{display:block;color:#999999;text-decoration:none;font-size:14px}
-#pub-card-container .pub-card .info{margin-bottom:0;}
-#pub-card-container .row{margin:0}
-#pub-card-container .col-l,
-#pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
-#footer{padding:0 0 0.5em;margin-top:2rem;background:#fff;font-size:14px;line-height:12px;text-align:center;background: #f5fbfe;}
-#footer .container{max-width:100%;padding:0 45px;position:relative}
-#footer .row {
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--accent-hover);
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========== Layout ========== */
+.site-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* ========== Header / Bio ========== */
+.header {
+    margin-bottom: 4rem;
+}
+.header-top {
     display: flex;
-    flex-direction: column;
+    gap: 2rem;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 1.5rem;
 }
-#footer .comic {
+.header .avatar-wrap {
+    flex-shrink: 0;
+}
+.header .avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.header .intro {
+    flex: 1;
+    min-width: 0;
+}
+.header .name {
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+}
+.header .email {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+.header .social-links {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 15px;
+    gap: 0.5rem;
     flex-wrap: wrap;
 }
-#footer .comic .image-container {
-    flex: 1 1 auto;
-    margin: 0 15px;
-    text-align: center;
-    box-sizing: border-box;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column; /* Stack image and caption vertically */
-    align-items: center; /* Center both image and caption */
-    justify-content: flex-start; /* Ensure they start from the top */
-    overflow: hidden; /* Prevent any overflow */
+.header .social-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    color: var(--text);
+    background: var(--card-bg);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-#footer .comic img {
-    height: 15vh; /* Ensure all images have the same height */
-    width: auto;  /* Maintain aspect ratio by adjusting width */
-    border-radius: 5px;
-    object-fit: cover; /* Crop to fill the container while maintaining aspect ratio */
+.header .social-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 1px 4px rgba(217,119,87,0.10);
 }
-#footer .comic .caption {
-    font-size: 12px;
-    color: #333333;
-    margin-top: 5px;
-    width: 100%;
-    text-align: center; /* Ensure caption is centered below the image */
-    box-sizing: border-box;
+.header .bio-text {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--text);
 }
-@media (max-width: 768px) {
-    #footer .comic img {
-        height: 10vh; /* Reduce the height on smaller screens */
-    }
-    #footer .comic .image-container {
-        margin: 0 3px; /* Further reduce the margin on small screens */
-    }
+.header .bio-text a {
+    font-weight: 500;
 }
-#footer .comic .caption {
-    font-size: 12px;
-    color: #333333;
-    margin-top: 5px;
-}
-#footer a{color:#666666}
-#footer a:hover{color:#333333}
 
-.bold{font-weight:600}
-.hide{display:none}
+.hiring-banner {
+    margin-top: 1rem;
+    padding: 0.875rem 1.125rem;
+    background: var(--badge-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--text);
+}
+.hiring-banner strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.25rem;
+    }
+    .header .avatar {
+        width: 130px;
+        height: 130px;
+    }
+    .header .social-links {
+        justify-content: center;
+    }
+    .hiring-banner {
+        border-left: none;
+        border-top: 3px solid var(--accent);
+        border-radius: 0 0 8px 8px;
+    }
+}
+
+/* ========== Section Headings ========== */
+.section-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    display: inline-block;
+}
+
+/* ========== Filter Controls ========== */
+.filter-bar {
+    margin-bottom: 1.5rem;
+}
+.filter-bar .filter-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+.filter-bar .filter-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+}
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: 999px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+.filter-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+.filter-pill.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+.filter-pill.active:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #fff;
+}
+.filter-note {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin-left: 0.25rem;
+}
+
+/* ========== Publication Cards ========== */
+#pub-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#pub-card-container h5.year-heading,
+#pub-card-container h5.topic-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--divider);
+    margin-top: 1rem;
+}
+#pub-card-container h5.year-heading:first-child,
+#pub-card-container h5.topic-heading:first-child {
+    margin-top: 0;
+}
+
+.pub-card {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pub-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.pub-card .card-media {
+    flex-shrink: 0;
+    width: 180px;
+    display: flex;
+    align-items: flex-start;
+}
+.pub-card .card-media img,
+.pub-card .card-media video {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.pub-card .card-body {
+    flex: 1;
+    min-width: 0;
+}
+.pub-card .card-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.35rem;
+    color: var(--text);
+}
+.pub-card .card-authors {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0.35rem;
+}
+.pub-card .card-authors u {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+}
+.pub-card .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+}
+.pub-card .venue-badge {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border-radius: 999px;
+    text-decoration: none;
+}
+a.venue-badge:hover {
+    background: #fde8dd;
+}
+.pub-card .venue-note {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+.pub-card .meta-sep {
+    color: var(--divider);
+    font-size: 0.75rem;
+    user-select: none;
+}
+.pub-card .card-meta a.meta-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 6px;
+    background: var(--tag-bg);
+    color: var(--text-secondary);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.pub-card .card-meta a.meta-link:hover {
+    background: #ede8e2;
+    color: var(--text);
+}
+.pub-card .stars-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+.pub-card .stars-count svg {
+    width: 12px;
+    height: 12px;
+    fill: #d4a017;
+}
+.pub-card .card-tldr {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-style: italic;
+}
+
+@media (max-width: 640px) {
+    .pub-card {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .pub-card .card-media {
+        width: 100%;
+    }
+}
+
+/* ========== Footer ========== */
+.site-footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--divider);
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+.site-footer a {
+    color: var(--text-secondary);
+}
+.site-footer a:hover {
+    color: var(--accent);
+}
+
+/* ========== Utility ========== */
+.hide { display: none !important; }
     </style>
 </head>
 
 <body>
 
-<div id="main">
-    <div class="main-content">
-        <div id="main-content-container" class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-3 col-avatar">
-                    <img src="static/img/avatar.jpg" class="avatar" />
-                </div>
-                <div class="col-sm-12 col-md-8">
-                    <div id="main-info-container">
-                        <div class="col-name">
-                            <h1 class="name"><span>Longtao Zheng 郑龙韬</span></h1>
-                            <p class="email">Email: ltzheng01 at gmail dot com</p>
-                            <p class="text">
-                                <a href="https://github.com/ltzheng">GitHub</a> / <a href="https://scholar.google.com/citations?user=ULFLf-8AAAAJ">Google Scholar</a>
-                            </p>
-                            <p class="text">Longtao Zheng is a Researcher at ByteDance, leading RL for LLM agents. <span style="color: red;">We're aggressively growing our research team!</span> We offer competitive compensation, excellent research environments, and massive compute based in Singapore/Beijing/Shanghai. Feel free to email: longtao dot zheng at bytedance dot com.<br><br>He was a PhD student at the <a href="https://www.ntu.edu.sg/computing" target="_blank">Nanyang Technological University (NTU) Singapore</a>, advised by Prof. <a href="https://personal.ntu.edu.sg/boan", target="_blank">Bo An</a>. Previously, he obtained his Bachelor's degree in computer science from <a href="http://en.ustc.edu.cn" target="_blank">University of Science and Technology of China (USTC)</a> in 2022.</p>
-                        </div>
-                    </div>
+<div class="site-wrapper">
+
+    <!-- ===== Header / Bio ===== -->
+    <header class="header">
+        <div class="header-top">
+            <div class="avatar-wrap">
+                <img src="static/img/avatar.jpg" class="avatar" alt="Longtao Zheng" />
+            </div>
+            <div class="intro">
+                <h1 class="name">Longtao Zheng <span style="font-weight:400; font-size:0.6em; color:var(--text-secondary)">&#x90D1;&#x9F99;&#x97EC;</span></h1>
+                <p class="email">ltzheng01 at gmail dot com</p>
+                <div class="social-links">
+                    <a href="https://github.com/ltzheng" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795 0 0 .945-.015 1.575.87.92 1.575 2.415 1.13 3.015.87.09-.675.36-1.13.66-1.395-2.31-.255-4.725-1.155-4.725-5.13 0-1.13.405-2.07 1.065-2.79-.105-.27-.465-1.32.105-2.745 0 0 .87-.27 2.85 1.065A9.78 9.78 0 0112 6.84c.885 0 1.77.12 2.61.345 1.98-1.35 2.85-1.065 2.85-1.065.57 1.425.21 2.475.105 2.745.66.72 1.065 1.65 1.065 2.79 0 3.99-2.43 4.875-4.74 5.13.375.315.705.93.705 1.89 0 1.365-.015 2.46-.015 2.79 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=ULFLf-8AAAAJ" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                        Google Scholar
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <p class="bio-text">
+            Longtao Zheng is a Researcher at ByteDance, leading RL for LLM agents.
+            He was a PhD student at <a href="https://www.ntu.edu.sg/computing" target="_blank">Nanyang Technological University (NTU) Singapore</a>,
+            advised by Prof. <a href="https://personal.ntu.edu.sg/boan" target="_blank">Bo An</a>.
+            Previously, he obtained his Bachelor's degree in computer science from
+            <a href="http://en.ustc.edu.cn" target="_blank">University of Science and Technology of China (USTC)</a> in 2022.
+        </p>
+        <div class="hiring-banner">
+            <strong>We're hiring!</strong> Our research team is growing aggressively. We offer competitive compensation, excellent research environments, and massive compute based in Singapore / Beijing / Shanghai. Contact: longtao dot zheng at bytedance dot com.
+        </div>
+    </header>
 
-<div class="main-content">
-    <div class="content-container">
-        <!-- <div class="main-news-container">
-            <h5 class="subtitle">News</h5>
-            <ul> -->
-                <!-- <li>
-                    To junior PhD/master/undergraduate students: if you would like to chat about life, career plan, or research ideas related to AI/ML, feel free to email me to schedule a meeting.
-                    I will dedicate 30 mins every week for such meetings.
-                </li> -->
-                <!-- <li>I am looking for intern positions! You can find my research statement <a href="research_statement.pdf">here</a>.</li> -->
-                <!-- <li>Check out our latest work on general computer agents: <a href="https://ltzheng.github.io/agent-studio" target="_blank">AgentStudio</a> and <a href="https://baai-agents.github.io/Cradle" target="_blank">Cradle</a>!</li>
-                <li>One paper is accepted by <a href="https://www.kdd.org" target="_blank">KDD 2024</a> on foundation agents for financial trading.</li>
-                <li>Two papers are accepted by <a href="https://iclr.cc" target="_blank">ICLR 2024</a> on LLM-powered computer agents and finetuning LLM with online RL.</li>
-                <li>One paper is accepted by <a href="https://icml.cc" target="_blank">ICML 2023</a> on multi-agent reinforcement learning.</li>
-            </ul>
-
-            <h5 class="subtitle" style="margin-top:30px">Research Highlights</h5>
-            <p>
-            Motivated by the goal of building open-ended agents in open-ended worlds, my current research focuses on two key areas: (i) training agents to achieve long-term goals using reinforcement learning, and (ii) developing generative world models through video generation.
-            </p>
-        </div> -->
-        <div id="pub-container">
-            <h5 class="subtitle">Publications
-            (
-                <a id="publication-by-selected" href="javascript:;", onClick="publicationBySelected();">show selected</a> /
-                <a id="publication-by-date" href="javascript:;", onClick="publicationByDate();">show all by date</a> /
-                <a id="publication-by-topic" href="javascript:;", onClick="publicationByTopic();">show all by topic</a>
-            )
-            </h5>
-            <p class="subtitle-aux"><span class="bold">Topics:</span>
-                <a href="#topic-agent" onClick="return publicationByTopicSpecific(this)" data-topic="agent">LLM/RL Agents</a><!--  / <a href="#topic-video" onClick="return publicationByTopicSpecific(this)" data-topic="video">Video World Models</a> -->
-                <span class="note">(*/†: indicates equal contribution.)</span>
-                &nbsp;&nbsp; Past topics: <a href="#topic-marl" onClick="return publicationByTopicSpecific(this)" data-topic="marl">Multi-Agent RL</a> / <a href="#topic-video" onClick="return publicationByTopicSpecific(this)" data-topic="video">Video Generation</a>
-            </p>
-            <div id="pub-card-container" class="activated hide">
-                <div class="pub-card" data-topic="agent" data-year="2026" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/drmas.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Dr. MAS: Stable Reinforcement Learning for Multi-Agent LLM Systems</h5>
-                                <h6 class="authors">
-                                    Lang Feng, <u>Longtao Zheng</u>, Shuo He, Fuxiang Zhang, Bo An
-                                </h6>
-                                <p class="info">
-                                    <span class="conference">Preprint</span>
-                                    <a target="_blank" href="https://arxiv.org/abs/2602.08847">Paper</a> /
-                                    <a target="_blank" href="https://github.com/langfengQ/DrMAS">Code</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/langfengQ/DrMAS?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    Stable training algorithm and open-source codebase for multi-agent LLM RL
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2026" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/otb.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">The Optimal Token Baseline: Variance Reduction for Long-Horizon LLM-RL</h5>
-                                <h6 class="authors">
-                                    Yingru Li, Jiawei Xu, Ziniu Li, Jiacai Liu, Wei Liu, Yuxuan Tong, <u>Longtao Zheng</u>, Zhenghai Xue, Yaxiang Zhang, Tianle Cai, Ge Zhang, Qian Liu, Baoxiang Wang
-                                </h6>
-                                <p class="info">
-                                    <span class="conference">Preprint</span>
-                                    <a target="_blank" href="https://arxiv.org/abs/2602.07078">Paper</a> / <a target="_blank" href="https://github.com/verl-project/verl/tree/main/examples/otb_trainer">Code (merged to verl)</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/verl-project/verl?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    A token-level baseline prevents RL training collapse and reduces token consumption
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2026" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/drkernel.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Dr. Kernel: Reinforcement Learning Done Right for Triton Kernel Generations</h5>
-                                <h6 class="authors">
-                                    Wei Liu, Jiawei Xu, Yingru Li, <u>Longtao Zheng</u>, Tianjian Li, Qian Liu, Junxian He
-                                </h6>
-                                <p class="info">
-                                    <span class="conference">Preprint</span>
-                                    <a target="_blank" href="https://arxiv.org/abs/2602.05885">Paper</a> /
-                                    <a target="_blank" href="https://github.com/hkust-nlp/KernelGYM">Code</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/hkust-nlp/KernelGYM?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    Optimizing Triton kernel generation with multi-turn RL and test-time scaling
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2025" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/simpletir.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">SimpleTIR: End-to-End Reinforcement Learning for Multi-Turn Tool-Integrated Reasoning</h5>
-                                <h6 class="authors">
-                                    Zhenghai Xue*, <u>Longtao Zheng</u>*, Qian Liu, Yingru Li, Zejun Ma, Bo An
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://iclr.cc/Conferences/2026" class="conference">ICLR 2026</a> <span style="color: red;">(top 1% score)</span>
-                                    <a target="_blank" href="https://huggingface.co/papers/2509.02479">Paper</a> /
-                                    <a target="_blank" href="https://github.com/ltzheng/SimpleTIR">Code</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/ltzheng/SimpleTIR?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    Simple trajectory filtering stabilizes multi-turn RL and emerges diverse reasoning
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2025" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/coso.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Towards Efficient Online Tuning of VLM Agents via Counterfactual Soft Reinforcement Learning</h5>
-                                <h6 class="authors">
-                                    Lang Feng, Weihao Tan, Zhiyi Lyu, <u>Longtao Zheng</u>, Haiyang Xu, Ming Yan, Fei Huang, Bo An
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://icml.cc/Conferences/2025" class="conference">ICML 2025</a>
-                                    <a target="_blank" href="https://openreview.net/forum?id=H76PMm7hf2">Paper</a> /
-                                    <a target="_blank" href="https://github.com/langfengQ/verl-agent">Code</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/langfengQ/verl-agent?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    Fine-tuning VLM agents with online RL
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <video src="data/projects/cradle.mp4" width="100%" playsinline autoplay muted loop preload/>
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Cradle: Empowering Foundation Agents Towards General Computer Control</h5>
-                                <h6 class="authors">
-                                    Cradle Team (Longtao Zheng as core contributor)
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://icml.cc/Conferences/2025" class="conference">ICML 2025</a>
-                                    <a target="_blank" href="https://arxiv.org/abs/2403.03186">Paper</a> /
-                                    <a target="_blank" href="https://baai-agents.github.io/Cradle">Project Page</a> /
-                                    <a target="_blank" href="https://github.com/BAAI-Agents/Cradle">Code</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/BAAI-Agents/Cradle?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    An agent that can play AAA video games
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="video" data-year="2024" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/memo.gif" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">MEMO: Memory-Guided Diffusion for Expressive Talking Video Generation</h5>
-                                <h6 class="authors">
-                                    <u>Longtao Zheng</u>*, Yifan Zhang*, Hanzhong Guo, Jiachun Pan, Zhenxiong Tan, Jiahao Lu, Chuanxin Tang, Bo An, Shuicheng Yan
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://openreview.net/forum?id=uBcHcM7Kzi" class="conference">TMLR</a> <span style="color: red;">(awarded a J2C Certification)</span>
-                                    <a target="_blank" href="https://arxiv.org/abs/2412.04448">Paper</a> /
-                                    <a target="_blank" href="https://memoavatar.github.io">Project Page</a> /
-                                    <a target="_blank" href="https://github.com/memoavatar/memo">Code</a> /
-                                    <a target="_blank" href="https://huggingface.co/memoavatar/memo">Model</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/memoavatar/memo?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    A SOTA and open-weight model for audio-driven talking video generation
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/agent_studio.jpg" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">AgentStudio: A Toolkit for Building General Virtual Agents</h5>
-                                <h6 class="authors">
-                                    <u>Longtao Zheng</u>*, Zhiyuan Huang*, Zhenghai Xue, Xinrun Wang, Bo An, Shuicheng Yan
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://iclr.cc/Conferences/2025" class="conference">ICLR 2025</a>
-                                    <a target="_blank" href="https://openreview.net/forum?id=axUf8BOjnH">Paper</a> /
-                                    <a target="_blank" href="https://ltzheng.github.io/agent-studio">Project Page</a> /
-                                    <a target="_blank" href="https://github.com/ltzheng/agent-studio">Code</a> /
-                                    <a target="_blank" href="https://huggingface.co/agent-studio">Data</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/ltzheng/agent-studio?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    A trinity of environments, tools, and benchmarks for general virtual agents
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2024" data-selected="false">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/finagent.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">A Multimodal Foundation Agent for Financial Trading: Tool-Augmented, Diversified, and Generalist</h5>
-                                <h6 class="authors">
-                                    Wentao Zhang, Lingxuan Zhao, Haochong Xia, Shuo Sun, Jiaze Sun, Molei Qin, Xinyi Li, Yuqing Zhao, Yilei Zhao, Xinyu Cai, <u>Longtao Zheng</u>, Xinrun Wang, Bo An
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://kdd2024.kdd.org" class="conference">KDD 2024</a>
-                                    <a target="_blank" href="https://openreview.net/forum?id=3KR3Wrjlv5">Paper</a>
-                                </p>
-                                <p class="tldr">
-                                    The first multimodal agent for financial trading
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2023" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <video src="data/projects/synapse.mp4" width="100%" playsinline autoplay muted loop preload/>
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Synapse: Trajectory-as-Exemplar Prompting with Memory for Computer Control</h5>
-                                <h6 class="authors">
-                                    <u>Longtao Zheng</u>, Rundong Wang, Xinrun Wang, Bo An
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a>
-                                    <a target="_blank" href="https://openreview.net/forum?id=Pc8AU1aF5e">Paper</a> /
-                                    <a target="_blank" href="https://ltzheng.github.io/Synapse">Project Page</a> /
-                                    <a target="_blank" href="https://github.com/ltzheng/Synapse">Code</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/ltzheng/Synapse?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    One of the earliest web agents with state abstraction, trajectory prompting, and memory
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="agent" data-year="2023" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <video src="data/projects/twosome.mp4" width="100%" playsinline autoplay muted loop preload/>
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">True Knowledge Comes from Practice: Aligning Large Language Models with Embodied Environments via Reinforcement Learning</h5>
-                                <h6 class="authors">
-                                    Weihao Tan, Wentao Zhang, Shanqi Liu, <u>Longtao Zheng</u>, Xinrun Wang, Bo An
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a>
-                                    <!-- <span class="highlight">(Spotlight)</span> -->
-                                    <a target="_blank" href="https://openreview.net/forum?id=hILVmJ4Uvu">Paper</a> /
-                                    <a target="_blank" href="https://github.com/WeihaoTan/TWOSOME">Code</a>&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/WeihaoTan/TWOSOME?color=yellow&style=social" alt="Stars" style="max-width: 100px; height: auto;" />
-                                </p>
-                                <p class="tldr">
-                                    Fine-tuning LLM agents with online RL
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="marl" data-year="2023" data-selected="false">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/causal.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Controlling Type Confounding in Ad Hoc Teamwork with Instance-wise Teammate Feedback Rectification</h5>
-                                <h6 class="authors">
-                                    Dong Xing, Pengjie Gu, Qian Zheng, Xinrun Wang, Shanqi Liu, <u>Longtao Zheng</u>, Bo An, Gang Pan
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://icml.cc/Conferences/2023" class="conference">ICML 2023</a>
-                                    <a target="_blank" href="https://openreview.net/forum?id=OuNhPgThxP">Paper</a>
-                                </p>
-                                <p class="tldr">
-                                    A causality-based solution to deal with type confounding in ad hoc teamwork
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="pub-card" data-topic="marl" data-year="2023" data-selected="false">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/iounet.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Learning Asynchronous Communication in Multi-Agent Reinforcement Learning</h5>
-                                <h6 class="authors">
-                                    Rundong Wang,
-                                    Pengqian Yu,
-                                    <u>Longtao Zheng</u>,
-                                    Bo An,
-                                    Zinovi Rabinovich,
-                                    Shuicheng Yan,
-                                    Zhongwen Xu
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="https://www.aamas2024-conference.auckland.ac.nz" class="conference">AAMAS 2024</a> (extended abstract)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="pub-card" data-topic="marl" data-year="2022" data-selected="false">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/magenta.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Multi-Agent Multi-Game Entity Transformer: Towards Generalist Models in MARL</h5>
-                                <h6 class="authors">
-                                    Rundong Wang, Weixuan Wang, Xianhan Zeng, Liang Wang, Zhengjie Lian, Yiming Gao, Feiyu Liu, Siqin Li, Xianliang Wang, Qiang Fu, Wei Yang, Lanxiao Huang, <u>Longtao Zheng</u>, Zinovi Rabinovich, Bo An
-                                </h6>
-                                <p class="info">
-                                    <a target="_blank" href="http://www.adai.ai/dai/2024/index.html" class="conference">DAI 2024 Best Paper Award</a>
-                                    <a target="_blank" href="https://openreview.net/forum?id=cytNlkyjWOq">Paper</a>
-                                </p>
-                                <p class="tldr">
-                                    A generalist transformer for Honor of Kings, Starcraft II, and Neural MMO
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pub-card" data-topic="marl" data-year="2022" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <video src="data/projects/spc.mp4" width="100%" playsinline autoplay muted loop preload/>
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Towards Skilled Population Curriculum for Multi-Agent Reinforcement Learning</h5>
-                                <h6 class="authors">
-                                    Rundong Wang*, <u>Longtao Zheng</u>*, Wei Qiu, Bowei He, Bo An, Zinovi Rabinovich, Yujing Hu, Yingfeng Chen, Tangjie Lv, Changjie Fan
-                                </h6>
-                                <p class="info">
-                                    <span class="conference">Preprint</span>
-                                    <a target="_blank" href="https://arxiv.org/abs/2302.03429">Paper</a> /
-                                    <a target="_blank" href="https://github.com/ltzheng/CurriculumMARL">Code</a>
-                                </p>
-                                <p class="tldr">
-                                    Autocurricula for MARL in complex sparse-reward environments like Google Football
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="pub-card" data-topic="others" data-year="2022" data-selected="false">
-                    <div class="row">
-                        <div class="col-l col-md-12 col-lg-3">
-                            <img src="data/projects/ofd.png" width="100%" />
-                        </div>
-                        <div class="col-r col-md-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Contextual Data Cleaning with Ontology Functional Dependencies</h5>
-                                <h6 class="authors">
-                                    Zheng Zheng, <u>Longtao Zheng</u>, Morteza Alipourlangouri, Fei Chiang, Lukasz Golab, Jaroslaw Szlichta, Sridevi Baskaran
-                                </h6>
-                                <p class="info">
-                                    <span class="conference">ACM Journal of Data and Information Quality (JDIQ)</span>
-                                    <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3524303">Paper</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+    <!-- ===== Publications ===== -->
+    <section id="pub-section">
+        <div class="filter-bar">
+            <div class="filter-row">
+                <span class="section-heading">Publications</span>
+                <a class="filter-pill active" id="filter-selected" href="javascript:;" onclick="filterSelected()">Selected</a>
+                <a class="filter-pill" id="filter-date" href="javascript:;" onclick="filterByDate()">All by Date</a>
+                <a class="filter-pill" id="filter-topic" href="javascript:;" onclick="filterByTopic()">All by Topic</a>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">Topics:</span>
+                <a class="filter-pill" href="javascript:;" onclick="filterByTopicSpecific(this)" data-topic="agent">LLM/RL Agents</a>
+                <a class="filter-pill" href="javascript:;" onclick="filterByTopicSpecific(this)" data-topic="marl">Multi-Agent RL</a>
+                <a class="filter-pill" href="javascript:;" onclick="filterByTopicSpecific(this)" data-topic="video">Video Generation</a>
+                <span class="filter-note">(*/&dagger;: equal contribution)</span>
             </div>
         </div>
-    </div>
+
+        <div id="pub-card-container">
+            <!-- Dr. MAS -->
+            <div class="pub-card" data-topic="agent,marl" data-year="2026" data-selected="true">
+                <div class="card-media">
+                    <img src="data/projects/drmas.png" alt="Dr. MAS" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Dr. MAS: Stable Reinforcement Learning for Multi-Agent LLM Systems</div>
+                    <div class="card-authors">Lang Feng, <u>Longtao Zheng</u>, Shuo He, Fuxiang Zhang, Bo An</div>
+                    <div class="card-meta">
+                        <span class="venue-badge">Preprint</span>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2602.08847">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/langfengQ/DrMAS">Code</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="langfengQ/DrMAS"></span></span>
+                    </div>
+                    <div class="card-tldr">Stable training algorithm and open-source codebase for multi-agent LLM RL</div>
+                </div>
+            </div>
+
+            <!-- OTB -->
+            <div class="pub-card" data-topic="agent" data-year="2026" data-selected="true">
+                <div class="card-media">
+                    <img src="data/projects/otb.png" alt="OTB" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">The Optimal Token Baseline: Variance Reduction for Long-Horizon LLM-RL</div>
+                    <div class="card-authors">Yingru Li, Jiawei Xu, Ziniu Li, Jiacai Liu, Wei Liu, Yuxuan Tong, <u>Longtao Zheng</u>, Zhenghai Xue, Yaxiang Zhang, Tianle Cai, Ge Zhang, Qian Liu, Baoxiang Wang</div>
+                    <div class="card-meta">
+                        <span class="venue-badge">Preprint</span>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2602.07078">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/verl-project/verl/tree/main/examples/otb_trainer">Code (verl)</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="verl-project/verl"></span></span>
+                    </div>
+                    <div class="card-tldr">A token-level baseline prevents RL training collapse and reduces token consumption</div>
+                </div>
+            </div>
+
+            <!-- Dr. Kernel -->
+            <div class="pub-card" data-topic="agent" data-year="2026" data-selected="true">
+                <div class="card-media">
+                    <img src="data/projects/drkernel.png" alt="Dr. Kernel" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Dr. Kernel: Reinforcement Learning Done Right for Triton Kernel Generations</div>
+                    <div class="card-authors">Wei Liu, Jiawei Xu, Yingru Li, <u>Longtao Zheng</u>, Tianjian Li, Qian Liu, Junxian He</div>
+                    <div class="card-meta">
+                        <span class="venue-badge">Preprint</span>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2602.05885">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/hkust-nlp/KernelGYM">Code</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="hkust-nlp/KernelGYM"></span></span>
+                    </div>
+                    <div class="card-tldr">Optimizing Triton kernel generation with multi-turn RL and test-time scaling</div>
+                </div>
+            </div>
+
+            <!-- SimpleTIR -->
+            <div class="pub-card" data-topic="agent" data-year="2025" data-selected="true">
+                <div class="card-media">
+                    <img src="data/projects/simpletir.png" alt="SimpleTIR" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">SimpleTIR: End-to-End Reinforcement Learning for Multi-Turn Tool-Integrated Reasoning</div>
+                    <div class="card-authors">Zhenghai Xue*, <u>Longtao Zheng</u>*, Qian Liu, Yingru Li, Zejun Ma, Bo An</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://iclr.cc/Conferences/2026">ICLR 2026</a>
+                        <span class="venue-note">top 1% score</span>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://huggingface.co/papers/2509.02479">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/ltzheng/SimpleTIR">Code</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="ltzheng/SimpleTIR"></span></span>
+                    </div>
+                    <div class="card-tldr">Simple trajectory filtering stabilizes multi-turn RL and emerges diverse reasoning</div>
+                </div>
+            </div>
+
+            <!-- CoSo -->
+            <div class="pub-card" data-topic="agent" data-year="2025" data-selected="true">
+                <div class="card-media">
+                    <img src="data/projects/coso.png" alt="CoSo" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Towards Efficient Online Tuning of VLM Agents via Counterfactual Soft Reinforcement Learning</div>
+                    <div class="card-authors">Lang Feng, Weihao Tan, Zhiyi Lyu, <u>Longtao Zheng</u>, Haiyang Xu, Ming Yan, Fei Huang, Bo An</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://icml.cc/Conferences/2025">ICML 2025</a>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://openreview.net/forum?id=H76PMm7hf2">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/langfengQ/verl-agent">Code</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="langfengQ/verl-agent"></span></span>
+                    </div>
+                    <div class="card-tldr">Fine-tuning VLM agents with online RL</div>
+                </div>
+            </div>
+
+            <!-- Cradle -->
+            <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
+                <div class="card-media">
+                    <video src="data/projects/cradle.mp4" playsinline autoplay muted loop preload="metadata"></video>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Cradle: Empowering Foundation Agents Towards General Computer Control</div>
+                    <div class="card-authors">Cradle Team (Longtao Zheng as core contributor)</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://icml.cc/Conferences/2025">ICML 2025</a>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2403.03186">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://baai-agents.github.io/Cradle">Project</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/BAAI-Agents/Cradle">Code</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="BAAI-Agents/Cradle"></span></span>
+                    </div>
+                    <div class="card-tldr">An agent that can play AAA video games</div>
+                </div>
+            </div>
+
+            <!-- MEMO -->
+            <div class="pub-card" data-topic="video" data-year="2024" data-selected="true">
+                <div class="card-media">
+                    <img src="data/projects/memo.gif" alt="MEMO" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">MEMO: Memory-Guided Diffusion for Expressive Talking Video Generation</div>
+                    <div class="card-authors"><u>Longtao Zheng</u>*, Yifan Zhang*, Hanzhong Guo, Jiachun Pan, Zhenxiong Tan, Jiahao Lu, Chuanxin Tang, Bo An, Shuicheng Yan</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://openreview.net/forum?id=uBcHcM7Kzi">TMLR</a>
+                        <span class="venue-note">J2C Certification</span>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2412.04448">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://memoavatar.github.io">Project</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/memoavatar/memo">Code</a>
+                        <a class="meta-link" target="_blank" href="https://huggingface.co/memoavatar/memo">Model</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="memoavatar/memo"></span></span>
+                    </div>
+                    <div class="card-tldr">A SOTA and open-weight model for audio-driven talking video generation</div>
+                </div>
+            </div>
+
+            <!-- AgentStudio -->
+            <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
+                <div class="card-media">
+                    <img src="data/projects/agent_studio.jpg" alt="AgentStudio" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">AgentStudio: A Toolkit for Building General Virtual Agents</div>
+                    <div class="card-authors"><u>Longtao Zheng</u>*, Zhiyuan Huang*, Zhenghai Xue, Xinrun Wang, Bo An, Shuicheng Yan</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://iclr.cc/Conferences/2025">ICLR 2025</a>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://openreview.net/forum?id=axUf8BOjnH">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://ltzheng.github.io/agent-studio">Project</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/ltzheng/agent-studio">Code</a>
+                        <a class="meta-link" target="_blank" href="https://huggingface.co/agent-studio">Data</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="ltzheng/agent-studio"></span></span>
+                    </div>
+                    <div class="card-tldr">A trinity of environments, tools, and benchmarks for general virtual agents</div>
+                </div>
+            </div>
+
+            <!-- FinAgent -->
+            <div class="pub-card" data-topic="agent" data-year="2024" data-selected="false">
+                <div class="card-media">
+                    <img src="data/projects/finagent.png" alt="FinAgent" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">A Multimodal Foundation Agent for Financial Trading: Tool-Augmented, Diversified, and Generalist</div>
+                    <div class="card-authors">Wentao Zhang, Lingxuan Zhao, Haochong Xia, Shuo Sun, Jiaze Sun, Molei Qin, Xinyi Li, Yuqing Zhao, Yilei Zhao, Xinyu Cai, <u>Longtao Zheng</u>, Xinrun Wang, Bo An</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://kdd2024.kdd.org">KDD 2024</a>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://openreview.net/forum?id=3KR3Wrjlv5">Paper</a>
+                    </div>
+                    <div class="card-tldr">The first multimodal agent for financial trading</div>
+                </div>
+            </div>
+
+            <!-- Synapse -->
+            <div class="pub-card" data-topic="agent" data-year="2023" data-selected="true">
+                <div class="card-media">
+                    <video src="data/projects/synapse.mp4" playsinline autoplay muted loop preload="metadata"></video>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Synapse: Trajectory-as-Exemplar Prompting with Memory for Computer Control</div>
+                    <div class="card-authors"><u>Longtao Zheng</u>, Rundong Wang, Xinrun Wang, Bo An</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://iclr.cc/Conferences/2024">ICLR 2024</a>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://openreview.net/forum?id=Pc8AU1aF5e">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://ltzheng.github.io/Synapse">Project</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/ltzheng/Synapse">Code</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="ltzheng/Synapse"></span></span>
+                    </div>
+                    <div class="card-tldr">One of the earliest web agents with state abstraction, trajectory prompting, and memory</div>
+                </div>
+            </div>
+
+            <!-- TWOSOME -->
+            <div class="pub-card" data-topic="agent" data-year="2023" data-selected="true">
+                <div class="card-media">
+                    <video src="data/projects/twosome.mp4" playsinline autoplay muted loop preload="metadata"></video>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">True Knowledge Comes from Practice: Aligning Large Language Models with Embodied Environments via Reinforcement Learning</div>
+                    <div class="card-authors">Weihao Tan, Wentao Zhang, Shanqi Liu, <u>Longtao Zheng</u>, Xinrun Wang, Bo An</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://iclr.cc/Conferences/2024">ICLR 2024</a>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://openreview.net/forum?id=hILVmJ4Uvu">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/WeihaoTan/TWOSOME">Code</a>
+                        <span class="stars-count"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg><span data-stars="WeihaoTan/TWOSOME"></span></span>
+                    </div>
+                    <div class="card-tldr">Fine-tuning LLM agents with online RL</div>
+                </div>
+            </div>
+
+            <!-- Causal AHT -->
+            <div class="pub-card" data-topic="marl" data-year="2023" data-selected="false">
+                <div class="card-media">
+                    <img src="data/projects/causal.png" alt="Causal AHT" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Controlling Type Confounding in Ad Hoc Teamwork with Instance-wise Teammate Feedback Rectification</div>
+                    <div class="card-authors">Dong Xing, Pengjie Gu, Qian Zheng, Xinrun Wang, Shanqi Liu, <u>Longtao Zheng</u>, Bo An, Gang Pan</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://icml.cc/Conferences/2023">ICML 2023</a>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://openreview.net/forum?id=OuNhPgThxP">Paper</a>
+                    </div>
+                    <div class="card-tldr">A causality-based solution to deal with type confounding in ad hoc teamwork</div>
+                </div>
+            </div>
+
+            <!-- MAGENTA -->
+            <div class="pub-card" data-topic="marl" data-year="2022" data-selected="false">
+                <div class="card-media">
+                    <img src="data/projects/magenta.png" alt="MAGENTA" />
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Multi-Agent Multi-Game Entity Transformer: Towards Generalist Models in MARL</div>
+                    <div class="card-authors">Rundong Wang, Weixuan Wang, Xianhan Zeng, Liang Wang, Zhengjie Lian, Yiming Gao, Feiyu Liu, Siqin Li, Xianliang Wang, Qiang Fu, Wei Yang, Lanxiao Huang, <u>Longtao Zheng</u>, Zinovi Rabinovich, Bo An</div>
+                    <div class="card-meta">
+                        <span class="venue-badge">DAI 2024 Best Paper</span>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://openreview.net/forum?id=cytNlkyjWOq">Paper</a>
+                    </div>
+                    <div class="card-tldr">A generalist transformer for Honor of Kings, Starcraft II, and Neural MMO</div>
+                </div>
+            </div>
+
+            <!-- SPC -->
+            <div class="pub-card" data-topic="marl" data-year="2022" data-selected="true">
+                <div class="card-media">
+                    <video src="data/projects/spc.mp4" playsinline autoplay muted loop preload="metadata"></video>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Towards Skilled Population Curriculum for Multi-Agent Reinforcement Learning</div>
+                    <div class="card-authors">Rundong Wang*, <u>Longtao Zheng</u>*, Wei Qiu, Bowei He, Bo An, Zinovi Rabinovich, Yujing Hu, Yingfeng Chen, Tangjie Lv, Changjie Fan</div>
+                    <div class="card-meta">
+                        <span class="venue-badge">Preprint</span>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2302.03429">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://github.com/ltzheng/CurriculumMARL">Code</a>
+                    </div>
+                    <div class="card-tldr">Autocurricula for MARL in complex sparse-reward environments like Google Football</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer"></footer>
+
 </div>
-<div id="footer">
-    <div class="container">
-        <br>
-        <p style="font-size:12px">Website template from <a target="_blank" href="https://jiayuanm.com/">Jiayuan Mao</a></p>
-    </div>
-</div>
 
+<script>
+(function() {
+    // Store all publication cards
+    const container = document.getElementById('pub-card-container');
+    const allPubs = Array.from(container.querySelectorAll('.pub-card'));
 
-<!-- jQuery first, then Tether, then Bootstrap JS. -->
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script type="text/javascript" src="static/js/jquery.color.min.js"></script>
-<script type="text/javascript">
+    // Topic definitions
+    const topicLinks = document.querySelectorAll('.filter-row [data-topic]');
+    const topics = Array.from(topicLinks).map(a => ({
+        name: a.dataset.topic,
+        title: a.textContent
+    }));
 
-$.fn.isInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return elementBottom > viewportTop && elementTop < viewportBottom;
-};
-
-var allPublications = null;
-
-function playAllVideos() {
-  $("#pub-container video").each(function() {
-    this.play();
-  });
-}
-
-function publicationBySelected() {
-    var a = $("#publication-by-selected")
-    if (a.hasClass("activated")) {
-        return ;
+    // Filter state
+    function setActiveFilter(id) {
+        document.querySelectorAll('#filter-selected, #filter-date, #filter-topic').forEach(el => el.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
     }
 
-    $("#pub-container .subtitle a").removeClass("activated");
-    $("#pub-container .subtitle-aux a").removeClass("activated");
-    a.addClass("activated");
-
-    $("#pub-card-container").html("");
-    for (var pubId = 0; pubId < allPublications.length; pubId++) {
-        var pub = $(allPublications[pubId]);
-        if (pub.data("selected") == true) {
-            $("#pub-card-container").append(pub);
-        }
-    }
-    playAllVideos();
-}
-
-function publicationByDate() {
-    var a = $("#publication-by-date")
-    if (a.hasClass("activated")) {
-        return ;
+    function setActiveTopicPill(activeEl) {
+        topicLinks.forEach(el => el.classList.remove('active'));
+        if (activeEl) activeEl.classList.add('active');
     }
 
-    $("#pub-container .subtitle a").removeClass("activated");
-    $("#pub-container .subtitle-aux a").removeClass("activated");
-    a.addClass("activated");
-
-    $("#pub-card-container").html("");
-    for (var pubId = 0; pubId < allPublications.length; pubId++) {
-        if (pubId == 0 || $(allPublications[pubId-1]).data("year") != $(allPublications[pubId]).data("year")) {
-            var year = $(allPublications[pubId]).data("year");
-            $("#pub-card-container").append($("<h5 id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
-        }
-        $("#pub-card-container").append(allPublications[pubId]);
-    }
-    playAllVideos();
-}
-
-function publicationByTopicInner() {
-    var a = $("#publication-by-topic")
-    if (a.hasClass("activated")) {
-        return ;
-    }
-    $("#pub-container .subtitle a").removeClass("activated");
-    a.addClass("activated");
-
-    $("#pub-card-container").html("");
-    for (var topicId in allTopics) {
-        var topic = allTopics[topicId].name;
-        var topicTitle = allTopics[topicId].title;
-        $("#pub-card-container").append($("<h5 id='topic-" + topic + "'>" + topicTitle + "</h5>"));
-        for (var pubId = 0; pubId < allPublications.length; pubId++) {
-            var pub = $(allPublications[pubId]);
-            if (pub.data("topic").indexOf(topic) != -1) {
-                $("#pub-card-container").append(pub);
-            }
-        }
-    }
-}
-
-function publicationByTopicSpecificInner(a) {
-    if ($(a).hasClass("activated")) {
-        return false;
+    function clearContainer() {
+        container.innerHTML = '';
     }
 
-    $("#pub-container .subtitle-aux a").removeClass("activated");
-    $(a).addClass("activated");
-}
+    function appendPub(pub) {
+        container.appendChild(pub);
+    }
 
-function publicationByTopic() {
-    publicationByTopicInner();
-    publicationByTopicSpecificInner($("#pub-container .subtitle-aux a:first"));
-    playAllVideos();
-    return true;
-}
-
-function publicationByTopicSpecific(a) {
-    publicationByTopicInner();
-    publicationByTopicSpecificInner(a);
-
-    var hash = a.hash;
-    $(hash).prop('id', hash.substr(1) + '-noscroll');
-    window.location.hash = hash;
-    $(hash + '-noscroll').prop('id', hash.substr(1));
-
-    if (!$(hash).isInViewport()) {
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 1000, function(){
+    function playVideos() {
+        container.querySelectorAll('video').forEach(v => {
+            v.play().catch(() => {});
         });
     }
 
-    playAllVideos();
-    return false;
-}
-
-$(function() {
-    getRealSize = function(bgImg) {
-        var img = new Image();
-        img.src = bgImg.attr("src");
-        var width = img.width,
-            height = img.height;
-        return {
-            width: width,
-            height: height
-        }
+    // Filters
+    window.filterSelected = function() {
+        setActiveFilter('filter-selected');
+        setActiveTopicPill(null);
+        clearContainer();
+        allPubs.forEach(pub => {
+            if (pub.dataset.selected === 'true') appendPub(pub);
+        });
+        playVideos();
     };
 
-    getRealWindowSize = function() {
-        var winWidth = null,
-            winHeight = null;
-        if (window.innerWidth) winWidth = window.innerWidth;
-        else if ((document.body) && (document.body.clientWidth)) winWidth = document.body.clientWidth;
-        if (window.innerHeight) winHeight = window.innerHeight;
-        else if ((document.body) && (document.body.clientHeight)) winHeight = document.body.clientHeight;
-        if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
-            winHeight = document.documentElement.clientHeight;
-            winWidth = document.documentElement.clientWidth
-        }
-        return {
-            width: winWidth,
-            height: winHeight
-        }
-    };
-
-    fullBg = function() {
-        var bgImg = $("#background");
-        var mainContainer = $("#main");
-        var firstFire = null;
-
-        if (bgImg.length == 0) {
-            return ;
-        }
-
-        function resizeImg() {
-            var realSize = getRealSize(bgImg);
-            var imgWidth = realSize.width;
-            var imgHeight = realSize.height;
-
-            if (imgWidth == 0 || imgHeight == 0) {
-                setTimeout(function() {
-                    resizeImg();
-                }, 200);
+    window.filterByDate = function() {
+        setActiveFilter('filter-date');
+        setActiveTopicPill(null);
+        clearContainer();
+        let lastYear = null;
+        allPubs.forEach(pub => {
+            const year = pub.dataset.year;
+            if (year !== lastYear) {
+                const h = document.createElement('h5');
+                h.className = 'year-heading';
+                h.id = 'year-' + year;
+                h.textContent = year;
+                container.appendChild(h);
+                lastYear = year;
             }
-
-            console.log(realSize);
-            var realWinSize = getRealWindowSize();
-            var winWidth = realWinSize.width;
-            var winHeight = realWinSize.height;
-            var widthRatio = winWidth / imgWidth;
-            var heightRatio = winHeight / imgHeight;
-            console.log(realWinSize);
-            if (widthRatio > heightRatio) {
-                bgImg.width(imgWidth * widthRatio + 'px').height(imgHeight * widthRatio + 'px').css({'top':
-                    -(imgHeight * widthRatio - winHeight) / 10 * 5 + 'px', 'left': '0'})
-            } else {
-                bgImg.width(imgWidth * heightRatio + 'px').height(imgHeight * heightRatio + 'px').css({'left':
-                    -(imgWidth * heightRatio - winWidth) / 10 * 3 + 'px', 'top': '0'})
-            }
-        }
-
-        resizeImg();
-        window.onresize = function() {
-            if (firstFire === null) {
-                firstFire = setTimeout(function() {
-                    resizeImg();
-                    firstFire = null
-                }, 100)
-            }
-        }
+            appendPub(pub);
+        });
+        playVideos();
     };
 
-    targetColor = $("#main-content-container .name").css("color");
-    animatedLink = function(speed) {
-        $("#main-content-container .col-link li").hover(function() {
-            $(this).find('.icon').animate({
-                color: targetColor,
-                borderColor: targetColor
-            }, speed);
-            $(this).find('.caption').animate({
-                color: targetColor
-            })
-        }, function() {
-            $(this).find('.icon').animate({
-                borderColor: '#cccccc',
-                color: '#cccccc'
-            }, speed);
-            $(this).find('.caption').animate({
-                color: '#cccccc'
-            })
-        })
-    };
-
-    allPublications = $("#pub-card-container .pub-card");
-    allTopicsLink = $("#pub-container .subtitle-aux a");
-    allTopics = [];
-    for (var topicId = 0; topicId < allTopicsLink.length; topicId++) {
-        allTopics.push({name: $(allTopicsLink[topicId]).data("topic"), title: $(allTopicsLink[topicId]).html()});
+    function buildTopicView() {
+        clearContainer();
+        topics.forEach(topic => {
+            const h = document.createElement('h5');
+            h.className = 'topic-heading';
+            h.id = 'topic-' + topic.name;
+            h.textContent = topic.title;
+            container.appendChild(h);
+            allPubs.forEach(pub => {
+                if (pub.dataset.topic.indexOf(topic.name) !== -1) {
+                    // Clone for multi-topic cards so they appear in each group
+                    const matchCount = topics.filter(t => pub.dataset.topic.indexOf(t.name) !== -1).length;
+                    if (matchCount > 1 && pub.parentNode === container) {
+                        container.appendChild(pub.cloneNode(true));
+                    } else {
+                        appendPub(pub);
+                    }
+                }
+            });
+        });
+        playVideos();
     }
 
-    $("#publication-by-selected").click();
-    $("#pub-card-container").removeClass("hide");
-});
+    window.filterByTopic = function() {
+        setActiveFilter('filter-topic');
+        buildTopicView();
+        setActiveTopicPill(topicLinks[0]);
+    };
+
+    window.filterByTopicSpecific = function(el) {
+        // First ensure topic view is active
+        const topicFilterActive = document.getElementById('filter-topic').classList.contains('active');
+        if (!topicFilterActive) {
+            setActiveFilter('filter-topic');
+            buildTopicView();
+        }
+
+        setActiveTopicPill(el);
+
+        // Scroll to the topic
+        const targetId = 'topic-' + el.dataset.topic;
+        const target = document.getElementById(targetId);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    // Initialize: show selected
+    filterSelected();
+
+    // Fetch GitHub star counts
+    document.querySelectorAll('[data-stars]').forEach(el => {
+        const repo = el.dataset.stars;
+        fetch('https://api.github.com/repos/' + repo)
+            .then(r => r.json())
+            .then(d => {
+                if (d.stargazers_count != null) {
+                    const n = d.stargazers_count;
+                    el.textContent = n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : n;
+                }
+            })
+            .catch(() => {});
+    });
+})();
 </script>
+
 </body>
 </html>
