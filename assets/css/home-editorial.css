@@ -104,8 +104,7 @@ body {
 }
 
 .hero-typing {
-    display: flex;
-    align-items: baseline;
+    display: block;
     min-height: 2.4em;
     margin-top: 2rem;
     font-family: "IBM Plex Mono", monospace;
@@ -115,10 +114,12 @@ body {
 }
 
 .typing-cursor {
+    display: inline-block;
     width: 0.08em;
     height: 1.05em;
     margin-left: 0.18em;
     background: var(--text);
+    vertical-align: -0.08em;
     animation: typing-cursor-blink 0.9s step-end infinite;
 }
 
