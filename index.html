@@ -6,11 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Longtao Zheng — Researcher at ByteDance, leading RL for LLM agents.">
-    <meta name="keywords" content="Longtao Zheng,AI Agents,Reinforcement Learning,LLM">
     <link rel="shortcut icon" href="static/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
 /* ========== Reset ========== */
@@ -179,6 +178,22 @@ img, video {
     margin-bottom: 0.25rem;
     display: inline-block;
 }
+.section-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.section-link {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+.section-link:hover {
+    color: var(--accent);
+}
 
 /* ========== Filter Controls ========== */
 .filter-bar {
@@ -200,7 +215,7 @@ img, video {
     display: inline-flex;
     align-items: center;
     padding: 0.3rem 0.75rem;
-    font-size: 0.8125rem;
+    font-size: 0.95rem;
     font-weight: 500;
     border-radius: 999px;
     border: 1px solid var(--card-border);
@@ -224,12 +239,6 @@ img, video {
     border-color: var(--accent-hover);
     color: #fff;
 }
-.filter-note {
-    font-size: 0.8125rem;
-    color: var(--text-secondary);
-    margin-left: 0.25rem;
-}
-
 /* ========== Publication Cards ========== */
 #pub-card-container {
     display: flex;
@@ -299,6 +308,10 @@ img, video {
     font-weight: 600;
     text-decoration: none;
 }
+.pub-card .author-note {
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
 .pub-card .card-meta {
     display: flex;
     align-items: center;
@@ -361,7 +374,7 @@ a.venue-badge:hover {
     font-size: 0.8125rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    font-style: italic;
+    font-style: normal;
 }
 
 @media (max-width: 640px) {
@@ -372,6 +385,245 @@ a.venue-badge:hover {
     .pub-card .card-media {
         width: 100%;
     }
+}
+
+/* ========== Blogs ========== */
+.research-overview {
+    margin-bottom: 4rem;
+}
+.research-overview .section-title-row {
+    margin-bottom: 0.5rem;
+}
+.research-overview .research-intro {
+    max-width: 640px;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+.research-map {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 112px minmax(0, 1fr) 112px minmax(0, 1fr);
+    align-items: start;
+    padding: 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+}
+.research-stage {
+    min-width: 0;
+}
+.research-stage .stage-card {
+    position: relative;
+    min-height: 190px;
+    padding: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--text);
+    border-radius: 10px;
+    background: var(--bg);
+}
+.research-stage h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text);
+}
+.stage-visual {
+    position: absolute;
+    left: 50%;
+    bottom: 1.1rem;
+    width: 92px;
+    height: 82px;
+    transform: translateX(-50%);
+    display: grid;
+    place-items: center;
+}
+.stage-visual img {
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+.stage-label {
+    min-height: 48px;
+    margin: 0.75rem 0 0.7rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text);
+}
+.stage-works {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+}
+.stage-works a {
+    display: inline-flex;
+    padding: 0.23rem 0.52rem;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    background: var(--tag-bg);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--text-secondary);
+}
+.stage-works a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+.research-connector {
+    padding-top: 4.15rem;
+}
+.research-connector .flow {
+    position: relative;
+    height: 58px;
+}
+.research-connector .flow-line {
+    position: absolute;
+    left: 9px;
+    right: 9px;
+    height: 1px;
+    background: var(--text);
+}
+.research-connector .flow-line.forward { top: 9px; }
+.research-connector .flow-line.backward { bottom: 9px; }
+.research-connector .flow-line.forward::after,
+.research-connector .flow-line.backward::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid var(--text);
+    border-right: 1px solid var(--text);
+}
+.research-connector .flow-line.forward::after {
+    right: 0;
+    top: -3px;
+    transform: rotate(45deg);
+}
+.research-connector .flow-line.backward::before {
+    left: 0;
+    top: -3px;
+    transform: rotate(-135deg);
+}
+.research-connector .flow-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 0.35rem;
+    background: var(--card-bg);
+    white-space: nowrap;
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+}
+.research-connector .flow-label.forward { top: -0.15rem; }
+.research-connector .flow-label.backward { bottom: -0.15rem; }
+.pub-card[id], .blog-card[id] {
+    scroll-margin-top: 1.5rem;
+}
+
+@media (max-width: 760px) {
+    .research-map {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    .research-stage .stage-card {
+        min-height: 175px;
+    }
+    .research-connector {
+        padding: 0.6rem 0;
+    }
+    .research-connector .flow {
+        width: 170px;
+        height: 72px;
+        margin: 0 auto;
+    }
+    .research-connector .flow-line {
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        height: auto;
+    }
+    .research-connector .flow-line.forward {
+        left: 56px;
+        right: auto;
+        top: 0;
+    }
+    .research-connector .flow-line.backward {
+        left: auto;
+        right: 56px;
+        bottom: 0;
+    }
+    .research-connector .flow-line.forward::after {
+        right: -3px;
+        top: auto;
+        bottom: 1px;
+        transform: rotate(135deg);
+    }
+    .research-connector .flow-line.backward::before {
+        left: -3px;
+        top: 1px;
+        transform: rotate(-45deg);
+    }
+    .research-connector .flow-label {
+        left: 50%;
+        padding: 0.15rem 0.4rem;
+        transform: translateX(-50%);
+        background: var(--card-bg);
+    }
+    .research-connector .flow-label.forward { top: 10px; }
+    .research-connector .flow-label.backward { bottom: 10px; }
+}
+
+.blog-preview {
+    margin-bottom: 3rem;
+}
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+.blog-card {
+    display: block;
+    padding: 1rem 1.125rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: inherit;
+}
+.blog-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    color: inherit;
+}
+.blog-card .blog-meta {
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--text-secondary);
+}
+.blog-card h3 {
+    margin-bottom: 0.25rem;
+    font-size: 0.975rem;
+    line-height: 1.4;
+}
+.blog-card h3 {
+    color: var(--text);
+}
+.blog-card:hover h3 {
+    color: var(--accent);
+}
+.blog-card p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
 /* ========== Footer ========== */
@@ -393,45 +645,144 @@ a.venue-badge:hover {
 /* ========== Utility ========== */
 .hide { display: none !important; }
     </style>
+    <link rel="stylesheet" href="assets/css/home-editorial.css?v=20260714-5">
 </head>
 
 <body>
+
+<nav class="site-nav" aria-label="Primary navigation">
+    <a class="nav-name" href="#">LONGTAO ZHENG / &#x90D1;&#x9F99;&#x97EC;</a>
+    <div class="nav-links">
+        <a href="#research-section">RESEARCH</a>
+        <a href="#blog-section">BLOGS</a>
+        <a href="#pub-section">PUBLICATIONS</a>
+        <a href="static/Longtao_Zheng_CV.pdf">CV</a>
+    </div>
+</nav>
 
 <div class="site-wrapper">
 
     <!-- ===== Header / Bio ===== -->
     <header class="header">
+        <div class="home-hero-copy">
+            <h1>Hi! I'm Longtao Zheng.</h1>
+            <p class="hero-typing" aria-label="Research focus">
+                <span data-typing>I build real-world environments for computer agents.</span>
+                <span class="typing-cursor" aria-hidden="true"></span>
+            </p>
+        </div>
         <div class="header-top">
             <div class="avatar-wrap">
                 <img src="static/img/avatar.jpg" class="avatar" alt="Longtao Zheng" />
             </div>
-            <div class="intro">
-                <h1 class="name">Longtao Zheng <span style="font-weight:400; font-size:0.6em; color:var(--text-secondary)">&#x90D1;&#x9F99;&#x97EC;</span></h1>
-                <p class="email">ltzheng01 at gmail dot com</p>
-                <div class="social-links">
-                    <a href="https://github.com/ltzheng" target="_blank">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795 0 0 .945-.015 1.575.87.92 1.575 2.415 1.13 3.015.87.09-.675.36-1.13.66-1.395-2.31-.255-4.725-1.155-4.725-5.13 0-1.13.405-2.07 1.065-2.79-.105-.27-.465-1.32.105-2.745 0 0 .87-.27 2.85 1.065A9.78 9.78 0 0112 6.84c.885 0 1.77.12 2.61.345 1.98-1.35 2.85-1.065 2.85-1.065.57 1.425.21 2.475.105 2.745.66.72 1.065 1.65 1.065 2.79 0 3.99-2.43 4.875-4.74 5.13.375.315.705.93.705 1.89 0 1.365-.015 2.46-.015 2.79 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        GitHub
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=ULFLf-8AAAAJ" target="_blank">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-                        Google Scholar
-                    </a>
-                    <a href="static/Longtao_Zheng_CV.pdf" target="_blank">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2l4 4h-4V4zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
-                        CV
-                    </a>
-                </div>
+        </div>
+        <div class="bio-block">
+            <p class="bio-text">
+                I'm Longtao Zheng (&#x90D1;&#x9F99;&#x97EC;), a researcher at Bytedance, working on RL for coding agents.
+                My research focuses on training open-ended and long-horizon agents. I earned my PhD from
+                <a href="https://www.ntu.edu.sg/computing" target="_blank" rel="noopener">Nanyang Technological University (NTU) Singapore</a> in 2026,
+                advised by Prof. <a href="https://personal.ntu.edu.sg/boan" target="_blank" rel="noopener">Bo An</a>.
+                Previously, I received my Bachelor's degree in computer science from
+                <a href="http://en.ustc.edu.cn" target="_blank" rel="noopener">University of Science and Technology of China (USTC)</a> in 2022.
+            </p>
+            <div class="bio-links" aria-label="Contact and social links">
+                <a href="mailto:ltzheng01@gmail.com">Email</a>
+                <a href="https://github.com/ltzheng" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=ULFLf-8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+                <a class="download" href="static/Longtao_Zheng_CV.pdf" target="_blank" rel="noopener">CV</a>
+                <a href="https://x.com/ltzheng01" target="_blank" rel="noopener">X</a>
+                <a href="https://www.linkedin.com/in/longtaozheng" target="_blank" rel="noopener">LinkedIn</a>
             </div>
         </div>
-        <p class="bio-text">
-            Longtao Zheng is a Researcher at ByteDance, doing RL research for coding agents. His research interest is training open-ended agents in open-ended worlds.
-            He completed his PhD at <a href="https://www.ntu.edu.sg/computing" target="_blank">Nanyang Technological University (NTU) Singapore</a>,
-            advised by Prof. <a href="https://personal.ntu.edu.sg/boan" target="_blank">Bo An</a>.
-            Previously, he obtained his Bachelor's degree in computer science from
-            <a href="http://en.ustc.edu.cn" target="_blank">University of Science and Technology of China (USTC)</a> in 2022.
-        </p>
     </header>
+
+    <!-- ===== Research Overview ===== -->
+    <section id="research-section" class="research-overview" aria-labelledby="research-heading">
+        <div class="section-title-row">
+            <h2 id="research-heading" class="section-heading">Research</h2>
+        </div>
+        <p class="research-intro">
+            My research studies the full learning loop of computer agents: real-world GUI + CLI + Code environments,
+            long-horizon context management and self-evolution, and training LLM agents with RL.
+        </p>
+
+        <div class="research-map">
+            <article class="research-stage">
+                <div class="stage-card">
+                    <h3>Environment</h3>
+                    <div class="stage-visual" aria-hidden="true">
+                        <img src="assets/icons/research-environment.svg" alt="" />
+                    </div>
+                </div>
+                <p class="stage-label">GUI + CLI + Code</p>
+                <div class="stage-works" aria-label="Environment-related work">
+                    <a href="#agentstudio">AgentStudio</a>
+                    <a href="#dr-kernel">Dr. Kernel</a>
+                    <a href="#cradle">Cradle</a>
+                </div>
+            </article>
+
+            <div class="research-connector" aria-label="Observation and action loop">
+                <div class="flow">
+                    <span class="flow-line forward"></span>
+                    <span class="flow-label forward">observation</span>
+                    <span class="flow-line backward"></span>
+                    <span class="flow-label backward">action</span>
+                </div>
+            </div>
+
+            <article class="research-stage">
+                <div class="stage-card">
+                    <h3>Harness</h3>
+                    <div class="stage-visual" aria-hidden="true">
+                        <img src="assets/icons/research-framework.svg" alt="" />
+                    </div>
+                </div>
+                <p class="stage-label">Long-horizon autonomy</p>
+                <div class="stage-works" aria-label="Harness-related work">
+                    <a href="#synapse">Synapse</a>
+                    <a href="#cradle">Cradle</a>
+                    <a href="#dr-mas">Dr. MAS</a>
+                </div>
+            </article>
+
+            <div class="research-connector" aria-label="Context and reasoning loop">
+                <div class="flow">
+                    <span class="flow-line forward"></span>
+                    <span class="flow-label forward">context</span>
+                    <span class="flow-line backward"></span>
+                    <span class="flow-label backward">reasoning / action</span>
+                </div>
+            </div>
+
+            <article class="research-stage">
+                <div class="stage-card">
+                    <h3>LLM</h3>
+                    <div class="stage-visual" aria-hidden="true">
+                        <img src="assets/icons/research-llm.svg" alt="" />
+                    </div>
+                </div>
+                <p class="stage-label">RL self-improvement</p>
+                <div class="stage-works" aria-label="LLM self-improvement work">
+                    <a href="#simpletir">SimpleTIR</a>
+                    <a href="#dr-mas">Dr. MAS</a>
+                    <a href="#dr-kernel">Dr. Kernel</a>
+                    <a href="#optimal-token-baseline">Optimal Token Baseline</a>
+                    <a href="#twosome">TWOSOME</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ===== Blogs ===== -->
+    <section id="blog-section" class="blog-preview">
+        <div class="section-title-row">
+            <span class="section-heading">Blogs</span>
+        </div>
+        <div class="blog-placeholder">
+            <span>Coming Soon</span>
+        </div>
+    </section>
 
     <!-- ===== Publications ===== -->
     <section id="pub-section">
@@ -442,18 +793,11 @@ a.venue-badge:hover {
                 <a class="filter-pill" id="filter-date" href="javascript:;" onclick="filterByDate()">All by Date</a>
                 <a class="filter-pill" id="filter-topic" href="javascript:;" onclick="filterByTopic()">All by Topic</a>
             </div>
-            <div class="filter-row">
-                <span class="filter-label">Topics:</span>
-                <a class="filter-pill" href="javascript:;" onclick="filterByTopicSpecific(this)" data-topic="agent">LLM/RL Agents</a>
-                <a class="filter-pill" href="javascript:;" onclick="filterByTopicSpecific(this)" data-topic="marl">Multi-Agent RL</a>
-                <a class="filter-pill" href="javascript:;" onclick="filterByTopicSpecific(this)" data-topic="video">Video Generation</a>
-                <span class="filter-note">(*/&dagger;: equal contribution)</span>
-            </div>
         </div>
 
         <div id="pub-card-container">
             <!-- Dr. MAS -->
-            <div class="pub-card" data-topic="agent,marl" data-year="2026" data-selected="true">
+            <div class="pub-card" id="dr-mas" data-topic="agent,marl" data-year="2026" data-selected="true">
                 <div class="card-media">
                     <img src="data/projects/drmas.png" alt="Dr. MAS" />
                 </div>
@@ -472,7 +816,7 @@ a.venue-badge:hover {
             </div>
 
             <!-- OTB -->
-            <div class="pub-card" data-topic="agent" data-year="2026" data-selected="true">
+            <div class="pub-card" id="optimal-token-baseline" data-topic="agent" data-year="2026" data-selected="true">
                 <div class="card-media">
                     <img src="data/projects/otb.png" alt="OTB" />
                 </div>
@@ -491,7 +835,7 @@ a.venue-badge:hover {
             </div>
 
             <!-- Dr. Kernel -->
-            <div class="pub-card" data-topic="agent" data-year="2026" data-selected="true">
+            <div class="pub-card" id="dr-kernel" data-topic="agent" data-year="2026" data-selected="true">
                 <div class="card-media">
                     <img src="data/projects/drkernel.png" alt="Dr. Kernel" />
                 </div>
@@ -510,13 +854,13 @@ a.venue-badge:hover {
             </div>
 
             <!-- SimpleTIR -->
-            <div class="pub-card" data-topic="agent" data-year="2025" data-selected="true">
+            <div class="pub-card" id="simpletir" data-topic="agent" data-year="2025" data-selected="true">
                 <div class="card-media">
                     <img src="data/projects/simpletir.png" alt="SimpleTIR" />
                 </div>
                 <div class="card-body">
                     <div class="card-title">SimpleTIR: End-to-End Reinforcement Learning for Multi-Turn Tool-Integrated Reasoning</div>
-                    <div class="card-authors">Zhenghai Xue*, <u>Longtao Zheng</u>*, Qian Liu, Yingru Li, Zejun Ma, Bo An</div>
+                    <div class="card-authors">Zhenghai Xue*, <u>Longtao Zheng</u>*, Qian Liu, Yingru Li, Zejun Ma, Bo An <span class="author-note">(* Equal contribution)</span></div>
                     <div class="card-meta">
                         <a class="venue-badge" target="_blank" href="https://iclr.cc/Conferences/2026">ICLR 2026</a>
                         <span class="venue-note">top 1% score</span>
@@ -549,7 +893,7 @@ a.venue-badge:hover {
             </div>
 
             <!-- Cradle -->
-            <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
+            <div class="pub-card" id="cradle" data-topic="agent" data-year="2024" data-selected="true">
                 <div class="card-media">
                     <video src="data/projects/cradle.mp4" playsinline autoplay muted loop preload="metadata"></video>
                 </div>
@@ -575,9 +919,9 @@ a.venue-badge:hover {
                 </div>
                 <div class="card-body">
                     <div class="card-title">MEMO: Memory-Guided Diffusion for Expressive Talking Video Generation</div>
-                    <div class="card-authors"><u>Longtao Zheng</u>*, Yifan Zhang*, Hanzhong Guo, Jiachun Pan, Zhenxiong Tan, Jiahao Lu, Chuanxin Tang, Bo An, Shuicheng Yan</div>
+                    <div class="card-authors"><u>Longtao Zheng</u>*, Yifan Zhang*, Hanzhong Guo, Jiachun Pan, Zhenxiong Tan, Jiahao Lu, Chuanxin Tang, Bo An, Shuicheng Yan <span class="author-note">(* Equal contribution)</span></div>
                     <div class="card-meta">
-                        <a class="venue-badge" target="_blank" href="https://openreview.net/forum?id=uBcHcM7Kzi">TMLR</a>
+                        <a class="venue-badge" target="_blank" href="https://jmlr.org/tmlr">TMLR</a>
                         <span class="venue-note">J2C Certification</span>
                         <span class="meta-sep">|</span>
                         <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2412.04448">Paper</a>
@@ -591,13 +935,13 @@ a.venue-badge:hover {
             </div>
 
             <!-- AgentStudio -->
-            <div class="pub-card" data-topic="agent" data-year="2024" data-selected="true">
+            <div class="pub-card" id="agentstudio" data-topic="agent" data-year="2024" data-selected="true">
                 <div class="card-media">
                     <img src="data/projects/agent_studio.jpg" alt="AgentStudio" />
                 </div>
                 <div class="card-body">
                     <div class="card-title">AgentStudio: A Toolkit for Building General Virtual Agents</div>
-                    <div class="card-authors"><u>Longtao Zheng</u>*, Zhiyuan Huang*, Zhenghai Xue, Xinrun Wang, Bo An, Shuicheng Yan</div>
+                    <div class="card-authors"><u>Longtao Zheng</u>*, Zhiyuan Huang*, Zhenghai Xue, Xinrun Wang, Bo An, Shuicheng Yan <span class="author-note">(* Equal contribution)</span></div>
                     <div class="card-meta">
                         <a class="venue-badge" target="_blank" href="https://iclr.cc/Conferences/2025">ICLR 2025</a>
                         <span class="meta-sep">|</span>
@@ -629,7 +973,7 @@ a.venue-badge:hover {
             </div>
 
             <!-- Synapse -->
-            <div class="pub-card" data-topic="agent" data-year="2023" data-selected="true">
+            <div class="pub-card" id="synapse" data-topic="agent" data-year="2023" data-selected="true">
                 <div class="card-media">
                     <video src="data/projects/synapse.mp4" playsinline autoplay muted loop preload="metadata"></video>
                 </div>
@@ -649,7 +993,7 @@ a.venue-badge:hover {
             </div>
 
             <!-- TWOSOME -->
-            <div class="pub-card" data-topic="agent" data-year="2023" data-selected="true">
+            <div class="pub-card" id="twosome" data-topic="agent" data-year="2023" data-selected="true">
                 <div class="card-media">
                     <video src="data/projects/twosome.mp4" playsinline autoplay muted loop preload="metadata"></video>
                 </div>
@@ -708,7 +1052,7 @@ a.venue-badge:hover {
                 </div>
                 <div class="card-body">
                     <div class="card-title">Towards Skilled Population Curriculum for Multi-Agent Reinforcement Learning</div>
-                    <div class="card-authors">Rundong Wang*, <u>Longtao Zheng</u>*, Wei Qiu, Bowei He, Bo An, Zinovi Rabinovich, Yujing Hu, Yingfeng Chen, Tangjie Lv, Changjie Fan</div>
+                    <div class="card-authors">Rundong Wang*, <u>Longtao Zheng</u>*, Wei Qiu, Bowei He, Bo An, Zinovi Rabinovich, Yujing Hu, Yingfeng Chen, Tangjie Lv, Changjie Fan <span class="author-note">(* Equal contribution)</span></div>
                     <div class="card-meta">
                         <span class="venue-badge">Preprint</span>
                         <span class="meta-sep">|</span>
@@ -721,8 +1065,15 @@ a.venue-badge:hover {
         </div>
     </section>
 
+
     <!-- ===== Footer ===== -->
-    <footer class="site-footer"></footer>
+    <footer class="site-footer footer-compact">
+        <!-- <p class="footer-title">Open to conversations about agents, RL, and open-ended learning.</p> -->
+        <div class="footer-meta">
+            <span>LTZHENG01 AT GMAIL DOT COM</span>
+            <span>&copy; 2026 Longtao Zheng</span>
+        </div>
+    </footer>
 
 </div>
 
@@ -733,21 +1084,16 @@ a.venue-badge:hover {
     const allPubs = Array.from(container.querySelectorAll('.pub-card'));
 
     // Topic definitions
-    const topicLinks = document.querySelectorAll('.filter-row [data-topic]');
-    const topics = Array.from(topicLinks).map(a => ({
-        name: a.dataset.topic,
-        title: a.textContent
-    }));
+    const topics = [
+        { name: 'agent', title: 'LLM RL/LLM Agents' },
+        { name: 'marl', title: 'Multi-Agent RL' },
+        { name: 'video', title: 'Video Generation' }
+    ];
 
     // Filter state
     function setActiveFilter(id) {
         document.querySelectorAll('#filter-selected, #filter-date, #filter-topic').forEach(el => el.classList.remove('active'));
         document.getElementById(id).classList.add('active');
-    }
-
-    function setActiveTopicPill(activeEl) {
-        topicLinks.forEach(el => el.classList.remove('active'));
-        if (activeEl) activeEl.classList.add('active');
     }
 
     function clearContainer() {
@@ -767,7 +1113,6 @@ a.venue-badge:hover {
     // Filters
     window.filterSelected = function() {
         setActiveFilter('filter-selected');
-        setActiveTopicPill(null);
         clearContainer();
         allPubs.forEach(pub => {
             if (pub.dataset.selected === 'true') appendPub(pub);
@@ -777,7 +1122,6 @@ a.venue-badge:hover {
 
     window.filterByDate = function() {
         setActiveFilter('filter-date');
-        setActiveTopicPill(null);
         clearContainer();
         let lastYear = null;
         allPubs.forEach(pub => {
@@ -808,7 +1152,9 @@ a.venue-badge:hover {
                     // Clone for multi-topic cards so they appear in each group
                     const matchCount = topics.filter(t => pub.dataset.topic.indexOf(t.name) !== -1).length;
                     if (matchCount > 1 && pub.parentNode === container) {
-                        container.appendChild(pub.cloneNode(true));
+                        const clone = pub.cloneNode(true);
+                        clone.removeAttribute('id');
+                        container.appendChild(clone);
                     } else {
                         appendPub(pub);
                     }
@@ -821,25 +1167,6 @@ a.venue-badge:hover {
     window.filterByTopic = function() {
         setActiveFilter('filter-topic');
         buildTopicView();
-        setActiveTopicPill(topicLinks[0]);
-    };
-
-    window.filterByTopicSpecific = function(el) {
-        // First ensure topic view is active
-        const topicFilterActive = document.getElementById('filter-topic').classList.contains('active');
-        if (!topicFilterActive) {
-            setActiveFilter('filter-topic');
-            buildTopicView();
-        }
-
-        setActiveTopicPill(el);
-
-        // Scroll to the topic
-        const targetId = 'topic-' + el.dataset.topic;
-        const target = document.getElementById(targetId);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
     };
 
     // Initialize: show selected
@@ -860,6 +1187,7 @@ a.venue-badge:hover {
     });
 })();
 </script>
+<script src="assets/js/home-typing.js?v=20260714-2"></script>
 
 </body>
 </html>
