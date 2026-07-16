@@ -513,10 +513,13 @@ body {
     overflow: hidden;
 }
 
-.pub-card .card-media img,
-.pub-card .card-media video {
+#pub-card-container .pub-card .card-media > img,
+#pub-card-container .pub-card .card-media > video {
+    height: 132px;
     border-radius: 0;
+    background: #f1eee8;
     filter: none;
+    object-fit: contain;
     transition: filter 180ms ease;
 }
 
