@@ -285,6 +285,775 @@ img, video {
     border-radius: 8px;
     object-fit: cover;
 }
+#pub-card-container .pub-card {
+    grid-template-columns: 220px minmax(0, 1fr);
+}
+#pub-card-container .pub-card .card-media {
+    width: 220px;
+}
+#cradle,
+#memo,
+#skilled-population {
+    grid-template-columns: 220px minmax(0, 1fr);
+}
+#cradle .card-media,
+#memo .card-media,
+#skilled-population .card-media {
+    width: 220px;
+}
+
+/* Dr. MAS: a card-scale HTML diagram stays legible where the paper figure does not. */
+.drmas-diagram,
+.otb-diagram,
+.drkernel-diagram,
+.simpletir-diagram {
+    --diagram-title-size: 0.625rem;
+    --diagram-label-size: 0.46875rem;
+    --diagram-note-size: 0.40625rem;
+    --diagram-micro-size: 0.3125rem;
+    --diagram-arrow-size: 0.6875rem;
+}
+#dr-mas {
+    grid-template-columns: 220px minmax(0, 1fr);
+}
+#dr-mas .card-media {
+    width: 220px;
+}
+.drmas-diagram {
+    --drmas-ink: #34312f;
+    --drmas-muted: #8a8580;
+    --drmas-problem: #a86b59;
+    width: 100%;
+    min-height: 132px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    background: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+}
+.drmas-panel {
+    min-width: 0;
+    padding: 0.55rem 0.5rem 0.45rem;
+    display: grid;
+    grid-template-rows: 10px 22px 10px 23px 18px 8px;
+    align-items: center;
+    gap: 0.28rem;
+}
+.drmas-panel + .drmas-panel {
+    border-left: 1px solid var(--card-border);
+    background: var(--badge-bg);
+}
+.drmas-panel-title {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem;
+    color: var(--drmas-ink);
+    font-size: var(--diagram-title-size);
+    font-weight: 600;
+    line-height: 1;
+}
+.drmas-panel--solution .drmas-panel-title {
+    color: var(--accent-hover);
+}
+.drmas-panel-title small {
+    color: var(--drmas-muted);
+    font-size: var(--diagram-note-size);
+    font-weight: 500;
+}
+.drmas-agents,
+.drmas-baselines {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.22rem;
+}
+.drmas-agents {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0.22rem minmax(0, 1fr);
+    gap: 0;
+}
+.drmas-agents .drmas-agent {
+    justify-self: center;
+}
+.drmas-agents .drmas-plus {
+    justify-self: center;
+}
+.drmas-agent {
+    min-width: 39px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    padding: 0 0.2rem;
+    border: 1px solid var(--drmas-ink);
+    border-radius: 0;
+    background: #fff;
+    color: var(--drmas-ink);
+    font-size: var(--diagram-note-size);
+    font-weight: 600;
+    box-shadow: 0 2px 0 var(--card-border);
+}
+.drmas-plus {
+    color: var(--drmas-muted);
+    font-size: var(--diagram-label-size);
+}
+.drmas-arrow {
+    height: 10px;
+    color: var(--drmas-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--diagram-arrow-size);
+    line-height: 0.75;
+    text-align: center;
+}
+.drmas-arrows {
+    width: 100%;
+    height: 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0.22rem minmax(0, 1fr);
+    align-items: center;
+    color: var(--drmas-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--diagram-arrow-size);
+    line-height: 0.75;
+}
+.drmas-arrows span {
+    width: 100%;
+    justify-self: stretch;
+    text-align: center;
+}
+.drmas-arrows span:nth-child(2) {
+    grid-column: 3;
+}
+.drmas-baselines {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0.22rem minmax(0, 1fr);
+    gap: 0;
+}
+.drmas-baselines .drmas-baseline:nth-child(2) {
+    grid-column: 3;
+}
+.drmas-baseline {
+    min-height: 23px;
+    display: grid;
+    place-items: center;
+    padding: 0.2rem 0.3rem;
+    border: 1px solid #b8b2ac;
+    border-radius: 0;
+    background: #fff;
+    color: var(--drmas-ink);
+    text-align: center;
+    font-size: var(--diagram-note-size);
+    font-weight: 500;
+    line-height: 1.05;
+}
+.drmas-baseline--shared {
+    width: 72px;
+    justify-self: center;
+}
+.drmas-panel--solution .drmas-baseline {
+    border-color: rgba(217, 119, 87, 0.45);
+    color: var(--accent-hover);
+}
+.drmas-sparkline {
+    width: 100%;
+    height: 18px;
+    min-height: 18px;
+    flex: 0 0 18px;
+    overflow: visible;
+}
+.drmas-sparkline .signal {
+    fill: none;
+    stroke: #b45f4b;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.drmas-panel--solution .drmas-sparkline .signal {
+    stroke: #4f7f71;
+}
+.drmas-status {
+    color: var(--drmas-problem);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--diagram-label-size);
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+.drmas-panel--solution .drmas-status {
+    color: var(--accent-hover);
+}
+
+/* Optimal Token Baseline: distilled from the paper's token-wise workflow. */
+#optimal-token-baseline {
+    grid-template-columns: 220px minmax(0, 1fr);
+}
+#optimal-token-baseline .card-media {
+    width: 220px;
+}
+.otb-diagram {
+    --otb-ink: #34312f;
+    --otb-muted: #8a8580;
+    --otb-problem: #a86b59;
+    width: 100%;
+    min-height: 132px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    background: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+}
+.otb-panel {
+    min-width: 0;
+    padding: 0.55rem 0.5rem 0.45rem;
+    display: grid;
+    grid-template-rows: 10px 64px 8px 18px 8px;
+    align-items: center;
+    gap: 0.28rem;
+}
+.otb-panel + .otb-panel {
+    border-left: 1px solid var(--card-border);
+    background: var(--badge-bg);
+}
+.otb-panel-title {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.2rem;
+    color: var(--otb-ink);
+    font-size: var(--diagram-title-size);
+    font-weight: 600;
+    line-height: 1;
+}
+.otb-panel--solution .otb-panel-title {
+    color: var(--accent-hover);
+}
+.otb-panel-title small {
+    max-width: 52px;
+    color: var(--otb-muted);
+    font-size: var(--diagram-note-size);
+    font-weight: 500;
+    line-height: 1.1;
+    text-align: right;
+}
+.otb-tokens,
+.otb-token-baselines,
+.otb-energy {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.2rem;
+}
+.otb-shared-flow {
+    width: 100%;
+    height: 64px;
+    display: grid;
+    grid-template-rows: 20px 10px 23px;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    gap: 0.28rem;
+    transform: translateY(-1px);
+}
+.otb-token-flow {
+    width: calc(69px + 0.4rem);
+    height: 64px;
+    display: grid;
+    grid-template-columns: repeat(3, 23px);
+    align-items: start;
+    justify-self: center;
+    gap: 0.2rem;
+}
+.otb-token-path {
+    height: 64px;
+    display: grid;
+    grid-template-rows: 20px 16px 18px;
+    align-items: center;
+    justify-items: center;
+    gap: 5px;
+}
+.otb-path-energy {
+    width: 23px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(217, 119, 87, 0.45);
+    border-radius: 0;
+    background: rgba(217, 119, 87, 0.16);
+    color: var(--accent-hover);
+    font-size: var(--diagram-note-size);
+    font-weight: 600;
+    line-height: 1;
+}
+.otb-token-path:nth-child(1) .otb-path-energy { height: 9px; align-self: end; }
+.otb-token-path:nth-child(2) .otb-path-energy { height: 13px; align-self: end; }
+.otb-token-path:nth-child(3) .otb-path-energy { height: 16px; align-self: end; }
+.otb-arrow {
+    width: 100%;
+    height: 10px;
+    color: var(--otb-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--diagram-arrow-size);
+    line-height: 0.75;
+    text-align: center;
+}
+.otb-path-baseline {
+    width: 23px;
+    min-height: 18px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(217, 119, 87, 0.45);
+    border-radius: 0;
+    background: #fff;
+    color: var(--accent-hover);
+    font-size: var(--diagram-note-size);
+    font-weight: 600;
+}
+.otb-token {
+    width: 23px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--otb-ink);
+    border-radius: 0;
+    background: #fff;
+    color: var(--otb-ink);
+    font-size: var(--diagram-label-size);
+    font-weight: 600;
+    box-shadow: 0 2px 0 var(--card-border);
+}
+.otb-shared-baseline {
+    width: 70px;
+    min-height: 23px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #b8b2ac;
+    border-radius: 0;
+    background: #fff;
+    color: var(--otb-ink);
+    text-align: center;
+    font-size: var(--diagram-note-size);
+    font-weight: 500;
+    line-height: 1.05;
+}
+.otb-energy {
+    height: 22px;
+}
+.otb-energy span {
+    position: relative;
+    width: 23px;
+    border-radius: 0;
+    background: rgba(217, 119, 87, 0.2);
+    border: 1px solid rgba(217, 119, 87, 0.4);
+    color: var(--accent-hover);
+    text-align: center;
+    font-size: var(--diagram-note-size);
+    font-weight: 600;
+    line-height: 1;
+}
+.otb-energy span:nth-child(1) { height: 10px; padding-top: 0.1rem; }
+.otb-energy span:nth-child(2) { height: 15px; padding-top: 0.22rem; }
+.otb-energy span:nth-child(3) { height: 21px; padding-top: 0.4rem; }
+.otb-token-baselines span {
+    width: 23px;
+    min-height: 18px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(217, 119, 87, 0.45);
+    border-radius: 0;
+    background: #fff;
+    color: var(--accent-hover);
+    font-size: var(--diagram-note-size);
+    font-weight: 600;
+}
+.otb-caption {
+    width: 100%;
+    color: var(--otb-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--diagram-note-size);
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+}
+.otb-sparkline {
+    width: 100%;
+    height: 18px;
+    min-height: 18px;
+    flex: 0 0 18px;
+    overflow: visible;
+}
+.otb-sparkline .signal {
+    fill: none;
+    stroke: #b45f4b;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.otb-panel--solution .otb-sparkline .signal {
+    stroke: #4f7f71;
+}
+.otb-status {
+    color: var(--otb-problem);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--diagram-label-size);
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+.otb-panel--solution .otb-status {
+    color: var(--accent-hover);
+}
+
+/* Dr. Kernel: contribution map distilled from the paper. */
+#dr-kernel {
+    grid-template-columns: 220px minmax(0, 1fr);
+}
+#dr-kernel .card-media {
+    width: 220px;
+}
+.drkernel-diagram {
+    --drmas-muted: #8a8580;
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 52px auto;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    background: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+}
+.drkernel-foundation {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.65rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+.drkernel-foundation-copy {
+    min-width: 0;
+}
+.drkernel-foundation strong {
+    display: block;
+    color: var(--text);
+    font-size: var(--diagram-title-size);
+    line-height: 1.05;
+}
+.drkernel-foundation small {
+    display: block;
+    margin-top: 0.18rem;
+    color: var(--text-secondary);
+    font-size: var(--diagram-note-size);
+    line-height: 1.15;
+}
+.drkernel-eval-flow {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 34px 10px 26px 10px minmax(0, 1fr);
+    align-items: center;
+    gap: 0.12rem;
+}
+.drkernel-eval-node {
+    height: 22px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--text);
+    border-radius: 0;
+    background: #fff;
+    color: var(--text);
+    font-size: var(--diagram-note-size);
+    font-weight: 600;
+    line-height: 1.05;
+}
+.drkernel-eval-arrow,
+.drkernel-step-arrow {
+    width: 100%;
+    display: block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+.drkernel-signals {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+}
+.drkernel-signals span {
+    height: auto;
+    color: var(--accent-hover);
+    font-size: var(--diagram-note-size);
+    font-weight: 600;
+    line-height: 1.05;
+    white-space: nowrap;
+}
+.drkernel-contributions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 0;
+    border-top: 1px solid var(--card-border);
+}
+.drkernel-contribution {
+    min-width: 0;
+    padding: 0.45rem 0.25rem 0.35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    text-align: center;
+}
+.drkernel-contribution + .drkernel-contribution {
+    border-left: 1px solid var(--card-border);
+}
+.drkernel-contribution strong {
+    color: var(--accent-hover);
+    font-size: var(--diagram-label-size);
+    line-height: 1.05;
+}
+.drkernel-steps {
+    height: 22px;
+    margin-bottom: 0.25rem;
+    display: grid;
+    grid-template-columns: 14px 10px 14px 10px 14px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2px;
+}
+.drkernel-step-node {
+    height: 14px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--text);
+    border-radius: 0;
+    background: #fff;
+    color: var(--text);
+    font-size: var(--diagram-micro-size);
+    font-weight: 600;
+    line-height: 1;
+}
+.drkernel-mini {
+    width: 100%;
+    height: 22px;
+    margin-bottom: 0.25rem;
+}
+.drkernel-mini svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.drkernel-mini .mini-line {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.drkernel-mini .mini-hot {
+    fill: var(--accent);
+}
+
+/* SimpleTIR: void-turn filtering above the resulting score and gradient dynamics. */
+#simpletir {
+    grid-template-columns: 220px minmax(0, 1fr);
+}
+#simpletir .card-media {
+    width: 220px;
+}
+.simpletir-diagram {
+    --simpletir-good: #b45f4b;
+    --simpletir-bad: #5f3daf;
+    --simpletir-muted: #8a8580;
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 52px auto;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    background: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+}
+.simpletir-filter {
+    min-width: 0;
+    padding: 0.45rem 0.6rem;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    gap: 0.2rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+.simpletir-filter-title {
+    color: var(--text);
+    font-size: var(--diagram-title-size);
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+.simpletir-filter-flow {
+    display: grid;
+    grid-template-columns: 42px 10px 36px 10px 42px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.16rem;
+}
+.simpletir-turn,
+.simpletir-action {
+    min-width: 0;
+    height: 17px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--text);
+    border-radius: 0;
+    background: #fff;
+    color: var(--text);
+    font-size: var(--diagram-note-size);
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+.simpletir-turn--void {
+    border-color: rgba(180, 95, 75, 0.65);
+    background: rgba(180, 95, 75, 0.08);
+    color: var(--simpletir-good);
+}
+.simpletir-action {
+    border-style: dashed;
+    border-color: #b8b2ac;
+    color: var(--simpletir-muted);
+}
+.simpletir-flow-arrow {
+    --drmas-muted: var(--simpletir-muted);
+    width: 100%;
+    display: block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+.simpletir-results {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--card-border);
+}
+.simpletir-chart {
+    min-width: 0;
+    padding: 0.35rem 0.25rem 0.2rem;
+    display: grid;
+    grid-template-rows: 8px 1fr;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+.simpletir-chart + .simpletir-chart {
+    border-left: 1px solid var(--card-border);
+}
+.simpletir-chart strong {
+    color: var(--accent-hover);
+    font-size: var(--diagram-label-size);
+    line-height: 1;
+    text-align: center;
+}
+.simpletir-chart svg {
+    width: 100%;
+    height: 43px;
+    overflow: visible;
+}
+.simpletir-chart .axis {
+    fill: none;
+    stroke: #c8c2bc;
+    stroke-width: 1;
+}
+.simpletir-chart .good,
+.simpletir-chart .bad {
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.simpletir-chart .good {
+    stroke: var(--simpletir-good);
+}
+.simpletir-chart .bad {
+    stroke: var(--simpletir-bad);
+}
+.simpletir-chart .good-dot {
+    fill: var(--simpletir-good);
+}
+.simpletir-chart .bad-dot {
+    fill: var(--simpletir-bad);
+}
+.simpletir-chart text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--diagram-micro-size);
+    font-weight: 600;
+}
+.simpletir-chart .good-label {
+    fill: var(--simpletir-good);
+}
+.simpletir-chart .bad-label {
+    fill: var(--simpletir-bad);
+}
+@media (max-width: 760px) {
+    #pub-card-container .pub-card {
+        grid-template-columns: 1fr;
+    }
+    #pub-card-container .pub-card .card-media {
+        width: 100%;
+    }
+    #dr-mas {
+        grid-template-columns: 1fr;
+    }
+    #dr-mas .card-media {
+        width: 100%;
+    }
+    #optimal-token-baseline {
+        grid-template-columns: 1fr;
+    }
+    #optimal-token-baseline .card-media {
+        width: 100%;
+    }
+    #dr-kernel {
+        grid-template-columns: 1fr;
+    }
+    #dr-kernel .card-media {
+        width: 100%;
+    }
+    #simpletir {
+        grid-template-columns: 1fr;
+    }
+    #simpletir .card-media {
+        width: 100%;
+    }
+    #cradle,
+    #memo,
+    #skilled-population {
+        grid-template-columns: 1fr;
+    }
+    #cradle .card-media,
+    #memo .card-media,
+    #skilled-population .card-media {
+        width: 100%;
+    }
+}
 
 .pub-card .card-body {
     flex: 1;
@@ -384,6 +1153,38 @@ a.venue-badge:hover {
     }
     .pub-card .card-media {
         width: 100%;
+    }
+    #dr-mas .card-media {
+        width: 100%;
+    }
+    .drmas-diagram {
+        min-height: 154px;
+    }
+    .otb-diagram {
+        min-height: 154px;
+    }
+    .drmas-panel {
+        padding: 0.75rem;
+        gap: 0.35rem;
+    }
+    .otb-panel {
+        padding: 0.75rem;
+        gap: 0.35rem;
+    }
+    .drkernel-diagram {
+        min-height: 0;
+        padding: 0;
+        grid-template-rows: 58px auto;
+        gap: 0;
+    }
+    .simpletir-diagram {
+        min-height: 0;
+        padding: 0;
+        grid-template-rows: 58px auto;
+        gap: 0;
+    }
+    .simpletir-chart svg {
+        height: 50px;
     }
 }
 
@@ -523,7 +1324,7 @@ a.venue-badge:hover {
 }
 .research-connector .flow-label.forward { top: -0.15rem; }
 .research-connector .flow-label.backward { bottom: -0.15rem; }
-.pub-card[id], .blog-card[id] {
+.pub-card[id] {
     scroll-margin-top: 1.5rem;
 }
 
@@ -578,52 +1379,6 @@ a.venue-badge:hover {
     }
     .research-connector .flow-label.forward { top: 10px; }
     .research-connector .flow-label.backward { bottom: 10px; }
-}
-
-.blog-preview {
-    margin-bottom: 3rem;
-}
-.blog-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-}
-.blog-card {
-    display: block;
-    padding: 1rem 1.125rem;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    color: inherit;
-}
-.blog-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    color: inherit;
-}
-.blog-card .blog-meta {
-    margin-bottom: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    white-space: nowrap;
-    color: var(--text-secondary);
-}
-.blog-card h3 {
-    margin-bottom: 0.25rem;
-    font-size: 0.975rem;
-    line-height: 1.4;
-}
-.blog-card h3 {
-    color: var(--text);
-}
-.blog-card:hover h3 {
-    color: var(--accent);
-}
-.blog-card p {
-    font-size: 0.8125rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
 }
 
 /* ========== Footer ========== */
@@ -702,8 +1457,8 @@ a.venue-badge:hover {
             <h2 id="research-heading" class="section-heading">Research</h2>
         </div>
         <p class="research-intro">
-            My research studies the full learning loop of computer agents: real-world GUI + CLI + Code environments,
-            long-horizon context management and self-evolution, and training LLM agents with RL.
+            My research spans the full stack of <strong>open-domain</strong> and <strong>long-horizon</strong> computer agents:<br>
+            real-world environments, inference-time harnesses, and RL for LLM agents.
         </p>
 
         <div class="research-map">
@@ -779,8 +1534,46 @@ a.venue-badge:hover {
         <div class="section-title-row">
             <span class="section-heading">Blogs</span>
         </div>
-        <div class="blog-placeholder">
-            <span>Coming Soon</span>
+        <div class="blog-list">
+            <article class="blog-card" id="fully-async-agentic-rl">
+                <div class="blog-cover">
+                    <img src="assets/blog/async-agentic-rl.svg" alt="Parallel agent workers connected to an asynchronous RL trainer">
+                </div>
+                <div class="blog-meta">
+                    <span class="blog-date">Coming soon</span>
+                    <span class="blog-details">English / 中文</span>
+                </div>
+                <div class="blog-copy">
+                    <h3>How to build a fully asynchronous black-box agentic RL system</h3>
+                    <p>A first-principles design for fully asynchronous RL with any agent harness</p>
+                </div>
+            </article>
+            <article class="blog-card" id="autocompact">
+                <div class="blog-cover">
+                    <img src="assets/blog/autocompact.svg" alt="A noisy trajectory compressed into a compact working state">
+                </div>
+                <div class="blog-meta">
+                    <span class="blog-date">Coming soon</span>
+                    <span class="blog-details">English / 中文</span>
+                </div>
+                <div class="blog-copy">
+                    <h3>Learning when to compact context in long-horizon coding agents</h3>
+                    <p>Teaching coding agents to adaptively compress noisy history into useful context</p>
+                </div>
+            </article>
+            <article class="blog-card" id="hitchhikers-guide">
+                <div class="blog-cover">
+                    <img src="assets/blog/llm-rl-science.svg" alt="The four-question learning loop of LLM reinforcement learning">
+                </div>
+                <div class="blog-meta">
+                    <span class="blog-date">Coming soon</span>
+                    <span class="blog-details">English / 中文</span>
+                </div>
+                <div class="blog-copy">
+                    <h3>The science of LLM RL</h3>
+                    <p>LLM RL = task distribution + rollout policy + credit assignment + stable policy updates</p>
+                </div>
+            </article>
         </div>
     </section>
 
@@ -799,7 +1592,37 @@ a.venue-badge:hover {
             <!-- Dr. MAS -->
             <div class="pub-card" id="dr-mas" data-topic="agent,marl" data-year="2026" data-selected="true">
                 <div class="card-media">
-                    <img src="data/projects/drmas.png" alt="Dr. MAS" loading="lazy" decoding="async" />
+                    <div class="drmas-diagram" role="img" aria-label="GRPO uses one shared baseline and produces unstable gradients; Dr. MAS uses a separate baseline for each agent and produces stable gradients.">
+                        <div class="drmas-panel drmas-panel--problem">
+                            <div class="drmas-panel-title"><span>GRPO</span><small>shared</small></div>
+                            <div class="drmas-agents" aria-hidden="true">
+                                <span class="drmas-agent">Agent A</span><span class="drmas-plus">+</span><span class="drmas-agent">Agent B</span>
+                            </div>
+                            <div class="drmas-arrow" aria-hidden="true">↓</div>
+                            <div class="drmas-baseline drmas-baseline--shared">
+                                <span>Global baseline</span>
+                            </div>
+                            <svg class="drmas-sparkline" viewBox="0 0 96 17" preserveAspectRatio="none" aria-hidden="true">
+                                <path class="signal" d="M2 14 L10 13 L16 8 L22 12 L29 3 L35 14 L42 9 L49 12 L56 2 L62 13 L69 7 L76 12 L83 4 L90 10 L94 6" />
+                            </svg>
+                            <div class="drmas-status">Unstable gradients</div>
+                        </div>
+                        <div class="drmas-panel drmas-panel--solution">
+                            <div class="drmas-panel-title"><span>Dr. MAS</span><small>per-agent</small></div>
+                            <div class="drmas-agents" aria-hidden="true">
+                                <span class="drmas-agent">Agent A</span><span class="drmas-plus">+</span><span class="drmas-agent">Agent B</span>
+                            </div>
+                            <div class="drmas-arrows" aria-hidden="true"><span>↓</span><span>↓</span></div>
+                            <div class="drmas-baselines">
+                                <div class="drmas-baseline">A baseline</div>
+                                <div class="drmas-baseline">B baseline</div>
+                            </div>
+                            <svg class="drmas-sparkline" viewBox="0 0 96 17" preserveAspectRatio="none" aria-hidden="true">
+                                <path class="signal" d="M2 10 L10 9 L18 11 L26 8 L34 10 L42 9 L50 11 L58 8 L66 10 L74 9 L82 11 L94 9" />
+                            </svg>
+                            <div class="drmas-status">Stable gradients</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="card-title">Dr. MAS: Stable Reinforcement Learning for Multi-Agent LLM Systems</div>
@@ -818,7 +1641,42 @@ a.venue-badge:hover {
             <!-- OTB -->
             <div class="pub-card" id="optimal-token-baseline" data-topic="agent" data-year="2026" data-selected="true">
                 <div class="card-media">
-                    <img src="data/projects/otb.png" alt="OTB" loading="lazy" decoding="async" />
+                    <div class="otb-diagram" role="img" aria-label="A group-mean baseline gives every token the same baseline and leaves high gradient variance. The Optimal Token Baseline weights each token by its cumulative uncertainty to produce a distinct token-level baseline and lower gradient variance.">
+                        <div class="otb-panel otb-panel--problem">
+                            <div class="otb-panel-title"><span>GRPO</span><small>shared</small></div>
+                            <div class="otb-shared-flow" aria-hidden="true">
+                                <div class="otb-tokens">
+                                    <span class="otb-token">t1</span><span class="otb-token">t2</span><span class="otb-token">t3</span>
+                                </div>
+                                <div class="otb-arrow">↓</div>
+                                <div class="otb-shared-baseline">Sequence-level baseline</div>
+                            </div>
+                            <div class="otb-caption">same for every token</div>
+                            <svg class="otb-sparkline" viewBox="0 0 96 17" preserveAspectRatio="none" aria-hidden="true">
+                                <path class="signal" d="M2 14 L8 12 L13 3 L19 14 L25 6 L31 13 L37 2 L43 14 L49 5 L55 13 L61 3 L67 14 L73 6 L79 12 L85 4 L91 13 L94 7" />
+                            </svg>
+                            <div class="otb-status">High variance</div>
+                        </div>
+                        <div class="otb-panel otb-panel--solution">
+                            <div class="otb-panel-title"><span>OTB</span><small>per-token</small></div>
+                            <div class="otb-token-flow" aria-hidden="true">
+                                <div class="otb-token-path">
+                                    <span class="otb-token">t1</span><span class="otb-path-energy">W1</span><span class="otb-path-baseline">B1</span>
+                                </div>
+                                <div class="otb-token-path">
+                                    <span class="otb-token">t2</span><span class="otb-path-energy">W2</span><span class="otb-path-baseline">B2</span>
+                                </div>
+                                <div class="otb-token-path">
+                                    <span class="otb-token">t3</span><span class="otb-path-energy">W3</span><span class="otb-path-baseline">B3</span>
+                                </div>
+                            </div>
+                            <div class="otb-caption">W: cumulative uncertainty</div>
+                            <svg class="otb-sparkline" viewBox="0 0 96 17" preserveAspectRatio="none" aria-hidden="true">
+                                <path class="signal" d="M2 10 L8 9 L14 10 L20 8.5 L26 10 L32 9 L38 10.5 L44 9 L50 10 L56 8.8 L62 10 L68 9.2 L74 10.3 L80 9 L86 10 L94 9.3" />
+                            </svg>
+                            <div class="otb-status">Low variance</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="card-title">The Optimal Token Baseline: Variance Reduction for Long-Horizon LLM-RL</div>
@@ -837,7 +1695,44 @@ a.venue-badge:hover {
             <!-- Dr. Kernel -->
             <div class="pub-card" id="dr-kernel" data-topic="agent" data-year="2026" data-selected="true">
                 <div class="card-media">
-                    <img src="data/projects/drkernel.png" alt="Dr. Kernel" loading="lazy" decoding="async" />
+                    <div class="drkernel-diagram" role="img" aria-label="Dr. Kernel contributions: KernelGYM executes generated Triton kernels on GPUs and checks correctness, speed, and reward hacking; multi-turn reinforcement learning and test-time scaling iteratively improve generated kernels.">
+                        <div class="drkernel-foundation">
+                            <div class="drkernel-foundation-copy">
+                                <strong>KernelGYM</strong>
+                            </div>
+                            <div class="drkernel-eval-flow" aria-hidden="true">
+                                <span class="drkernel-eval-node">Triton<br>kernel</span>
+                                <span class="drmas-arrow drkernel-eval-arrow">↓</span>
+                                <span class="drkernel-eval-node">GPU</span>
+                                <span class="drmas-arrow drkernel-eval-arrow">↓</span>
+                                <span class="drkernel-signals"><span>correctness</span><span>speed</span><span>anti-hacking</span></span>
+                            </div>
+                        </div>
+                        <div class="drkernel-contributions">
+                            <div class="drkernel-contribution">
+                                <div class="drkernel-steps" aria-hidden="true">
+                                    <span class="drkernel-step-node">1</span>
+                                    <span class="drmas-arrow drkernel-step-arrow">↓</span>
+                                    <span class="drkernel-step-node">2</span>
+                                    <span class="drmas-arrow drkernel-step-arrow">↓</span>
+                                    <span class="drkernel-step-node">3</span>
+                                </div>
+                                <strong>Multi-turn RL</strong>
+                            </div>
+                            <div class="drkernel-contribution">
+                                <div class="drkernel-mini" aria-hidden="true">
+                                    <svg viewBox="0 0 54 22">
+                                        <path class="mini-line" d="M3 17 L18 13 L34 9 L51 3" />
+                                        <circle class="mini-hot" cx="3" cy="17" r="2" />
+                                        <circle class="mini-hot" cx="18" cy="13" r="2" />
+                                        <circle class="mini-hot" cx="34" cy="9" r="2" />
+                                        <circle class="mini-hot" cx="51" cy="3" r="2" />
+                                    </svg>
+                                </div>
+                                <strong>Test-time scaling</strong>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="card-title">Dr. Kernel: Reinforcement Learning Done Right for Triton Kernel Generations</div>
@@ -856,7 +1751,44 @@ a.venue-badge:hover {
             <!-- SimpleTIR -->
             <div class="pub-card" id="simpletir" data-topic="agent" data-year="2025" data-selected="true">
                 <div class="card-media">
-                    <img src="data/projects/simpletir.png" alt="SimpleTIR" loading="lazy" decoding="async" />
+                    <div class="simpletir-diagram" role="img" aria-label="SimpleTIR filters trajectories containing void turns that produce neither code nor a final answer. This prevents unstable policy updates, producing rising scores and stable gradient norms compared with naive multi-turn training.">
+                        <div class="simpletir-filter">
+                            <div class="simpletir-filter-title">void-turn trajectory filtering</div>
+                            <div class="simpletir-filter-flow" aria-hidden="true">
+                                <span class="simpletir-turn">code /<br>answer</span>
+                                <span class="drmas-arrow simpletir-flow-arrow">↓</span>
+                                <span class="simpletir-turn simpletir-turn--void">void<br>turn</span>
+                                <span class="drmas-arrow simpletir-flow-arrow">↓</span>
+                                <span class="simpletir-action">skip<br>update</span>
+                            </div>
+                        </div>
+                        <div class="simpletir-results">
+                            <div class="simpletir-chart">
+                                <strong>score</strong>
+                                <svg viewBox="0 0 100 38" aria-hidden="true">
+                                    <path class="axis" d="M7 3V36H96" />
+                                    <path class="good" d="M7 34 L13 25 L19 19 L25 15 L31 12 L38 10 L45 8 L52 7 L60 6 L68 5" />
+                                    <path class="bad" d="M7 29 L13 21 L19 17 L25 15 L31 18 L36 24 L42 30 L49 34 L56 35 L62 35 L68 36" />
+                                    <circle class="good-dot" cx="68" cy="5" r="1.5" />
+                                    <circle class="bad-dot" cx="68" cy="36" r="1.5" />
+                                    <text class="good-label" x="71" y="7">SimpleTIR</text>
+                                    <text class="bad-label" x="71" y="31">naive</text>
+                                </svg>
+                            </div>
+                            <div class="simpletir-chart">
+                                <strong>grad norm</strong>
+                                <svg viewBox="0 0 100 38" aria-hidden="true">
+                                    <path class="axis" d="M7 3V36H96" />
+                                    <path class="good" d="M7 30 L14 31 L21 30.5 L28 31 L35 30.5 L42 31 L49 30.5 L56 31 L62 30.5 L68 31" />
+                                    <path class="bad" d="M7 30 L14 29 L21 27 L28 24 L35 20 L42 16 L47 8 L50 19 L54 4 L57 14 L60 2 L63 12 L66 3 L68 8" />
+                                    <circle class="good-dot" cx="68" cy="31" r="1.5" />
+                                    <circle class="bad-dot" cx="68" cy="8" r="1.5" />
+                                    <text class="bad-label" x="71" y="8">naive</text>
+                                    <text class="good-label" x="71" y="33">SimpleTIR</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="card-title">SimpleTIR: End-to-End Reinforcement Learning for Multi-Turn Tool-Integrated Reasoning</div>
@@ -913,7 +1845,7 @@ a.venue-badge:hover {
             </div>
 
             <!-- MEMO -->
-            <div class="pub-card" data-topic="video" data-year="2024" data-selected="true">
+            <div class="pub-card" id="memo" data-topic="video" data-year="2024" data-selected="true">
                 <div class="card-media">
                     <img src="data/projects/memo.gif" alt="MEMO" loading="lazy" decoding="async" />
                 </div>
@@ -1046,7 +1978,7 @@ a.venue-badge:hover {
             </div>
 
             <!-- SPC -->
-            <div class="pub-card" data-topic="marl" data-year="2022" data-selected="true">
+            <div class="pub-card" id="skilled-population" data-topic="marl" data-year="2022" data-selected="true">
                 <div class="card-media">
                     <video src="data/projects/spc.mp4" playsinline autoplay muted loop preload="metadata"></video>
                 </div>

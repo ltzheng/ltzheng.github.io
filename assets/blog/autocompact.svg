@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">AutoCompact context compaction</title>
+  <desc id="desc">A long noisy context is compressed into a small structured working state.</desc>
+  <rect width="640" height="400" fill="#eeeae3"/>
+  <text x="42" y="33" fill="#111" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">CONTEXT COMPACTION</text>
+  <g font-family="IBM Plex Mono, monospace">
+    <rect x="42" y="58" width="232" height="286" fill="#fffefa" stroke="#111" stroke-width="3"/>
+    <text x="61" y="85" fill="#111" font-size="12">FULL TRAJECTORY</text>
+    <g fill="#d8d4cc">
+      <rect x="61" y="105" width="194" height="25"/><rect x="61" y="137" width="194" height="25"/>
+      <rect x="61" y="201" width="194" height="25"/><rect x="61" y="233" width="194" height="25"/>
+      <rect x="61" y="265" width="194" height="25"/>
+    </g>
+    <g fill="#111"><rect x="61" y="169" width="194" height="25"/><rect x="61" y="297" width="194" height="25"/></g>
+    <g fill="#777" font-size="9"><text x="72" y="122">inspect / grep / retry</text><text x="72" y="154">long tool output</text><text x="72" y="218">failed edit</text><text x="72" y="250">stale hypothesis</text><text x="72" y="282">repeated context</text></g>
+    <g fill="#fffefa" font-size="9"><text x="72" y="186">current objective</text><text x="72" y="314">recent local state</text></g>
+    <path d="M304 201h62" stroke="#111" stroke-width="3"/><path d="m354 188 14 13-14 13" fill="none" stroke="#111" stroke-width="3"/>
+    <text x="335" y="181" fill="#d97757" font-size="11" text-anchor="middle">COMPACT</text>
+    <rect x="392" y="109" width="206" height="184" fill="#111" stroke="#111" stroke-width="3"/>
+    <text x="412" y="140" fill="#fffefa" font-size="12">WORKING STATE</text>
+    <line x1="412" y1="156" x2="578" y2="156" stroke="#777"/>
+    <g fill="#fffefa" font-size="10"><text x="412" y="184">01  objective</text><text x="412" y="211">02  changed files</text><text x="412" y="238">03  unresolved issues</text><text x="412" y="265">04  next action</text></g>
+  </g>
+  <text x="598" y="370" fill="#111" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="end">KEEP THE STATE, DROP THE NOISE</text>
+</svg>
