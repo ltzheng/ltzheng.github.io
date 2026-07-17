@@ -318,17 +318,17 @@ img, video {
 .causal-diagram,
 .coso-diagram {
     --diagram-title-size: 0.625rem;
-    --diagram-label-size: 0.46875rem;
-    --diagram-note-size: 0.40625rem;
-    --diagram-micro-size: 0.3125rem;
-    --diagram-arrow-size: 0.6875rem;
+    --diagram-label-size: 0.5rem;
+    --diagram-note-size: 0.4375rem;
+    --diagram-micro-size: 0.375rem;
+    --diagram-arrow-size: 0.625rem;
 }
 
 /* Cradle: real environments inside the same restrained visual system as the paper diagrams. */
 .cradle-diagram {
     --cradle-ink: #34312f;
     --cradle-muted: #8a8580;
-    --cradle-purple: #7a67bf;
+    --cradle-purple: #5d73c9;
     --cradle-green: #4f7f71;
     width: 100%;
     height: 120px;
@@ -371,8 +371,8 @@ img, video {
     position: relative;
     min-height: 0;
     overflow: hidden;
-    border: 1px solid #aaaeb7;
-    background: #e7e3de;
+    border: 1px solid #b8b2ac;
+    background: #eeeae3;
 }
 .cradle-screen img {
     position: absolute;
@@ -424,7 +424,7 @@ img, video {
     gap: 2px;
     color: var(--cradle-purple);
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
     text-align: center;
 }
@@ -462,8 +462,8 @@ img, video {
     display: grid;
     grid-template-rows: 9px 24px 8px 19px;
     align-items: center;
-    border: 1px solid rgba(122, 103, 191, 0.55);
-    background: rgba(122, 103, 191, 0.04);
+    border: 1px solid rgba(93, 115, 201, 0.55);
+    background: rgba(93, 115, 201, 0.04);
 }
 .cradle-agent > strong {
     color: var(--cradle-purple);
@@ -483,8 +483,8 @@ img, video {
     height: 17px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(122, 103, 191, 0.35);
-    background: #fff;
+    border: 1px solid rgba(93, 115, 201, 0.35);
+    background: var(--diagram-surface);
     color: var(--cradle-ink);
     font-size: var(--diagram-micro-size);
     font-weight: 600;
@@ -499,7 +499,7 @@ img, video {
 .cradle-agent-down {
     color: var(--cradle-green);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
     text-align: center;
 }
@@ -532,7 +532,7 @@ img, video {
 .cradle-diagram {
     --cradle-episodic: #d97757;
     --cradle-procedural: #5d73c9;
-    --cradle-arrow-width: 1px;
+    --cradle-arrow-width: 0.75px;
     --drmas-muted: var(--cradle-muted);
     position: relative;
     grid-template-rows: minmax(0, 1fr);
@@ -572,28 +572,28 @@ img, video {
     justify-items: center;
     gap: 3px;
     overflow: hidden;
-    border: 1px solid rgba(122, 103, 191, 0.36);
-    background: rgba(122, 103, 191, 0.04);
+    border: 1px solid rgba(93, 115, 201, 0.36);
+    background: rgba(93, 115, 201, 0.04);
     text-align: center;
 }
 .cradle-stage strong {
     color: var(--cradle-purple);
     font-size: var(--diagram-label-size);
-    line-height: 1;
-    white-space: nowrap;
+    line-height: 1.05;
+    white-space: normal;
 }
 .cradle-memory strong {
     color: var(--cradle-ink);
-    font-size: var(--diagram-note-size);
-    line-height: 1;
-    white-space: nowrap;
+    font-size: var(--diagram-label-size);
+    line-height: 1.05;
+    white-space: normal;
 }
 .cradle-stage small,
 .cradle-memory small {
     max-width: 100%;
     overflow: hidden;
     color: var(--cradle-muted);
-    font-size: 0.375rem;
+    font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1.1;
     text-overflow: ellipsis;
@@ -602,7 +602,7 @@ img, video {
 .cradle-stage--reflection,
 .cradle-stage--information {
     border-color: rgba(217, 119, 87, 0.5);
-    background: rgba(217, 119, 87, 0.05);
+    background: var(--diagram-surface);
 }
 .cradle-stage--reflection strong,
 .cradle-stage--information strong { color: var(--accent-hover); }
@@ -657,8 +657,8 @@ img, video {
 .cradle-memory {
     padding: 2px;
     gap: 1px;
-    border-color: #c8c2bc;
-    background: #fff;
+    border-color: #b8b2ac;
+    background: var(--diagram-surface);
 }
 .cradle-memory strong { color: var(--cradle-ink); }
 .cradle-memory-pair {
@@ -670,7 +670,7 @@ img, video {
     align-items: center;
     gap: 2px;
     color: var(--cradle-muted);
-    font-size: 0.375rem;
+    font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
     white-space: nowrap;
@@ -698,7 +698,19 @@ img, video {
     stroke-width: var(--cradle-arrow-width);
     vector-effect: non-scaling-stroke;
 }
-.cradle-environment-loop span {
+.cradle-environment-arrow {
+    position: absolute;
+    top: 0;
+    left: calc(14.423% - 5px);
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    display: block;
+    transform: rotate(180deg);
+    transform-origin: center;
+    text-align: center;
+}
+.cradle-environment-label {
     position: relative;
     z-index: 1;
     padding: 0 5px;
@@ -713,7 +725,7 @@ img, video {
     height: 100%;
     border-radius: 0;
     object-fit: contain;
-    background: #f1eee8;
+    background: #eeeae3;
     opacity: 0;
     pointer-events: none;
     filter: saturate(0.88) contrast(0.96);
@@ -732,7 +744,7 @@ img, video {
     --spc-ink: #34312f;
     --spc-muted: #8a8580;
     --spc-blue: #5d73c9;
-    --spc-purple: #7a67bf;
+    --spc-purple: #5d73c9;
     --spc-good: #4f7f71;
     --drmas-muted: #8a8580;
     position: relative;
@@ -762,8 +774,8 @@ img, video {
     display: grid;
     grid-template-rows: 10px minmax(0, 1fr);
     gap: 0.25rem;
-    border: 1px solid #aaaeb7;
-    background: #fff;
+    border: 1px solid #b8b2ac;
+    background: var(--diagram-surface);
 }
 .spc-module--student {
     border-color: rgba(79, 127, 113, 0.6);
@@ -776,13 +788,12 @@ img, video {
     gap: 0.15rem;
     color: var(--spc-blue);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .spc-module--student .spc-module-title { color: var(--spc-good); }
 .spc-module-title small {
     color: var(--spc-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
 }
@@ -799,7 +810,7 @@ img, video {
     border: 1px solid rgba(93, 115, 201, 0.35);
     color: var(--spc-muted);
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .spc-task--active {
@@ -836,12 +847,11 @@ img, video {
     border-right: 1px dashed #b8b2ac;
     color: var(--spc-good);
     font-size: var(--diagram-label-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .spc-population small {
     color: var(--spc-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
 }
@@ -855,11 +865,11 @@ img, video {
     height: 19px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(122, 103, 191, 0.38);
-    background: rgba(122, 103, 191, 0.06);
+    border: 1px solid rgba(93, 115, 201, 0.38);
+    background: rgba(93, 115, 201, 0.06);
     color: var(--spc-purple);
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .spc-result {
@@ -884,16 +894,16 @@ img, video {
     border-radius: 0;
     object-fit: contain;
     object-position: center;
-    background: #f1eee8;
+    background: #eeeae3;
     opacity: 0;
     pointer-events: none;
     filter: saturate(0.88) contrast(0.96);
     transition: opacity 160ms ease;
 }
-.pub-card .card-media .twosome-result-video { background: #f1eee8; }
+.pub-card .card-media .twosome-result-video { background: #eeeae3; }
 .pub-card .card-media .synapse-result-video {
     object-fit: contain;
-    background: #f1eee8;
+    background: #eeeae3;
     filter: none;
 }
 .pub-card .card-media .spc-diagram.is-previewing .spc-result-video,
@@ -951,9 +961,8 @@ img, video {
 .spc-result-label {
     min-width: 0;
     color: var(--spc-ink);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.15;
 }
 .spc-result-label small {
@@ -973,7 +982,6 @@ img, video {
     display: block;
     margin-top: 3px;
     color: var(--spc-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
 }
@@ -1030,7 +1038,7 @@ img, video {
     place-items: center;
     height: 18px;
     border: 1px solid #b8b2ac;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--coso-ink);
     font-size: var(--diagram-note-size);
     font-weight: 600;
@@ -1038,7 +1046,7 @@ img, video {
 }
 .coso-panel--counterfactual .coso-token:last-child {
     border-color: rgba(217, 119, 87, 0.65);
-    color: var(--coso-accent);
+    color: var(--coso-ink);
 }
 .coso-driver {
     height: 18px;
@@ -1061,7 +1069,6 @@ img, video {
 }
 .coso-bonus-label {
     color: var(--coso-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
@@ -1070,8 +1077,8 @@ img, video {
 .coso-bonus-track {
     height: 10px;
     padding: 2px;
-    border: 1px solid #c9c4be;
-    background: #fff;
+    border: 1px solid #b8b2ac;
+    background: var(--diagram-surface);
 }
 .coso-bonus-fill {
     width: 70%;
@@ -1081,19 +1088,17 @@ img, video {
 }
 .coso-bonus-fill--low {
     width: 28%;
-    background: #9d9892;
+    background: #8a8580;
 }
 .coso-bonus-fill--high { width: 92%; }
 .coso-panel-status,
 .coso-exploration-labels span {
     color: var(--coso-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-note-size);
     font-weight: 600;
     line-height: 1.05;
     text-align: center;
 }
-.coso-exploration-labels span:last-child { color: var(--coso-accent); }
 
 /* CTCAT: instance-wise feedback rectification removes type-confounding bias. */
 #causal-aht {
@@ -1105,7 +1110,7 @@ img, video {
 .causal-diagram {
     --causal-ink: #34312f;
     --causal-muted: #8a8580;
-    --causal-problem: #a86b59;
+    --causal-problem: #b86c68;
     --causal-success: #4f7f71;
     width: 100%;
     min-height: 132px;
@@ -1173,10 +1178,10 @@ img, video {
     display: grid;
     place-items: center;
     border: 1px solid var(--causal-ink);
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--causal-ink);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .causal-agent-node {
@@ -1202,7 +1207,6 @@ img, video {
 }
 .causal-scene-symbol {
     color: var(--causal-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-note-size);
     font-weight: 600;
     text-align: center;
@@ -1214,7 +1218,7 @@ img, video {
     place-items: center;
     padding: 0.14rem 0.18rem;
     border: 1px solid #b8b2ac;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--causal-muted);
     font-size: var(--diagram-micro-size);
     font-weight: 600;
@@ -1242,7 +1246,7 @@ img, video {
     display: grid;
     place-items: center;
     border: 1px solid var(--causal-ink);
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--causal-ink);
     font-size: var(--diagram-note-size);
     line-height: 1;
@@ -1264,8 +1268,8 @@ img, video {
     border-bottom-color: var(--causal-success);
 }
 .causal-status {
+    margin-top: 0.2rem;
     color: var(--causal-problem);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-label-size);
     font-weight: 600;
     line-height: 1;
@@ -1328,8 +1332,8 @@ img, video {
     display: grid;
     place-items: center;
     padding: 0.2rem;
-    border: 1px solid #aaaeb7;
-    background: #fff;
+    border: 1px solid #b8b2ac;
+    background: var(--diagram-surface);
     text-align: center;
 }
 .twosome-environment {
@@ -1352,14 +1356,13 @@ img, video {
     width: 5px;
     height: 5px;
     border: 1px solid var(--twosome-blue);
-    background: #fff;
+    background: var(--diagram-surface);
 }
 .twosome-scene::before { left: 3px; }
 .twosome-scene::after { right: 3px; }
 .twosome-environment small,
 .twosome-policy small {
     color: var(--twosome-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
@@ -1377,7 +1380,7 @@ img, video {
     place-items: center;
     color: var(--twosome-good);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .twosome-core-body {
@@ -1392,14 +1395,13 @@ img, video {
     place-items: center;
     color: var(--twosome-ink);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .twosome-llm small {
     display: block;
     margin-top: 2px;
     color: var(--twosome-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
 }
@@ -1463,9 +1465,8 @@ img, video {
     display: grid;
     place-items: center;
     border: 1px solid #b8b2ac;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--twosome-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
@@ -1475,7 +1476,7 @@ img, video {
     border-color: rgba(79, 127, 113, 0.55);
     color: var(--twosome-good);
     font-family: 'IBM Plex Mono', monospace;
-    font-weight: 700;
+    font-weight: 600;
 }
 .twosome-results {
     min-width: 0;
@@ -1493,9 +1494,8 @@ img, video {
     gap: 0.18rem;
     padding: 0.28rem 0.22rem;
     color: var(--twosome-good);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.05;
 }
 .twosome-result + .twosome-result {
@@ -1507,7 +1507,7 @@ img, video {
     display: grid;
     place-items: center;
     border: 1px solid rgba(79, 127, 113, 0.55);
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--twosome-good);
     font-family: 'IBM Plex Mono', monospace;
     font-size: var(--diagram-note-size);
@@ -1533,12 +1533,11 @@ img, video {
     gap: 0.25rem;
     color: var(--twosome-ink);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .twosome-section-title small {
     color: var(--twosome-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
 }
@@ -1554,10 +1553,9 @@ img, video {
     display: grid;
     place-items: center;
     padding: 0.2rem;
-    border: 1px solid #aaaeb7;
-    background: #fff;
+    border: 1px solid #b8b2ac;
+    background: var(--diagram-surface);
     color: var(--twosome-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1.08;
@@ -1577,7 +1575,7 @@ img, video {
     background: rgba(79, 127, 113, 0.06);
     color: var(--twosome-good);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
     text-align: center;
 }
@@ -1589,7 +1587,6 @@ img, video {
 .twosome-shared-llm small {
     border-top: 1px solid rgba(79, 127, 113, 0.35);
     color: var(--twosome-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
 }
@@ -1618,7 +1615,7 @@ img, video {
     grid-template-columns: minmax(0, 1fr) 27px;
     align-items: stretch;
     border: 1px solid currentColor;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--twosome-blue);
 }
 .twosome-head--critic { color: var(--twosome-red); }
@@ -1627,7 +1624,7 @@ img, video {
     display: grid;
     place-items: center;
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .twosome-head span {
@@ -1661,7 +1658,7 @@ img, video {
 .twosome-score-panel > strong {
     color: var(--twosome-muted);
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .twosome-score-panel--normalized > strong { color: var(--twosome-good); }
@@ -1674,7 +1671,6 @@ img, video {
 }
 .twosome-score-row span {
     color: var(--twosome-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
@@ -1684,7 +1680,7 @@ img, video {
     height: 7px;
     padding: 1px;
     border: 1px solid #b8b2ac;
-    background: #fff;
+    background: var(--diagram-surface);
 }
 .twosome-score-fill {
     width: 78%;
@@ -1699,7 +1695,7 @@ img, video {
 }
 .twosome-score-panel--normalized .twosome-score-fill--long {
     width: 84%;
-    background: var(--twosome-good);
+    background: rgba(79, 127, 113, 0.65);
 }
 .twosome-normalization-arrow {
     width: 10px;
@@ -1720,7 +1716,7 @@ img, video {
     --synapse-muted: #8a8580;
     --drmas-muted: #8a8580;
     --synapse-blue: #5d73c9;
-    --synapse-purple: #7a67bf;
+    --synapse-purple: #5d73c9;
     --synapse-red: #b86c68;
     --synapse-good: #4f7f71;
     position: relative;
@@ -1749,7 +1745,7 @@ img, video {
 .synapse-memory-title {
     color: var(--synapse-blue);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.1;
 }
 .synapse-memory-flow {
@@ -1764,10 +1760,10 @@ img, video {
     height: 20px;
     display: grid;
     place-items: center;
-    border: 1px solid #aaaeb7;
-    background: #fff;
+    border: 1px solid #b8b2ac;
+    background: var(--diagram-surface);
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .synapse-embed {
@@ -1776,7 +1772,6 @@ img, video {
 }
 .synapse-arrow {
     color: var(--synapse-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-label-size);
     line-height: 1;
     text-align: center;
@@ -1791,7 +1786,6 @@ img, video {
     position: absolute;
     top: 50%;
     left: 50%;
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-arrow-size);
     line-height: 0.75;
     transform: translate(-50%, -50%) rotate(-90deg);
@@ -1817,7 +1811,7 @@ img, video {
     place-items: center;
     margin: 0;
     border: 1px solid rgba(93, 115, 201, 0.55);
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--synapse-blue);
     font-size: var(--diagram-micro-size);
     font-weight: 600;
@@ -1852,7 +1846,7 @@ img, video {
 .synapse-panel-title {
     color: var(--synapse-muted);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .synapse-mini-flow {
@@ -1907,7 +1901,7 @@ img, video {
     display: grid;
     place-items: center;
     border: 1px solid var(--synapse-ink);
-    background: #fff;
+    background: var(--diagram-surface);
 }
 .synapse-page-lines,
 .synapse-action-lines {
@@ -1947,7 +1941,7 @@ img, video {
     background: rgba(79, 127, 113, 0.12);
     color: var(--synapse-good);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .synapse-history {
@@ -2003,7 +1997,7 @@ img, video {
     display: grid;
     place-items: center;
     border: 1px solid rgba(93, 115, 201, 0.55);
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--synapse-blue);
     font-size: var(--diagram-micro-size);
     font-weight: 600;
@@ -2014,7 +2008,6 @@ img, video {
     display: grid;
     place-items: center;
     color: var(--synapse-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-label-size);
     line-height: 1;
 }
@@ -2063,20 +2056,17 @@ img, video {
     display: grid;
     overflow: hidden;
     border: 1px solid #b8b2ac;
-    background: #fff;
+    background: var(--diagram-surface);
 }
 .magenta-games-title {
     min-height: 14px;
     display: grid;
     place-items: center;
     color: var(--magenta-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
 }
 .magenta-game {
     min-height: 18px;
@@ -2110,7 +2100,7 @@ img, video {
 .magenta-core-title {
     color: var(--accent-hover);
     font-size: var(--diagram-title-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
     text-align: center;
 }
@@ -2126,9 +2116,8 @@ img, video {
     display: grid;
     place-items: center;
     border: 1px solid #b8b2ac;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--magenta-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
@@ -2148,15 +2137,14 @@ img, video {
     place-items: center;
     padding: 0.2rem;
     border: 1px solid var(--magenta-ink);
-    background: #fff;
+    background: var(--diagram-surface);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.1;
     text-align: center;
 }
 .magenta-shared {
     color: var(--magenta-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
@@ -2176,7 +2164,7 @@ img, video {
     gap: 0.15rem;
     padding: 0.25rem 0.1rem;
     border: 1px solid rgba(79, 127, 113, 0.5);
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--magenta-success);
     text-align: center;
 }
@@ -2185,12 +2173,10 @@ img, video {
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
 }
 .magenta-agents strong {
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 /* FinAgent: multimodal market context becomes an explainable trading action. */
@@ -2233,20 +2219,17 @@ img, video {
     display: grid;
     overflow: hidden;
     border: 1px solid #b8b2ac;
-    background: #fff;
+    background: var(--diagram-surface);
 }
 .finagent-stage-title {
     min-height: 14px;
     display: grid;
     place-items: center;
     color: var(--finagent-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
 }
 .finagent-input {
     min-height: 18px;
@@ -2280,7 +2263,7 @@ img, video {
 .finagent-core-title {
     color: var(--accent-hover);
     font-size: var(--diagram-title-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
     text-align: center;
 }
@@ -2298,30 +2281,30 @@ img, video {
     place-items: center;
     padding: 0.05rem 0;
     border: 1px solid #b8b2ac;
-    background: #fff;
-    font-size: 0.28125rem;
+    background: var(--diagram-surface);
+    font-size: var(--diagram-micro-size);
     font-weight: 600;
     line-height: 1.05;
     text-align: center;
 }
 .finagent-component--memory {
-    border-color: rgba(63, 125, 177, 0.55);
-    color: #3f7db1;
+    border-color: rgba(93, 115, 201, 0.55);
+    color: #5d73c9;
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
 }
 .finagent-component--reflection {
-    border-color: rgba(127, 90, 166, 0.55);
-    color: #7f5aa6;
-    font-size: 0.25rem;
+    border-color: rgba(93, 115, 201, 0.55);
+    color: #5d73c9;
+    font-size: var(--diagram-micro-size);
 }
 .finagent-component--reasoning {
-    border-color: rgba(194, 123, 57, 0.6);
-    color: #a9662d;
+    border-color: rgba(217, 119, 87, 0.6);
+    color: var(--finagent-ink);
 }
 .finagent-component--tools {
-    border-color: rgba(43, 139, 149, 0.55);
-    color: #2b7f88;
+    border-color: rgba(93, 115, 201, 0.55);
+    color: #5d73c9;
 }
 .finagent-action {
     min-height: 18px;
@@ -2330,14 +2313,14 @@ img, video {
     padding: 0.08rem 0.1rem;
     border-top: 1px solid var(--card-border);
     font-size: var(--diagram-micro-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 .finagent-action--buy {
     color: #4f7f71;
 }
 .finagent-action--sell {
-    color: var(--finagent-accent);
+    color: var(--diagram-negative);
 }
 #dr-mas {
     grid-template-columns: 220px minmax(0, 1fr);
@@ -2348,7 +2331,7 @@ img, video {
 .drmas-diagram {
     --drmas-ink: #34312f;
     --drmas-muted: #8a8580;
-    --drmas-problem: #a86b59;
+    --drmas-problem: #b86c68;
     width: 100%;
     min-height: 132px;
     display: grid;
@@ -2417,7 +2400,7 @@ img, video {
     padding: 0 0.2rem;
     border: 1px solid var(--drmas-ink);
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--drmas-ink);
     font-size: var(--diagram-note-size);
     font-weight: 600;
@@ -2430,7 +2413,6 @@ img, video {
 .drmas-arrow {
     height: 10px;
     color: var(--drmas-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-arrow-size);
     line-height: 0.75;
     text-align: center;
@@ -2442,7 +2424,6 @@ img, video {
     grid-template-columns: minmax(0, 1fr) 0.22rem minmax(0, 1fr);
     align-items: center;
     color: var(--drmas-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-arrow-size);
     line-height: 0.75;
 }
@@ -2469,7 +2450,7 @@ img, video {
     padding: 0.2rem 0.3rem;
     border: 1px solid #b8b2ac;
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--drmas-ink);
     text-align: center;
     font-size: var(--diagram-note-size);
@@ -2503,7 +2484,6 @@ img, video {
 }
 .drmas-status {
     color: var(--drmas-problem);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-label-size);
     font-weight: 600;
     line-height: 1;
@@ -2552,8 +2532,8 @@ img, video {
     position: relative;
     display: grid;
     place-items: center;
-    border: 1px solid #aaaeb7;
-    background: #fff;
+    border: 1px solid #b8b2ac;
+    background: var(--diagram-surface);
 }
 .memo-portrait { overflow: hidden; }
 .memo-face {
@@ -2603,7 +2583,7 @@ img, video {
     grid-template-rows: repeat(3, 22px);
     gap: 0.22rem;
     border: 1px solid var(--memo-ink);
-    background: #fff;
+    background: var(--diagram-surface);
     box-shadow: 0 2px 0 var(--card-border);
 }
 .memo-module {
@@ -2614,7 +2594,7 @@ img, video {
     background: rgba(93, 115, 201, 0.07);
     color: var(--memo-blue);
     font-size: var(--diagram-note-size);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
     white-space: nowrap;
 }
@@ -2692,7 +2672,7 @@ img, video {
     height: 100%;
     border-radius: 0;
     object-fit: contain;
-    background: #f1eee8;
+    background: #eeeae3;
     opacity: 0;
     pointer-events: none;
     filter: none;
@@ -2716,7 +2696,7 @@ img, video {
 .otb-diagram {
     --otb-ink: #34312f;
     --otb-muted: #8a8580;
-    --otb-problem: #a86b59;
+    --otb-problem: #b86c68;
     width: 100%;
     min-height: 132px;
     display: grid;
@@ -2731,7 +2711,7 @@ img, video {
     min-width: 0;
     padding: 0.55rem 0.5rem 0.45rem;
     display: grid;
-    grid-template-rows: 10px 64px 8px 18px 8px;
+    grid-template-rows: 10px 64px 18px 8px;
     align-items: center;
     gap: 0.28rem;
 }
@@ -2776,10 +2756,9 @@ img, video {
     display: grid;
     grid-template-rows: 20px 10px 23px;
     align-items: center;
-    align-content: center;
+    align-content: start;
     justify-items: center;
-    gap: 0.28rem;
-    transform: translateY(-1px);
+    gap: 5.5px;
 }
 .otb-token-flow {
     width: calc(69px + 0.4rem);
@@ -2793,43 +2772,32 @@ img, video {
 .otb-token-path {
     height: 64px;
     display: grid;
-    grid-template-rows: 20px 16px 18px;
+    grid-template-rows: 20px 10px 23px;
     align-items: center;
     justify-items: center;
-    gap: 5px;
+    gap: 5.5px;
 }
-.otb-path-energy {
-    width: 23px;
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(217, 119, 87, 0.45);
-    border-radius: 0;
-    background: rgba(217, 119, 87, 0.16);
-    color: var(--accent-hover);
-    font-size: var(--diagram-note-size);
-    font-weight: 600;
-    line-height: 1;
-}
-.otb-token-path:nth-child(1) .otb-path-energy { height: 9px; align-self: end; }
-.otb-token-path:nth-child(2) .otb-path-energy { height: 13px; align-self: end; }
-.otb-token-path:nth-child(3) .otb-path-energy { height: 16px; align-self: end; }
 .otb-arrow {
     width: 100%;
     height: 10px;
     color: var(--otb-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-arrow-size);
     line-height: 0.75;
     text-align: center;
 }
+.otb-path-arrow {
+    width: 23px;
+    transform: translateY(1px);
+}
+.otb-shared-flow > .otb-arrow { transform: translateY(1px); }
 .otb-path-baseline {
     width: 23px;
-    min-height: 18px;
+    height: 23px;
     display: grid;
     place-items: center;
     border: 1px solid rgba(217, 119, 87, 0.45);
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--accent-hover);
     font-size: var(--diagram-note-size);
     font-weight: 600;
@@ -2841,7 +2809,7 @@ img, video {
     place-items: center;
     border: 1px solid var(--otb-ink);
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--otb-ink);
     font-size: var(--diagram-label-size);
     font-weight: 600;
@@ -2849,12 +2817,12 @@ img, video {
 }
 .otb-shared-baseline {
     width: 70px;
-    min-height: 23px;
+    height: 23px;
     display: grid;
     place-items: center;
     border: 1px solid #b8b2ac;
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--otb-ink);
     text-align: center;
     font-size: var(--diagram-note-size);
@@ -2868,7 +2836,7 @@ img, video {
     position: relative;
     width: 23px;
     border-radius: 0;
-    background: rgba(217, 119, 87, 0.2);
+    background: var(--diagram-surface);
     border: 1px solid rgba(217, 119, 87, 0.4);
     color: var(--accent-hover);
     text-align: center;
@@ -2886,7 +2854,7 @@ img, video {
     place-items: center;
     border: 1px solid rgba(217, 119, 87, 0.45);
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--accent-hover);
     font-size: var(--diagram-note-size);
     font-weight: 600;
@@ -2894,7 +2862,6 @@ img, video {
 .otb-caption {
     width: 100%;
     color: var(--otb-muted);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-note-size);
     font-weight: 500;
     line-height: 1;
@@ -2919,7 +2886,6 @@ img, video {
 }
 .otb-status {
     color: var(--otb-problem);
-    font-family: 'Inter', sans-serif;
     font-size: var(--diagram-label-size);
     font-weight: 600;
     line-height: 1;
@@ -2990,7 +2956,7 @@ img, video {
     place-items: center;
     border: 1px solid var(--text);
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--text);
     font-size: var(--diagram-note-size);
     font-weight: 600;
@@ -3058,7 +3024,7 @@ img, video {
     place-items: center;
     border: 1px solid var(--text);
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--text);
     font-size: var(--diagram-micro-size);
     font-weight: 600;
@@ -3094,7 +3060,7 @@ img, video {
 }
 .simpletir-diagram {
     --simpletir-good: #b45f4b;
-    --simpletir-bad: #5f3daf;
+    --simpletir-bad: #5d73c9;
     --simpletir-muted: #8a8580;
     width: 100%;
     min-height: 0;
@@ -3142,7 +3108,7 @@ img, video {
     place-items: center;
     border: 1px solid var(--text);
     border-radius: 0;
-    background: #fff;
+    background: var(--diagram-surface);
     color: var(--text);
     font-size: var(--diagram-note-size);
     font-weight: 600;
@@ -3198,7 +3164,7 @@ img, video {
 }
 .simpletir-chart .axis {
     fill: none;
-    stroke: #c8c2bc;
+    stroke: #b8b2ac;
     stroke-width: 1;
 }
 .simpletir-chart .good,
@@ -3372,6 +3338,7 @@ img, video {
 .agentstudio-benchmark {
     min-width: 0;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: 22px 5px;
     align-items: center;
     justify-items: center;
@@ -3395,6 +3362,7 @@ img, video {
     stroke: var(--agentstudio-accent);
 }
 .agentstudio-benchmark {
+    font-size: 0.3125rem;
     white-space: nowrap;
 }
 .agentstudio-benchmark svg {
@@ -3405,6 +3373,18 @@ img, video {
     stroke-width: 1.35;
     stroke-linecap: square;
     stroke-linejoin: miter;
+}
+@media (min-width: 761px) {
+    .agentstudio-component {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .agentstudio-tools,
+    .agentstudio-benchmarks {
+        grid-template-columns: repeat(3, 32px);
+        gap: 0;
+        justify-content: center;
+    }
 }
 @media (max-width: 760px) {
     #pub-card-container .pub-card {
@@ -3645,6 +3625,11 @@ a.venue-badge:hover {
     }
     .synapse-memory {
         padding: 0.38rem 0.65rem;
+        grid-template-columns: auto auto;
+        justify-content: center;
+    }
+    .synapse-memory-flow {
+        grid-template-columns: 24px 8px 31px 8px auto;
     }
     .synapse-panel {
         padding: 0.42rem 0.55rem;
@@ -3662,6 +3647,13 @@ a.venue-badge:hover {
         padding: 0;
         grid-template-rows: 58px auto;
         gap: 0;
+    }
+    .drkernel-foundation {
+        grid-template-columns: auto auto;
+        justify-content: center;
+    }
+    .drkernel-eval-flow {
+        grid-template-columns: 34px 10px 26px 10px auto;
     }
     .simpletir-diagram {
         min-height: 0;
@@ -3900,7 +3892,7 @@ a.venue-badge:hover {
 /* ========== Utility ========== */
 .hide { display: none !important; }
     </style>
-    <link rel="stylesheet" href="assets/css/home-editorial.css?v=20260714-5">
+    <link rel="stylesheet" href="assets/css/home-editorial.css?v=20260717-11">
 </head>
 
 <body>
@@ -4037,7 +4029,7 @@ a.venue-badge:hover {
         <div class="blog-list">
             <article class="blog-card" id="fully-async-agentic-rl">
                 <div class="blog-cover">
-                    <img src="assets/blog/async-agentic-rl.svg" alt="Parallel agent workers connected to an asynchronous RL trainer">
+                    <img src="assets/blog/async-agentic-rl.svg?v=20260717-8" alt="Parallel agent workers connected to an asynchronous RL trainer">
                 </div>
                 <div class="blog-meta">
                     <span class="blog-date">Coming soon</span>
@@ -4050,7 +4042,7 @@ a.venue-badge:hover {
             </article>
             <article class="blog-card" id="autocompact">
                 <div class="blog-cover">
-                    <img src="assets/blog/autocompact.svg" alt="A noisy trajectory compressed into a compact working state">
+                    <img src="assets/blog/autocompact.svg?v=20260717-8" alt="A noisy trajectory compressed into a compact working state">
                 </div>
                 <div class="blog-meta">
                     <span class="blog-date">Coming soon</span>
@@ -4063,7 +4055,7 @@ a.venue-badge:hover {
             </article>
             <article class="blog-card" id="hitchhikers-guide">
                 <div class="blog-cover">
-                    <img src="assets/blog/llm-rl-science.svg" alt="The four-question learning loop of LLM reinforcement learning">
+                    <img src="assets/blog/llm-rl-science.svg?v=20260717-8" alt="The four-question learning loop of LLM reinforcement learning">
                 </div>
                 <div class="blog-meta">
                     <span class="blog-date">Coming soon</span>
@@ -4141,7 +4133,7 @@ a.venue-badge:hover {
             <!-- OTB -->
             <div class="pub-card" id="optimal-token-baseline" data-topic="agent" data-year="2026" data-selected="true">
                 <div class="card-media">
-                    <div class="otb-diagram" role="img" aria-label="A group-mean baseline gives every token the same baseline and leaves high gradient variance. The Optimal Token Baseline weights each token by its cumulative uncertainty to produce a distinct token-level baseline and lower gradient variance.">
+                    <div class="otb-diagram" role="img" aria-label="GRPO uses a shared sequence-level baseline and has high gradient variance. The Optimal Token Baseline produces distinct token-level baselines and lower gradient variance.">
                         <div class="otb-panel otb-panel--problem">
                             <div class="otb-panel-title"><span>GRPO</span><small>shared</small></div>
                             <div class="otb-shared-flow" aria-hidden="true">
@@ -4149,9 +4141,8 @@ a.venue-badge:hover {
                                     <span class="otb-token">t1</span><span class="otb-token">t2</span><span class="otb-token">t3</span>
                                 </div>
                                 <div class="otb-arrow">↓</div>
-                                <div class="otb-shared-baseline">Sequence-level baseline</div>
+                                <div class="otb-shared-baseline">same baseline</div>
                             </div>
-                            <div class="otb-caption">same for every token</div>
                             <svg class="otb-sparkline" viewBox="0 0 96 17" preserveAspectRatio="none" aria-hidden="true">
                                 <path class="signal" d="M2 14 L8 12 L13 3 L19 14 L25 6 L31 13 L37 2 L43 14 L49 5 L55 13 L61 3 L67 14 L73 6 L79 12 L85 4 L91 13 L94 7" />
                             </svg>
@@ -4161,16 +4152,15 @@ a.venue-badge:hover {
                             <div class="otb-panel-title"><span>OTB</span><small>per-token</small></div>
                             <div class="otb-token-flow" aria-hidden="true">
                                 <div class="otb-token-path">
-                                    <span class="otb-token">t1</span><span class="otb-path-energy">W1</span><span class="otb-path-baseline">B1</span>
+                                    <span class="otb-token">t1</span><span class="otb-arrow otb-path-arrow">↓</span><span class="otb-path-baseline">B1</span>
                                 </div>
                                 <div class="otb-token-path">
-                                    <span class="otb-token">t2</span><span class="otb-path-energy">W2</span><span class="otb-path-baseline">B2</span>
+                                    <span class="otb-token">t2</span><span class="otb-arrow otb-path-arrow">↓</span><span class="otb-path-baseline">B2</span>
                                 </div>
                                 <div class="otb-token-path">
-                                    <span class="otb-token">t3</span><span class="otb-path-energy">W3</span><span class="otb-path-baseline">B3</span>
+                                    <span class="otb-token">t3</span><span class="otb-arrow otb-path-arrow">↓</span><span class="otb-path-baseline">B3</span>
                                 </div>
                             </div>
-                            <div class="otb-caption">W: cumulative uncertainty</div>
                             <svg class="otb-sparkline" viewBox="0 0 96 17" preserveAspectRatio="none" aria-hidden="true">
                                 <path class="signal" d="M2 10 L8 9 L14 10 L20 8.5 L26 10 L32 9 L38 10.5 L44 9 L50 10 L56 8.8 L62 10 L68 9.2 L74 10.3 L80 9 L86 10 L94 9.3" />
                             </svg>
@@ -4361,11 +4351,11 @@ a.venue-badge:hover {
                         <video class="cradle-hover-video" data-hover-preview src="data/projects/cradle.mp4" playsinline muted loop preload="metadata" tabindex="-1" aria-hidden="true"></video>
                         <div class="cradle-system" aria-hidden="true">
                             <div class="cradle-pipeline">
-                                <div class="cradle-stage cradle-stage--reflection"><strong>SELF-REFLECT</strong></div>
+                                <div class="cradle-stage cradle-stage--reflection"><strong>SELF-<br>REFLECT</strong></div>
                                 <span class="cradle-flow-slot"><span class="drmas-arrow cradle-flow-arrow">↓</span></span>
-                                <div class="cradle-stage"><strong>TASK INFER</strong></div>
+                                <div class="cradle-stage"><strong>TASK<br>INFER</strong></div>
                                 <span class="cradle-flow-slot"><span class="drmas-arrow cradle-flow-arrow">↓</span></span>
-                                <div class="cradle-stage cradle-stage--skills"><strong>SKILL CURATE</strong></div>
+                                <div class="cradle-stage cradle-stage--skills"><strong>SKILL<br>CURATE</strong></div>
                             </div>
                             <div class="cradle-vertical-links">
                                 <span class="drmas-arrow cradle-vertical-arrow cradle-vertical-arrow--up">↓</span>
@@ -4373,18 +4363,18 @@ a.venue-badge:hover {
                                 <span class="drmas-arrow cradle-vertical-arrow cradle-vertical-arrow--down">↓</span>
                             </div>
                             <div class="cradle-support">
-                                <div class="cradle-stage cradle-stage--information"><strong>INFO GATHER</strong></div>
+                                <div class="cradle-stage cradle-stage--information"><strong>INFO<br>GATHER</strong></div>
                                 <div class="cradle-memory">
-                                    <strong>SHARED MEMORY</strong>
+                                    <strong>SHARED<br>MEMORY</strong>
                                 </div>
-                                <div class="cradle-stage cradle-stage--action"><strong>ACTION PLAN</strong></div>
+                                <div class="cradle-stage cradle-stage--action"><strong>ACTION<br>PLAN</strong></div>
                             </div>
                             <div class="cradle-environment-loop">
                                 <svg viewBox="0 0 208 12" preserveAspectRatio="none" aria-hidden="true">
-                                    <path d="M178 2 V8 H30 V2"></path>
-                                    <path class="cradle-loop-arrowhead" d="M27 6 L30 2 L33 6"></path>
+                                    <path d="M178 2 V8 H30"></path>
                                 </svg>
-                                <span>Environment</span>
+                                <span class="drmas-arrow cradle-environment-arrow" aria-hidden="true">↓</span>
+                                <span class="cradle-environment-label">Environment</span>
                             </div>
                         </div>
                     </div>
@@ -4583,11 +4573,11 @@ a.venue-badge:hover {
                             <div class="synapse-panel">
                                 <div class="synapse-panel-title">Observation abstraction</div>
                                 <div class="synapse-mini-flow synapse-mini-flow--trajectory">
-                                    <span class="synapse-visual-node"><span class="synapse-page"><span class="synapse-page-lines"><i></i><i></i><i></i><i></i><i></i></span></span><small>raw<br>observation</small></span>
+                                    <span class="synapse-visual-node"><span class="synapse-page"><span class="synapse-page-lines"><i></i><i></i><i></i><i></i><i></i></span></span><small>raw obs</small></span>
                                     <span class="synapse-arrow synapse-arrow--horizontal drmas-arrow">↓</span>
                                     <span class="synapse-visual-node synapse-prompt-node"><span class="synapse-prompt-memory">memory</span><span class="synapse-down-arrow drmas-arrow">↓</span><span class="synapse-llm">LLM</span></span>
                                     <span class="synapse-arrow synapse-arrow--horizontal drmas-arrow">↓</span>
-                                    <span class="synapse-visual-node"><span class="synapse-page synapse-page--clean"><span class="synapse-page-lines"><i></i><i></i><i></i></span></span><small>clean<br>observation</small></span>
+                                    <span class="synapse-visual-node"><span class="synapse-page synapse-page--clean"><span class="synapse-page-lines"><i></i><i></i><i></i></span></span><small>clean obs</small></span>
                                 </div>
                             </div>
                             <div class="synapse-panel">
@@ -4676,7 +4666,7 @@ a.venue-badge:hover {
                 <div class="card-media">
                     <div class="causal-diagram" role="img" aria-label="Our agent cooperates with different teammate instances on a joint task. In the baseline, Action A is learned mostly with Teammate 1 and Action B mostly with Teammate 2, so teammate differences bias the action comparison. CTCAT adjusts overrepresented and underrepresented teammates within each action, producing a stable action choice when teammate proportions change.">
                         <div class="causal-panel causal-panel--problem">
-                            <div class="causal-panel-title"><span>Baseline</span><small>confounded</small></div>
+                            <div class="causal-panel-title"><span>Baseline</span></div>
                             <div class="causal-scene" aria-hidden="true">
                                 <span class="causal-scene-unit"><b class="causal-agent-node">A</b><small>our agent</small></span>
                                 <span class="causal-scene-symbol">+</span>
@@ -4685,10 +4675,10 @@ a.venue-badge:hover {
                             <div class="causal-action-note">different actions see different teammates</div>
                             <div class="causal-action-row"><strong>A</strong><span>mostly T1</span></div>
                             <div class="causal-action-row"><strong>B</strong><span>mostly T2</span></div>
-                            <div class="causal-status">Biased action choice</div>
+                            <div class="causal-status">confounded</div>
                         </div>
                         <div class="causal-panel causal-panel--solution">
-                            <div class="causal-panel-title"><span>CTCAT</span><small>rectified</small></div>
+                            <div class="causal-panel-title"><span>CTCAT</span></div>
                             <div class="causal-scene" aria-hidden="true">
                                 <span class="causal-scene-unit"><b class="causal-agent-node">A</b><small>our agent</small></span>
                                 <span class="causal-scene-symbol">+</span>
@@ -4697,7 +4687,7 @@ a.venue-badge:hover {
                             <div class="causal-rectify-note"><span>overrep. ↓</span><span>underrep. ↑</span></div>
                             <div class="causal-action-row"><strong>A</strong><span>T1 + T2 adjusted</span></div>
                             <div class="causal-action-row"><strong>B</strong><span>T1 + T2 adjusted</span></div>
-                            <div class="causal-status">Stable under shifts</div>
+                            <div class="causal-status">rectified</div>
                         </div>
                     </div>
                 </div>
@@ -4719,7 +4709,7 @@ a.venue-badge:hover {
                     <div class="magenta-diagram" role="img" aria-label="Honor of Kings, StarCraft II, and Neural MMO represent agents and game units as entity tokens for one shared MAGENTA Entity Transformer. The resulting generalist policy supports varying numbers of agents.">
                         <div class="magenta-stage">
                             <div class="magenta-games" aria-hidden="true">
-                                <span class="magenta-games-title">game</span>
+                                <span class="magenta-games-title">Games</span>
                                 <span class="magenta-game">Honor of Kings</span>
                                 <span class="magenta-game">StarCraft II</span>
                                 <span class="magenta-game">Neural MMO</span>
@@ -4739,7 +4729,7 @@ a.venue-badge:hover {
                         <div class="magenta-stage">
                             <div class="magenta-results" aria-hidden="true">
                                 <div class="magenta-agents">
-                                    <span class="magenta-result-title">generalist</span>
+                                    <span class="magenta-result-title">Generalist</span>
                                     <strong>1 ↔ N agents</strong>
                                 </div>
                             </div>

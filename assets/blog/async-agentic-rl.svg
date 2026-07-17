@@ -2,25 +2,23 @@
   <title id="title">Fully asynchronous agentic reinforcement learning</title>
   <desc id="desc">Parallel agent workers send trajectories through a black-box boundary to an asynchronous trainer.</desc>
   <rect width="640" height="400" fill="#eeeae3"/>
-  <g fill="none" stroke="#111" stroke-width="3">
+  <g fill="none" stroke="#34312f" stroke-width="2.5">
     <rect x="42" y="58" width="142" height="78" fill="#fffefa"/>
     <rect x="42" y="162" width="142" height="78" fill="#fffefa"/>
     <rect x="42" y="266" width="142" height="78" fill="#fffefa"/>
     <path d="M184 97h67M184 201h67M184 305h67M251 97v208"/>
-    <rect x="251" y="142" width="138" height="118" fill="#111"/>
+    <rect x="251" y="142" width="138" height="118" fill="#34312f"/>
     <path d="M389 201h74"/>
     <rect x="463" y="117" width="135" height="168" fill="#fffefa"/>
   </g>
-  <g fill="#111" font-family="IBM Plex Mono, monospace">
-    <text x="58" y="85" font-size="14">AGENT 01</text><text x="58" y="113" font-size="11">observe → act</text>
-    <text x="58" y="189" font-size="14">AGENT 02</text><text x="58" y="217" font-size="11">observe → act</text>
-    <text x="58" y="293" font-size="14">AGENT N</text><text x="58" y="321" font-size="11">observe → act</text>
-    <text x="485" y="151" font-size="14">TRAINER</text><text x="485" y="178" font-size="11">sample</text><text x="485" y="199" font-size="11">learn</text><text x="485" y="220" font-size="11">publish</text>
+  <g fill="#34312f" font-family="IBM Plex Mono, monospace">
+    <text x="58" y="101" font-size="14">AGENT 01</text>
+    <text x="58" y="205" font-size="14">AGENT 02</text>
+    <text x="58" y="309" font-size="14">AGENT N</text>
+    <text x="530.5" y="206" font-size="14" text-anchor="middle">TRAINER</text>
   </g>
   <g fill="#fffefa" font-family="IBM Plex Mono, monospace" text-anchor="middle">
     <text x="320" y="181" font-size="12">BLACK-BOX</text><text x="320" y="202" font-size="12">API</text><text x="320" y="229" font-size="28">↯</text>
   </g>
   <g fill="#d97757"><circle cx="218" cy="97" r="7"/><circle cx="218" cy="201" r="7"/><circle cx="218" cy="305" r="7"/><circle cx="426" cy="201" r="7"/></g>
-  <text x="42" y="33" fill="#111" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">FULLY ASYNCHRONOUS</text>
-  <text x="598" y="370" fill="#111" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="end">ROLL OUT / LEARN / REPEAT</text>
 </svg>

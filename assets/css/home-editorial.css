@@ -591,6 +591,252 @@ a.venue-badge:hover {
     border-top: 0;
 }
 
+/* ===== Shared diagram language =====
+   Keep the warm editorial palette while giving every project thumbnail the
+   same typography, semantic colors, structural edges, and arrow weight. */
+:root {
+    --diagram-ink: #34312f;
+    --diagram-muted: #8a8580;
+    --diagram-line: #b8b2ac;
+    --diagram-canvas: #eeeae3;
+    --diagram-surface: #fffefa;
+    --diagram-accent: #d97757;
+    --diagram-accent-strong: #b45f4b;
+    --diagram-info: #5d73c9;
+    --diagram-positive: #4f7f71;
+    --diagram-negative: #b86c68;
+    --diagram-stroke: 1px;
+}
+
+:is(
+    .drmas-diagram,
+    .otb-diagram,
+    .drkernel-diagram,
+    .simpletir-diagram,
+    .agentstudio-diagram,
+    .cradle-diagram,
+    .memo-diagram,
+    .finagent-diagram,
+    .magenta-diagram,
+    .synapse-diagram,
+    .spc-diagram,
+    .twosome-diagram,
+    .causal-diagram,
+    .coso-diagram
+) {
+    --diagram-title-size: 0.625rem;
+    --diagram-label-size: 0.5rem;
+    --diagram-note-size: 0.4375rem;
+    --diagram-micro-size: 0.375rem;
+    --diagram-arrow-size: 0.625rem;
+    --text: var(--diagram-ink);
+    --text-secondary: var(--diagram-muted);
+    --accent: var(--diagram-accent);
+    --accent-hover: var(--diagram-ink);
+    --card-bg: var(--diagram-surface);
+    --card-border: var(--diagram-line);
+    --divider: var(--diagram-line);
+    --badge-bg: var(--diagram-surface);
+    border: var(--diagram-stroke) solid var(--card-border);
+    border-radius: 0;
+    background: var(--bg);
+    color: var(--diagram-ink);
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-synthesis: none;
+}
+
+/* Four fixed text roles across every compact figure: 10 / 8 / 7 / 6px. */
+.cradle-stage small,
+.cradle-memory small,
+.cradle-memory-chip,
+.finagent-component,
+.finagent-component--reflection {
+    font-size: var(--diagram-micro-size);
+}
+
+.drkernel-foundation strong {
+    letter-spacing: -0.03em;
+}
+
+:is(
+    .drmas-diagram,
+    .otb-diagram,
+    .drkernel-diagram,
+    .simpletir-diagram,
+    .agentstudio-diagram,
+    .cradle-diagram,
+    .memo-diagram,
+    .finagent-diagram,
+    .magenta-diagram,
+    .synapse-diagram,
+    .spc-diagram,
+    .twosome-diagram,
+    .causal-diagram,
+    .coso-diagram
+) * {
+    font-family: inherit;
+    box-shadow: none;
+}
+
+:is(
+    .drmas-diagram,
+    .otb-diagram,
+    .drkernel-diagram,
+    .simpletir-diagram,
+    .agentstudio-diagram,
+    .cradle-diagram,
+    .memo-diagram,
+    .finagent-diagram,
+    .magenta-diagram,
+    .synapse-diagram,
+    .spc-diagram,
+    .twosome-diagram,
+    .causal-diagram,
+    .coso-diagram
+) :is(strong, b) {
+    font-weight: 600;
+}
+
+.cradle-diagram {
+    --cradle-ink: var(--diagram-ink);
+    --cradle-muted: var(--diagram-muted);
+    --cradle-purple: var(--diagram-info);
+    --cradle-green: var(--diagram-positive);
+    --cradle-episodic: var(--diagram-accent);
+    --cradle-procedural: var(--diagram-info);
+    --drmas-muted: var(--diagram-muted);
+}
+
+.spc-diagram {
+    --spc-ink: var(--diagram-ink);
+    --spc-muted: var(--diagram-muted);
+    --spc-blue: var(--diagram-info);
+    --spc-purple: var(--diagram-info);
+    --spc-good: var(--diagram-positive);
+    --drmas-muted: var(--diagram-muted);
+}
+
+.coso-diagram {
+    --coso-ink: var(--diagram-ink);
+    --coso-muted: var(--diagram-muted);
+    --coso-accent: var(--diagram-accent);
+}
+
+.causal-diagram {
+    --causal-ink: var(--diagram-ink);
+    --causal-muted: var(--diagram-muted);
+    --causal-problem: var(--diagram-negative);
+    --causal-success: var(--diagram-positive);
+}
+
+.twosome-diagram {
+    --twosome-ink: var(--diagram-ink);
+    --twosome-muted: var(--diagram-muted);
+    --twosome-blue: var(--diagram-info);
+    --twosome-red: var(--diagram-negative);
+    --twosome-good: var(--diagram-positive);
+    --drmas-muted: var(--diagram-muted);
+}
+
+.synapse-diagram {
+    --synapse-ink: var(--diagram-ink);
+    --synapse-muted: var(--diagram-muted);
+    --synapse-blue: var(--diagram-info);
+    --synapse-purple: var(--diagram-info);
+    --synapse-red: var(--diagram-negative);
+    --synapse-good: var(--diagram-positive);
+    --drmas-muted: var(--diagram-muted);
+}
+
+.magenta-diagram {
+    --magenta-ink: var(--diagram-ink);
+    --magenta-muted: var(--diagram-muted);
+    --magenta-accent: var(--diagram-accent-strong);
+    --magenta-success: var(--diagram-positive);
+    --drmas-muted: var(--diagram-muted);
+}
+
+.finagent-diagram {
+    --finagent-ink: var(--diagram-ink);
+    --finagent-muted: var(--diagram-muted);
+    --finagent-accent: var(--diagram-accent-strong);
+    --drmas-muted: var(--diagram-muted);
+}
+
+.drmas-diagram {
+    --drmas-ink: var(--diagram-ink);
+    --drmas-muted: var(--diagram-muted);
+    --drmas-problem: var(--diagram-negative);
+}
+
+.memo-diagram {
+    --memo-ink: var(--diagram-ink);
+    --memo-muted: var(--diagram-muted);
+    --memo-blue: var(--diagram-info);
+    --memo-red: var(--diagram-negative);
+    --memo-good: var(--diagram-positive);
+    --drmas-muted: var(--diagram-muted);
+}
+
+.otb-diagram {
+    --otb-ink: var(--diagram-ink);
+    --otb-muted: var(--diagram-muted);
+    --otb-problem: var(--diagram-negative);
+}
+
+.simpletir-diagram {
+    --simpletir-good: var(--diagram-accent-strong);
+    --simpletir-bad: var(--diagram-info);
+    --simpletir-muted: var(--diagram-muted);
+}
+
+.agentstudio-diagram {
+    --agentstudio-ink: var(--diagram-ink);
+    --agentstudio-accent: var(--diagram-accent-strong);
+}
+
+/* Structural boxes stay square and flat; circles remain reserved for status
+   points, portraits, and other genuinely circular symbols. */
+.memo-output,
+.memo-core,
+.drmas-agent,
+.otb-shared,
+.otb-token,
+.otb-baseline,
+.drkernel-foundation,
+.drkernel-eval-node,
+.drkernel-step-node {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* One optical arrow treatment for every compact architecture diagram. */
+.drmas-arrow,
+.drmas-arrows,
+.synapse-arrow,
+.synapse-down-arrow,
+.synapse-arrow.synapse-arrow--horizontal::before {
+    color: var(--diagram-muted);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: var(--diagram-arrow-size);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.agentstudio-flow-arrow {
+    stroke-width: 1;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+}
+
+/* Match the optical weight of the 10px IBM Plex Mono arrow glyphs. */
+.cradle-environment-loop svg > path {
+    stroke-width: 0.75;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+}
+
 @media (max-width: 900px) {
     .home-hero-copy { grid-column: 1 / -1; }
     .header-top { grid-column: 1 / span 4; }
