@@ -3901,7 +3901,7 @@ a.venue-badge:hover {
     <a class="nav-name" href="#">LONGTAO ZHENG / &#x90D1;&#x9F99;&#x97EC;</a>
     <div class="nav-links">
         <a href="#research-section">RESEARCH</a>
-        <a href="#blog-section">BLOGS</a>
+        <a href="#blog-section" hidden>BLOGS</a>
         <a href="#pub-section">PUBLICATIONS</a>
         <a href="static/Longtao_Zheng_CV.pdf">CV</a>
     </div>
@@ -4022,12 +4022,12 @@ a.venue-badge:hover {
     </section>
 
     <!-- ===== Blogs ===== -->
-    <section id="blog-section" class="blog-preview">
+    <section id="blog-section" class="blog-preview" hidden>
         <div class="section-title-row">
             <span class="section-heading">Blogs</span>
         </div>
         <div class="blog-list">
-            <article class="blog-card" id="fully-async-agentic-rl">
+            <a class="blog-card" id="fully-async-agentic-rl" href="blogs/fully-async-black-box-agentic-rl.html">
                 <div class="blog-cover">
                     <img src="assets/blog/async-agentic-rl.svg?v=20260717-8" alt="Parallel agent workers connected to an asynchronous RL trainer">
                 </div>
@@ -4039,8 +4039,8 @@ a.venue-badge:hover {
                     <h3>How to build a fully asynchronous black-box agentic RL system</h3>
                     <p>A first-principles design for fully asynchronous RL with any agent harness</p>
                 </div>
-            </article>
-            <article class="blog-card" id="autocompact">
+            </a>
+            <a class="blog-card" id="autocompact" href="blogs/autocompact.html">
                 <div class="blog-cover">
                     <img src="assets/blog/autocompact.svg?v=20260717-8" alt="A noisy trajectory compressed into a compact working state">
                 </div>
@@ -4052,8 +4052,8 @@ a.venue-badge:hover {
                     <h3>Learning when to compact context in long-horizon coding agents</h3>
                     <p>Teaching coding agents to adaptively compress noisy history into useful context</p>
                 </div>
-            </article>
-            <article class="blog-card" id="hitchhikers-guide">
+            </a>
+            <a class="blog-card" id="hitchhikers-guide" href="blogs/llm-rl-science.html">
                 <div class="blog-cover">
                     <img src="assets/blog/llm-rl-science.svg?v=20260717-8" alt="The four-question learning loop of LLM reinforcement learning">
                 </div>
@@ -4065,7 +4065,7 @@ a.venue-badge:hover {
                     <h3>The science of LLM RL</h3>
                     <p>LLM RL = task distribution + rollout policy + credit assignment + stable policy updates</p>
                 </div>
-            </article>
+            </a>
         </div>
     </section>
 
