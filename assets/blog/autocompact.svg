@@ -1,24 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
   <title id="title">AutoCompact context compaction</title>
-  <desc id="desc">A long noisy context is compressed into a small structured working state.</desc>
+  <desc id="desc">A context window calls compact, then an arrow from below leads to a concise summary that continues to a final answer.</desc>
+  <defs>
+    <pattern id="summary-stripes" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#f3c5b5"/>
+      <rect width="3" height="12" fill="#e8ad99"/>
+    </pattern>
+    <marker id="arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 8 4 0 8" fill="none" stroke="#34312f" stroke-width="1.4"/>
+    </marker>
+  </defs>
+
   <rect width="640" height="400" fill="#eeeae3"/>
-  <g font-family="IBM Plex Mono, monospace" font-weight="500">
-    <rect x="42" y="58" width="232" height="286" fill="#fffefa" stroke="#34312f" stroke-width="2.5"/>
-    <text x="61" y="85" fill="#34312f" font-size="21" font-weight="600">NOISY HISTORY</text>
-    <g fill="#b8b2ac">
-      <rect x="61" y="105" width="194" height="25"/><rect x="61" y="137" width="194" height="25"/>
-      <rect x="61" y="201" width="194" height="25"/><rect x="61" y="233" width="194" height="25"/>
-      <rect x="61" y="265" width="194" height="25"/>
+  <g font-family="IBM Plex Mono, monospace" font-weight="500" fill="#34312f">
+    <!-- Context before compaction. -->
+    <g>
+      <rect x="50" y="48" width="210" height="250" fill="#fffefa" stroke="#34312f" stroke-width="2.5"/>
+
+      <rect x="50" y="48" width="210" height="38" fill="#f3c5b5" stroke="#34312f" stroke-width="2.5"/>
+      <text x="155" y="73" font-size="19" font-weight="600" text-anchor="middle">PROMPT</text>
+
+      <rect x="50" y="86" width="210" height="58" fill="#f3f6fd" stroke="#34312f" stroke-width="2.5"/>
+      <text x="155" y="120" font-size="20" text-anchor="middle">REASON</text>
+
+      <rect x="50" y="144" width="210" height="31" fill="#fffefa" stroke="#34312f" stroke-width="2.5"/>
+      <text x="155" y="165" font-size="17" text-anchor="middle">TOOL</text>
+
+      <rect x="50" y="175" width="210" height="31" fill="#fffefa" stroke="#34312f" stroke-width="2.5"/>
+      <text x="155" y="196" font-size="17" text-anchor="middle">RESULT</text>
+
+      <rect x="50" y="206" width="210" height="42" fill="#f3f6fd" stroke="#34312f" stroke-width="2.5"/>
+      <text x="155" y="233" font-size="19" text-anchor="middle">REASON</text>
+
+      <rect x="50" y="248" width="210" height="50" fill="#fff8f5" stroke="#34312f" stroke-width="2.5"/>
+      <text x="155" y="279" fill="#b45f4b" font-size="20" font-weight="600" text-anchor="middle">COMPACT()</text>
     </g>
-    <g fill="#34312f"><rect x="61" y="169" width="194" height="25"/><rect x="61" y="297" width="194" height="25"/></g>
-    <path d="M304 201h62" stroke="#34312f" stroke-width="2.5"/><path d="m354 188 14 13-14 13" fill="none" stroke="#34312f" stroke-width="2.5"/>
-    <text x="335" y="181" fill="#d97757" font-size="20" font-weight="600" text-anchor="middle">COMPACT</text>
-    <rect x="392" y="109" width="206" height="184" fill="#34312f" stroke="#34312f" stroke-width="2.5"/>
-    <text x="412" y="140" fill="#fffefa" font-size="21" font-weight="600">USEFUL CONTEXT</text>
-    <line x1="412" y1="156" x2="578" y2="156" stroke="#8a8580"/>
-    <g fill="#fffefa">
-      <rect x="412" y="176" width="108" height="7"/><rect x="412" y="203" width="142" height="7"/>
-      <rect x="412" y="230" width="126" height="7"/><rect x="412" y="257" width="92" height="7"/>
+
+    <!-- The compact action exits below the old context and enters the new one. -->
+    <path d="M155 300V350H320V77H368" fill="none" stroke="#34312f" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+    <!-- Useful context after compaction. -->
+    <g>
+      <rect x="380" y="48" width="210" height="250" fill="#fffefa" stroke="#34312f" stroke-width="2.5"/>
+
+      <rect x="380" y="48" width="210" height="58" fill="url(#summary-stripes)" stroke="#34312f" stroke-width="2.5"/>
+      <text x="485" y="83" font-size="20" font-weight="600" text-anchor="middle">SUMMARY</text>
+
+      <rect x="380" y="106" width="210" height="142" fill="#f3f6fd" stroke="#34312f" stroke-width="2.5"/>
+      <text x="485" y="183" font-size="20" text-anchor="middle">REASON</text>
+
+      <rect x="380" y="248" width="210" height="50" fill="#fffefa" stroke="#34312f" stroke-width="2.5"/>
+      <text x="485" y="279" font-size="20" font-weight="600" text-anchor="middle">FINAL</text>
     </g>
   </g>
 </svg>
