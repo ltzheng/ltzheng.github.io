@@ -2,9 +2,9 @@
   <title id="title">AutoCompact context compaction</title>
   <desc id="desc">A long noisy context is compressed into a small structured working state.</desc>
   <rect width="640" height="400" fill="#eeeae3"/>
-  <g font-family="IBM Plex Mono, monospace">
+  <g font-family="IBM Plex Mono, monospace" font-weight="500">
     <rect x="42" y="58" width="232" height="286" fill="#fffefa" stroke="#34312f" stroke-width="2.5"/>
-    <text x="61" y="85" fill="#34312f" font-size="14">FULL TRAJECTORY</text>
+    <text x="61" y="85" fill="#34312f" font-size="21" font-weight="600">NOISY HISTORY</text>
     <g fill="#b8b2ac">
       <rect x="61" y="105" width="194" height="25"/><rect x="61" y="137" width="194" height="25"/>
       <rect x="61" y="201" width="194" height="25"/><rect x="61" y="233" width="194" height="25"/>
@@ -12,9 +12,9 @@
     </g>
     <g fill="#34312f"><rect x="61" y="169" width="194" height="25"/><rect x="61" y="297" width="194" height="25"/></g>
     <path d="M304 201h62" stroke="#34312f" stroke-width="2.5"/><path d="m354 188 14 13-14 13" fill="none" stroke="#34312f" stroke-width="2.5"/>
-    <text x="335" y="181" fill="#d97757" font-size="12" text-anchor="middle">COMPACT</text>
+    <text x="335" y="181" fill="#d97757" font-size="20" font-weight="600" text-anchor="middle">COMPACT</text>
     <rect x="392" y="109" width="206" height="184" fill="#34312f" stroke="#34312f" stroke-width="2.5"/>
-    <text x="412" y="140" fill="#fffefa" font-size="14">WORKING STATE</text>
+    <text x="412" y="140" fill="#fffefa" font-size="21" font-weight="600">USEFUL CONTEXT</text>
     <line x1="412" y1="156" x2="578" y2="156" stroke="#8a8580"/>
     <g fill="#fffefa">
       <rect x="412" y="176" width="108" height="7"/><rect x="412" y="203" width="142" height="7"/>

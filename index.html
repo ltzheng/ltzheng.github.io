@@ -3892,7 +3892,7 @@ a.venue-badge:hover {
 /* ========== Utility ========== */
 .hide { display: none !important; }
     </style>
-    <link rel="stylesheet" href="assets/css/home-editorial.css?v=20260717-11">
+    <link rel="stylesheet" href="assets/css/home-editorial.css?v=20260730-3">
 </head>
 
 <body>
@@ -3901,7 +3901,7 @@ a.venue-badge:hover {
     <a class="nav-name" href="#">LONGTAO ZHENG / &#x90D1;&#x9F99;&#x97EC;</a>
     <div class="nav-links">
         <a href="#research-section">RESEARCH</a>
-        <a href="#blog-section" hidden>BLOGS</a>
+        <a href="#blog-section">BLOGS</a>
         <a href="#pub-section">PUBLICATIONS</a>
         <a href="static/Longtao_Zheng_CV.pdf">CV</a>
     </div>
@@ -4022,12 +4022,12 @@ a.venue-badge:hover {
     </section>
 
     <!-- ===== Blogs ===== -->
-    <section id="blog-section" class="blog-preview" hidden>
+    <section id="blog-section" class="blog-preview">
         <div class="section-title-row">
             <span class="section-heading">Blogs</span>
         </div>
         <div class="blog-list">
-            <a class="blog-card" id="fully-async-agentic-rl" href="blogs/fully-async-black-box-agentic-rl.html">
+            <a class="blog-card hide" id="fully-async-agentic-rl" href="blogs/fully-async-black-box-agentic-rl.html">
                 <div class="blog-cover">
                     <img src="assets/blog/async-agentic-rl.svg?v=20260717-8" alt="Parallel agent workers connected to an asynchronous RL trainer">
                 </div>
@@ -4040,20 +4040,20 @@ a.venue-badge:hover {
                     <p>A first-principles design for fully asynchronous RL with any agent harness</p>
                 </div>
             </a>
-            <a class="blog-card" id="autocompact" href="blogs/autocompact.html">
+            <a class="blog-card" id="autocompact" href="https://autocompact.github.io">
                 <div class="blog-cover">
-                    <img src="assets/blog/autocompact.svg?v=20260717-8" alt="A noisy trajectory compressed into a compact working state">
+                    <img src="assets/blog/autocompact.svg?v=20260730-3" alt="Noisy history compacted into useful context">
                 </div>
                 <div class="blog-meta">
-                    <span class="blog-date">Coming soon</span>
+                    <span class="blog-date">July 30, 2026</span>
                     <span class="blog-details">English / 中文</span>
                 </div>
                 <div class="blog-copy">
-                    <h3>Learning when to compact context in long-horizon coding agents</h3>
+                    <h3>AutoCompact: Learning when to compact context in long-horizon coding agents</h3>
                     <p>Teaching coding agents to adaptively compress noisy history into useful context</p>
                 </div>
             </a>
-            <a class="blog-card" id="hitchhikers-guide" href="blogs/llm-rl-science.html">
+            <a class="blog-card hide" id="hitchhikers-guide" href="blogs/llm-rl-science.html">
                 <div class="blog-cover">
                     <img src="assets/blog/llm-rl-science.svg?v=20260717-8" alt="The four-question learning loop of LLM reinforcement learning">
                 </div>

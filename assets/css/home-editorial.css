@@ -354,21 +354,28 @@ body {
 
 .blog-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 0;
-    border-top: 1px solid var(--text);
+    border-top: 0;
     border-bottom: 1px solid var(--text);
 }
 
 .blog-card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-areas:
+        "cover meta"
+        "cover copy";
+    grid-template-rows: auto 1fr;
+    column-gap: 1.5rem;
     min-height: 0;
-    padding: 1.25rem;
+    padding: 2rem 0;
     border: 0;
-    border-left: 1px solid var(--text);
+    border-top: 1px solid var(--text);
     border-radius: 0;
     background: transparent;
+    color: inherit;
+    text-decoration: none;
 }
 
 .blog-card:first-child {
@@ -376,11 +383,23 @@ body {
 }
 
 .blog-card:hover {
+    color: inherit;
     transform: none;
     box-shadow: none;
 }
 
+.blog-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+.blog-card:hover .blog-cover img,
+.blog-card:focus-visible .blog-cover img {
+    transform: scale(1.025);
+}
+
 .blog-card .blog-meta {
+    grid-area: meta;
     display: flex;
     justify-content: space-between;
     gap: 0.75rem;
@@ -390,8 +409,9 @@ body {
 }
 
 .blog-card .blog-cover {
+    grid-area: cover;
     aspect-ratio: 16 / 10;
-    margin-bottom: 1.15rem;
+    margin-bottom: 0;
     overflow: hidden;
     border: 1px solid var(--text);
     background: #eeeae3;
@@ -408,6 +428,10 @@ body {
     text-align: right;
 }
 
+.blog-card .blog-copy {
+    grid-area: copy;
+}
+
 .blog-card h3 {
     max-width: 680px;
     font-family: "Inter Tight", "Inter", sans-serif;
@@ -415,6 +439,13 @@ body {
     font-weight: 500;
     letter-spacing: -0.035em;
     line-height: 1.08;
+}
+
+.blog-card:hover h3,
+.blog-card:focus-visible h3 {
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.16em;
 }
 
 .blog-card p {
@@ -430,12 +461,15 @@ body {
     .blog-card,
     .blog-card:first-child,
     .blog-card:last-child {
+        display: flex;
+        flex-direction: column;
         padding: 1.25rem 0;
         border-top: 1px solid var(--text);
         border-left: 0;
     }
     .blog-card .blog-cover {
         aspect-ratio: 16 / 9;
+        margin-bottom: 1.15rem;
     }
 }
 
