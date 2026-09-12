@@ -3892,7 +3892,7 @@ a.venue-badge:hover {
 /* ========== Utility ========== */
 .hide { display: none !important; }
     </style>
-    <link rel="stylesheet" href="assets/css/home-editorial.css?v=20260730-3">
+    <link rel="stylesheet" href="assets/css/home-editorial.css?v=20260908-4">
 </head>
 
 <body>
@@ -4041,7 +4041,29 @@ a.venue-badge:hover {
             </a>
             <a class="blog-card" id="autocompact" href="https://autocompact.github.io">
                 <div class="blog-cover">
-                    <img src="assets/blog/autocompact.svg?v=20260731-2" alt="A context window calls compact and continues from a concise summary">
+                    <div class="autocompact-diagram" role="img" aria-label="A context window calls compact, then an arrow from below leads to a concise summary that continues to a final answer.">
+                        <div class="autocompact-context autocompact-context--before" aria-hidden="true">
+                            <span class="autocompact-cell autocompact-cell--heading">PROMPT</span>
+                            <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
+                            <span class="autocompact-cell autocompact-cell--micro">TOOL</span>
+                            <span class="autocompact-cell autocompact-cell--micro">RESULT</span>
+                            <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
+                            <span class="autocompact-cell autocompact-cell--accent">COMPACT()</span>
+                        </div>
+                        <svg class="autocompact-flow" viewBox="0 0 220 138" preserveAspectRatio="none" aria-hidden="true">
+                            <defs>
+                                <marker id="autocompact-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                                    <path d="M0 0 8 4 0 8" fill="none" stroke="#8a8580" stroke-width="1.4" />
+                                </marker>
+                            </defs>
+                            <path d="M53.3 103.5V120.5H110V26.5H126.5" fill="none" stroke="#8a8580" stroke-width="1" marker-end="url(#autocompact-arrowhead)" />
+                        </svg>
+                        <div class="autocompact-context autocompact-context--after" aria-hidden="true">
+                            <span class="autocompact-cell autocompact-cell--accent">SUMMARY</span>
+                            <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
+                            <span class="autocompact-cell autocompact-cell--heading">FINAL</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="blog-meta">
                     <span class="blog-date">July 30, 2026</span>

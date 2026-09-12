@@ -394,7 +394,9 @@ body {
 }
 
 .blog-card:hover .blog-cover img,
-.blog-card:focus-visible .blog-cover img {
+.blog-card:focus-visible .blog-cover img,
+#autocompact:hover .autocompact-diagram,
+#autocompact:focus-visible .autocompact-diagram {
     transform: scale(1.025);
 }
 
@@ -417,11 +419,86 @@ body {
     background: #eeeae3;
 }
 
+#autocompact .blog-cover {
+    border-color: var(--diagram-line, #b8b2ac);
+    background: var(--bg, #f7f5f0);
+}
+
 .blog-card .blog-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 280ms ease;
+}
+
+#autocompact .autocompact-diagram {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg, #f7f5f0);
+    color: var(--diagram-ink, #34312f);
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-synthesis: none;
+    transition: transform 280ms ease;
+}
+
+.autocompact-context {
+    position: absolute;
+    top: 12%;
+    z-index: 1;
+    display: grid;
+    width: 33%;
+    height: 62.5%;
+    overflow: hidden;
+    border: 1px solid var(--diagram-line, #b8b2ac);
+    background: var(--diagram-surface, #fffefa);
+}
+
+.autocompact-context--before {
+    left: 7.8%;
+    grid-template-rows: 15.2% 23.2% 12.4% 12.4% 16.8% 20%;
+}
+
+.autocompact-context--after {
+    left: 59.4%;
+    grid-template-rows: 23.2% 56.8% 20%;
+}
+
+.autocompact-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--diagram-line, #b8b2ac);
+    background: var(--diagram-surface, #fffefa);
+    font-size: var(--diagram-label-size, 0.5rem);
+    font-weight: inherit;
+    line-height: 1;
+}
+
+.autocompact-cell:last-child {
+    border-bottom: 0;
+}
+
+.autocompact-cell--heading {
+    background: var(--badge-bg, #eeeeea);
+}
+
+.autocompact-cell--reason {
+    background: var(--bg, #f7f5f0);
+}
+
+.autocompact-cell--accent {
+    background: #f5e4dc;
+    color: var(--diagram-accent-strong, #b45f4b);
+}
+
+.autocompact-flow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
 }
 
 .blog-card .blog-details {
