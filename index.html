@@ -316,7 +316,8 @@ img, video {
 .spc-diagram,
 .twosome-diagram,
 .causal-diagram,
-.coso-diagram {
+.coso-diagram,
+.agentbrew-diagram {
     --diagram-title-size: 0.625rem;
     --diagram-label-size: 0.5rem;
     --diagram-note-size: 0.4375rem;
@@ -2686,6 +2687,121 @@ img, video {
     .memo-result-video { display: none; }
 }
 
+/* AgentBrew: trajectory-level filtering vs. per-action credit over all raw trajectories. */
+#agentbrew {
+    grid-template-columns: 220px minmax(0, 1fr);
+}
+#agentbrew .card-media {
+    width: 220px;
+}
+.agentbrew-diagram {
+    --agentbrew-ink: #34312f;
+    --agentbrew-muted: #8a8580;
+    --agentbrew-problem: #b86c68;
+    --drmas-ink: var(--agentbrew-ink);
+    --drmas-muted: var(--agentbrew-muted);
+    width: 100%;
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    background: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+}
+.agentbrew-panel {
+    min-width: 0;
+    padding: 0.55rem 0.5rem 0.5rem;
+    display: grid;
+    grid-template-rows: 10px auto 8px;
+    align-content: center;
+    gap: 0.5rem;
+}
+.agentbrew-panel + .agentbrew-panel {
+    border-left: 1px solid var(--card-border);
+    background: var(--badge-bg);
+}
+.agentbrew-trajs {
+    display: grid;
+    gap: 0.3rem;
+}
+.agentbrew-traj {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 10px;
+    align-items: center;
+    gap: 0.25rem;
+}
+.agentbrew-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2px;
+}
+.agentbrew-steps i {
+    height: 11px;
+    display: block;
+    border: 1px solid var(--agentbrew-ink);
+    background: var(--diagram-surface);
+}
+.agentbrew-traj b {
+    color: var(--agentbrew-muted);
+    font-size: var(--diagram-label-size);
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+.agentbrew-check {
+    position: relative;
+    height: 11px;
+}
+/* Drawn rather than a glyph so the check matches the straight, thin strokes of the ✕. */
+.agentbrew-check::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 2px;
+    width: 2.5px;
+    height: 5px;
+    border: solid currentColor;
+    border-width: 0 0.9px 0.9px 0;
+    transform: translateX(-50%) rotate(45deg);
+}
+.agentbrew-traj.is-dropped .agentbrew-steps i {
+    border-color: #cfc9c2;
+    background: transparent;
+}
+.agentbrew-traj.is-dropped .agentbrew-steps::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    top: 50%;
+    border-top: 1.5px solid var(--agentbrew-problem);
+}
+.agentbrew-traj.is-dropped b {
+    color: var(--agentbrew-problem);
+}
+.agentbrew-panel--solution .agentbrew-steps i {
+    border-color: rgba(180, 95, 75, 0.55);
+}
+.agentbrew-panel--solution .agentbrew-steps i.c1 { background: rgba(217, 119, 87, 0.2); }
+.agentbrew-panel--solution .agentbrew-steps i.c2 { background: rgba(217, 119, 87, 0.45); }
+.agentbrew-panel--solution .agentbrew-steps i.c3 { background: rgba(180, 95, 75, 0.85); }
+.agentbrew-panel--solution .agentbrew-traj b {
+    color: var(--accent-hover);
+}
+.agentbrew-status {
+    color: var(--agentbrew-problem);
+    font-size: var(--diagram-label-size);
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+.agentbrew-panel--solution .agentbrew-status {
+    color: var(--accent-hover);
+}
+
 /* Optimal Token Baseline: distilled from the paper's token-wise workflow. */
 #optimal-token-baseline {
     grid-template-columns: 220px minmax(0, 1fr);
@@ -3393,6 +3509,12 @@ img, video {
     #pub-card-container .pub-card .card-media {
         width: 100%;
     }
+    #agentbrew {
+        grid-template-columns: 1fr;
+    }
+    #agentbrew .card-media {
+        width: 100%;
+    }
     #dr-mas {
         grid-template-columns: 1fr;
     }
@@ -4010,6 +4132,7 @@ a.venue-badge:hover {
                 <p class="stage-label">RL self-improvement</p>
                 <div class="stage-works" aria-label="LLM self-improvement work">
                     <a href="https://autocompact.github.io">AutoCompact</a>
+                    <a href="#agentbrew">AgentBrew</a>
                     <a href="#simpletir">SimpleTIR</a>
                     <a href="#dr-mas">Dr. MAS</a>
                     <a href="#dr-kernel">Dr. Kernel</a>
@@ -4102,6 +4225,42 @@ a.venue-badge:hover {
         </div>
 
         <div id="pub-card-container">
+            <!-- AgentBrew -->
+            <div class="pub-card" id="agentbrew" data-topic="agent" data-year="2026" data-selected="true">
+                <div class="card-media">
+                    <div class="agentbrew-diagram" role="img" aria-label="Trajectory filtering keeps only successful trajectories and discards failed ones entirely. AgentBrew keeps every raw trajectory and scores each action, so useful actions inside failed trajectories still contribute training signal.">
+                        <div class="agentbrew-panel agentbrew-panel--problem">
+                            <div class="drmas-panel-title"><span>Filter</span></div>
+                            <div class="agentbrew-trajs" aria-hidden="true">
+                                <div class="agentbrew-traj"><span class="agentbrew-steps"><i></i><i></i><i></i><i></i><i></i></span><b class="agentbrew-check"></b></div>
+                                <div class="agentbrew-traj is-dropped"><span class="agentbrew-steps"><i></i><i></i><i></i><i></i><i></i></span><b>✕</b></div>
+                                <div class="agentbrew-traj is-dropped"><span class="agentbrew-steps"><i></i><i></i><i></i><i></i><i></i></span><b>✕</b></div>
+                            </div>
+                            <div class="agentbrew-status">Failures discarded</div>
+                        </div>
+                        <div class="agentbrew-panel agentbrew-panel--solution">
+                            <div class="drmas-panel-title"><span>AgentBrew</span></div>
+                            <div class="agentbrew-trajs" aria-hidden="true">
+                                <div class="agentbrew-traj"><span class="agentbrew-steps"><i class="c3"></i><i class="c1"></i><i class="c3"></i><i class="c2"></i><i class="c3"></i></span><b class="agentbrew-check"></b></div>
+                                <div class="agentbrew-traj"><span class="agentbrew-steps"><i class="c2"></i><i class="c3"></i><i class="c0"></i><i class="c1"></i><i class="c2"></i></span><b class="agentbrew-check"></b></div>
+                                <div class="agentbrew-traj"><span class="agentbrew-steps"><i class="c0"></i><i class="c2"></i><i class="c3"></i><i class="c0"></i><i class="c1"></i></span><b class="agentbrew-check"></b></div>
+                            </div>
+                            <div class="agentbrew-status">Every action scored</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">AgentBrew: Offline Tool-Use Agent Learning from Raw Real-World Trajectories</div>
+                    <div class="card-authors">Zhiyi Lyu, Yewen Li, <u>Longtao Zheng</u>, Shengtian Yang, Lang Feng, Lei Feng, Peng Jiang, Kun Gai, Qingpeng Cai, Bo An</div>
+                    <div class="card-meta">
+                        <a class="venue-badge" target="_blank" href="https://neurips.cc/Conferences/2026">NeurIPS 2026</a>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2609.05837">Paper</a>
+                    </div>
+                    <div class="card-tldr">Training tool-use agents offline from raw, unfiltered real-world trajectories without task verifiers</div>
+                </div>
+            </div>
+
             <!-- Dr. MAS -->
             <div class="pub-card" id="dr-mas" data-topic="agent,marl" data-year="2026" data-selected="true">
                 <div class="card-media">
@@ -4141,7 +4300,7 @@ a.venue-badge:hover {
                     <div class="card-title">Dr. MAS: Stable Reinforcement Learning for Multi-Agent LLM Systems</div>
                     <div class="card-authors">Lang Feng, <u>Longtao Zheng</u>, Shuo He, Fuxiang Zhang, Bo An</div>
                     <div class="card-meta">
-                        <span class="venue-badge">Preprint</span>
+                        <a class="venue-badge" target="_blank" href="https://neurips.cc/Conferences/2026">NeurIPS 2026</a>
                         <span class="meta-sep">|</span>
                         <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2602.08847">Paper</a>
                         <a class="meta-link" target="_blank" href="https://github.com/langfengQ/DrMAS">Code</a>
