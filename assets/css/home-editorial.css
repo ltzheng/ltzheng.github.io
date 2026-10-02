@@ -395,8 +395,8 @@ body {
 
 .blog-card:hover .blog-cover img,
 .blog-card:focus-visible .blog-cover img,
-#autocompact:hover .autocompact-diagram,
-#autocompact:focus-visible .autocompact-diagram {
+#autocompact-blog:hover .autocompact-diagram,
+#autocompact-blog:focus-visible .autocompact-diagram {
     transform: scale(1.025);
 }
 
@@ -419,7 +419,7 @@ body {
     background: #eeeae3;
 }
 
-#autocompact .blog-cover {
+#autocompact-blog .blog-cover {
     border-color: var(--diagram-line, #b8b2ac);
     background: var(--bg, #f7f5f0);
 }
@@ -431,9 +431,7 @@ body {
     transition: transform 280ms ease;
 }
 
-#autocompact .autocompact-diagram {
-    position: relative;
-    width: 100%;
+#autocompact-blog .autocompact-diagram {
     height: 100%;
     background: var(--bg, #f7f5f0);
     color: var(--diagram-ink, #34312f);
@@ -1135,4 +1133,20 @@ a.venue-badge:hover {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+.autocompact-diagram {
+    position: relative;
+    width: 100%;
+}
+
+.pub-card .autocompact-diagram {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 1px solid var(--diagram-line, #b8b2ac);
+    background: var(--bg, #f7f5f0);
+    color: var(--diagram-ink, #34312f);
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-synthesis: none;
 }

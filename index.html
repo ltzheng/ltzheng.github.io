@@ -4023,7 +4023,7 @@ a.venue-badge:hover {
     <a class="nav-name" href="#">LONGTAO ZHENG / &#x90D1;&#x9F99;&#x97EC;</a>
     <div class="nav-links">
         <a href="#research-section">RESEARCH</a>
-        <a href="#blog-section">BLOGS</a>
+        <a class="hide" href="#blog-section">BLOGS</a>
         <a href="#pub-section">PUBLICATIONS</a>
     </div>
 </nav>
@@ -4106,7 +4106,7 @@ a.venue-badge:hover {
                 </div>
                 <p class="stage-label">Long-horizon autonomy</p>
                 <div class="stage-works" aria-label="Harness-related work">
-                    <a href="https://autocompact.github.io">AutoCompact</a>
+                    <a href="#autocompact">AutoCompact</a>
                     <a href="#synapse">Synapse</a>
                     <a href="#cradle">Cradle</a>
                     <a href="#dr-mas">Dr. MAS</a>
@@ -4131,7 +4131,7 @@ a.venue-badge:hover {
                 </div>
                 <p class="stage-label">RL self-improvement</p>
                 <div class="stage-works" aria-label="LLM self-improvement work">
-                    <a href="https://autocompact.github.io">AutoCompact</a>
+                    <a href="#autocompact">AutoCompact</a>
                     <a href="#agentbrew">AgentBrew</a>
                     <a href="#simpletir">SimpleTIR</a>
                     <a href="#dr-mas">Dr. MAS</a>
@@ -4144,7 +4144,7 @@ a.venue-badge:hover {
     </section>
 
     <!-- ===== Blogs ===== -->
-    <section id="blog-section" class="blog-preview">
+    <section id="blog-section" class="blog-preview hide">
         <div class="section-title-row">
             <span class="section-heading">Blogs</span>
         </div>
@@ -4160,41 +4160,6 @@ a.venue-badge:hover {
                 <div class="blog-copy">
                     <h3>How to build a fully asynchronous black-box agentic RL system</h3>
                     <p>A first-principles design for fully asynchronous RL with any agent harness</p>
-                </div>
-            </a>
-            <a class="blog-card" id="autocompact" href="https://autocompact.github.io">
-                <div class="blog-cover">
-                    <div class="autocompact-diagram" role="img" aria-label="A context window calls compact, then an arrow from below leads to a concise summary that continues to a final answer.">
-                        <div class="autocompact-context autocompact-context--before" aria-hidden="true">
-                            <span class="autocompact-cell autocompact-cell--heading">PROMPT</span>
-                            <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
-                            <span class="autocompact-cell autocompact-cell--micro">TOOL</span>
-                            <span class="autocompact-cell autocompact-cell--micro">RESULT</span>
-                            <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
-                            <span class="autocompact-cell autocompact-cell--accent">COMPACT()</span>
-                        </div>
-                        <svg class="autocompact-flow" viewBox="0 0 220 138" preserveAspectRatio="none" aria-hidden="true">
-                            <defs>
-                                <marker id="autocompact-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-                                    <path d="M0 0 8 4 0 8" fill="none" stroke="#8a8580" stroke-width="1.4" />
-                                </marker>
-                            </defs>
-                            <path d="M53.3 103.5V120.5H110V26.5H126.5" fill="none" stroke="#8a8580" stroke-width="1" marker-end="url(#autocompact-arrowhead)" />
-                        </svg>
-                        <div class="autocompact-context autocompact-context--after" aria-hidden="true">
-                            <span class="autocompact-cell autocompact-cell--accent">SUMMARY</span>
-                            <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
-                            <span class="autocompact-cell autocompact-cell--heading">FINAL</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-meta">
-                    <span class="blog-date">July 30, 2026</span>
-                    <span class="blog-details">English / 中文</span>
-                </div>
-                <div class="blog-copy">
-                    <h3>AutoCompact: Learning when to compact context in long-horizon coding agents</h3>
-                    <p>Teaching coding agents to adaptively compress noisy history into useful context</p>
                 </div>
             </a>
             <a class="blog-card hide" id="hitchhikers-guide" href="blogs/llm-rl-science.html">
@@ -4225,6 +4190,46 @@ a.venue-badge:hover {
         </div>
 
         <div id="pub-card-container">
+            <!-- AutoCompact -->
+            <div class="pub-card" id="autocompact" data-topic="agent" data-year="2026" data-selected="true">
+                <div class="card-media">
+                    <div class="autocompact-diagram" role="img" aria-label="A context window calls compact, then an arrow from below leads to a concise summary that continues to a final answer.">
+                                <div class="autocompact-context autocompact-context--before" aria-hidden="true">
+                                    <span class="autocompact-cell autocompact-cell--heading">PROMPT</span>
+                                    <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
+                                    <span class="autocompact-cell autocompact-cell--micro">TOOL</span>
+                                    <span class="autocompact-cell autocompact-cell--micro">RESULT</span>
+                                    <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
+                                    <span class="autocompact-cell autocompact-cell--accent">COMPACT()</span>
+                                </div>
+                                <svg class="autocompact-flow" viewBox="0 0 220 138" preserveAspectRatio="none" aria-hidden="true">
+                                    <defs>
+                                        <marker id="autocompact-paper-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                                            <path d="M0 0 8 4 0 8" fill="none" stroke="#8a8580" stroke-width="1.4" />
+                                        </marker>
+                                    </defs>
+                                    <path d="M53.3 103.5V120.5H110V26.5H126.5" fill="none" stroke="#8a8580" stroke-width="1" marker-end="url(#autocompact-paper-arrowhead)" />
+                                </svg>
+                                <div class="autocompact-context autocompact-context--after" aria-hidden="true">
+                                    <span class="autocompact-cell autocompact-cell--accent">SUMMARY</span>
+                                    <span class="autocompact-cell autocompact-cell--reason">REASONING</span>
+                                    <span class="autocompact-cell autocompact-cell--heading">FINAL</span>
+                                </div>
+                            </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents</div>
+                    <div class="card-authors">Xuan Zhang*, <u>Longtao Zheng</u>*, Cunxiao Du, Bo An, Xin Dong <span class="author-note">(* Equal contribution)</span></div>
+                    <div class="card-meta">
+                        <span class="venue-badge">Preprint</span>
+                        <span class="meta-sep">|</span>
+                        <a class="meta-link" target="_blank" href="https://arxiv.org/abs/2610.02163">Paper</a>
+                        <a class="meta-link" target="_blank" href="https://autocompact.github.io">Blog</a>
+                    </div>
+                    <div class="card-tldr">Teaching coding agents to adaptively compress noisy history into useful context</div>
+                </div>
+            </div>
+
             <!-- AgentBrew -->
             <div class="pub-card" id="agentbrew" data-topic="agent" data-year="2026" data-selected="true">
                 <div class="card-media">
