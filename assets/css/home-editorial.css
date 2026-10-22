@@ -1134,3 +1134,8 @@ a.venue-badge:hover {
     font-weight: 500;
     font-synthesis: none;
 }
+
+/* Match the paper diagram canvas, including the image's letterboxed area. */
+#pub-card-container #progagent .card-media > img {
+    background: var(--bg);
+}

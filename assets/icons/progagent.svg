@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="138" viewBox="0 0 220 138" fill="none">
+  <rect x=".5" y=".5" width="219" height="137" fill="#f7f5f0" stroke="#b8b2ac"/>
+  <g font-family="'IBM Plex Mono', monospace" font-size="9" fill="#34312f">
+    <text x="12" y="19" font-size="10" fill="#b45f4b">Programmatic tool calling</text>
+    <rect x="12" y="35" width="48" height="30" fill="#fffefa" stroke="#b8b2ac"/>
+    <text x="36" y="54" text-anchor="middle">Agent</text>
+    <rect x="87" y="31" width="120" height="57" fill="#fffefa" stroke="#b8b2ac"/>
+    <text x="96" y="46" fill="#5d73c9">for x in tasks:</text>
+    <text x="103" y="61">r = tool(x)</text>
+    <text x="103" y="76" fill="#4f7f71">state.append(r)</text>
+    <rect x="87" y="101" width="120" height="24" fill="#fffefa" stroke="#b8b2ac"/>
+    <text x="147" y="116" text-anchor="middle">Selected output</text>
+    <text x="13" y="130" font-size="8" fill="#8a8580">SFT → RL</text>
+  </g>
+  <g stroke="#8a8580" stroke-width="1">
+    <path d="M60 50H81m-4-4 4 4-4 4M147 88V97m-4-4 4 4 4-4M87 113H36V70m-4 4 4-4 4 4"/>
+  </g>
+</svg>
